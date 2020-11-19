@@ -1,12 +1,12 @@
-const partySchema = require('./../model/party');
+const countrySchema = require('../model/country');
 const errorHandler = require('../utils/error.handler');
 
-class partyController{
+class countryController{
 
 
 	async add(farm){
 		try{
-			let response = await partySchema.create(farm);
+			let response = await countrySchema.create(farm);
 			return { status: "success",   msg:"farm Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
@@ -18,7 +18,7 @@ class partyController{
 	
 	async fetch(){
 		try{
-			let response = await partySchema.find({});
+			let response = await countrySchema.find({});
 			let count=Object.keys(response).length;
 			return {
 				response: response,
@@ -34,7 +34,7 @@ class partyController{
 
 	async fetchdata(id){
 		try{
-			let response = await partySchema.find({'_id':id});
+			let response = await countrySchema.find({'_id':id});
 			return response;
 			
 		} catch(error){
@@ -47,7 +47,7 @@ class partyController{
 
 	async delete(id){
 		try{
-			let response = await partySchema.deleteOne({_id: id});
+			let response = await countrySchema.deleteOne({_id: id});
 			return {
 				status: "success",
 				response: response
@@ -63,7 +63,7 @@ class partyController{
 	async update(id, body) {
 
         try {
-            let response = await partySchema.update({_id: id}, body);
+            let response = await countrySchema.update({_id: id}, body);
             return { status: "success", msg:"Vancantland Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
@@ -73,4 +73,4 @@ class partyController{
     }
 
 }
-module.exports = new partyController();
+module.exports = new countryController();

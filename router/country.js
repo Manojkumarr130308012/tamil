@@ -1,26 +1,26 @@
 const router = require('express').Router();
-const partyController = require('./../controller/party');
+const countryController = require('../controller/country');
 
 router.post('/add', async (req, res) => {
-	const response = await partyController.add(req.body);
+	const response = await countryController.add(req.body);
 	res.send(response);
 })
 router.get('/', async (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*');
-	const response = await partyController.fetch();
+	const response = await countryController.fetch();
 	res.send(response);
 })
 router.get('/fetchdata', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
-	const response = await partyController.fetchdata(req.query.id);
+	const response = await countryController.fetchdata(req.query.id);
 	res.send(response);
 })
 router.delete('/delete', async (req, res) => {
-	const response = await partyController.delete(req.query.id);
+	const response = await countryController.delete(req.query.id);
 	res.send(response);
 })
 router.put('/update', async (req, res) => {
-	const response = await partyController.update(req.query.id, req.body);
+	const response = await countryController.update(req.query.id, req.body);
 	res.send(response);
 })
 

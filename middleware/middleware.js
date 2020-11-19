@@ -10,11 +10,11 @@ server.use(cors());
 
 
 const userRouter = require('./../router/user');
-const partyRouter = require('../router/party');
+const countryRouter = require('../router/country');
 
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
- let db= process.env.MONGODB_URL ||`mongodb+srv://admin:admin@realestate.qcmhu.mongodb.net/realestate?retryWrites=true&w=majority`;
+ let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
 
 
 console.log('connected to the database',db);
@@ -37,7 +37,7 @@ mongoose.connect(db, {
 
 server.use("/user", userRouter);
 
-server.use("/party", partyRouter);
+server.use("/country", countryRouter);
 
 
 
