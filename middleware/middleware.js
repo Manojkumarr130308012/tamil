@@ -15,7 +15,7 @@ const stateRouter = require('../router/state');
 const cityRouter = require('../router/city');
 const genderRouter = require('../router/gender');
 const membershipRouter = require('../router/membershiptype');
-
+const interestsRouter = require('../router/interests');
 
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
@@ -46,6 +46,6 @@ server.use("/state", stateRouter);
 server.use("/city", cityRouter);
 server.use("/gender", genderRouter);
 server.use("/membershiptype", membershipRouter);
-
+server.use("/interests", interestsRouter);
 
 module.exports= server;
