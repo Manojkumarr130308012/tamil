@@ -11,7 +11,7 @@ server.use(cors());
 
 const userRouter = require('./../router/user');
 const countryRouter = require('../router/country');
-
+const stateRouter = require('../router/state');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
@@ -39,6 +39,7 @@ server.use("/user", userRouter);
 
 server.use("/country", countryRouter);
 
+server.use("/state", stateRouter);
 
 
 module.exports= server;
