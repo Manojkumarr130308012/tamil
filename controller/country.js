@@ -7,7 +7,7 @@ class countryController{
 	async add(farm){
 		try{
 			let response = await countrySchema.create(farm);
-			return { status: "success",   msg:"farm Added successfully", result: response, message: "Added Successfully" };
+			return { status: "success",   msg:"Country Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
 				status: "error",
@@ -64,7 +64,7 @@ class countryController{
 
         try {
             let response = await countrySchema.update({_id: id}, body);
-            return { status: "success", msg:"Vancantland Updated successfully",result: response, message: "Updated Successfully" };
+            return { status: "success", msg:"Country Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };
