@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const membershipstatusSchema = new mongoose.Schema({
-    Category: {
+    Status: {
         type: String,
         required: true
     }
