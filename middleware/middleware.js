@@ -17,6 +17,7 @@ const genderRouter = require('../router/gender');
 const membershipRouter = require('../router/membershiptype');
 const interestsRouter = require('../router/interests');
 const bussinesscategoryRouter = require('../router/bussinesscategory');
+const membershipstatusRouter = require('../router/membershipstatus');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
@@ -48,4 +49,5 @@ server.use("/gender", genderRouter);
 server.use("/membershiptype", membershipRouter);
 server.use("/interests", interestsRouter);
 server.use("/bussinesscategory", bussinesscategoryRouter);
+server.use("/membershipstatus", membershipstatusRouter);
 module.exports= server;
