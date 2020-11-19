@@ -1,13 +1,13 @@
-const stateSchema = require('../model/state');
+const citySchema = require('../model/city');
 const errorHandler = require('../utils/error.handler');
 
-class stateController{
+class cityController{
 
 
 	async add(farm){
 		try{
-			let response = await stateSchema.create(farm);
-			return { status: "success",   msg:"State Added successfully", result: response, message: "Added Successfully" };
+			let response = await citySchema.create(farm);
+			return { status: "success",   msg:"city Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
 				status: "error",
@@ -18,7 +18,7 @@ class stateController{
 	
 	async fetch(){
 		try{
-			let response = await stateSchema.find({});
+			let response = await citySchema.find({});
 			let count=Object.keys(response).length;
 			return {
 				response: response,
@@ -34,7 +34,7 @@ class stateController{
 
 	async fetchdata(id){
 		try{
-			let response = await stateSchema.find({'_id':id});
+			let response = await citySchema.find({'_id':id});
 			return response;
 			
 		} catch(error){
@@ -47,7 +47,7 @@ class stateController{
 
 	async delete(id){
 		try{
-			let response = await stateSchema.deleteOne({_id: id});
+			let response = await citySchema.deleteOne({_id: id});
 			return {
 				status: "success",
 				response: response
@@ -63,8 +63,8 @@ class stateController{
 	async update(id, body) {
 
         try {
-            let response = await stateSchema.update({_id: id}, body);
-            return { status: "success", msg:"State Updated successfully",result: response, message: "Updated Successfully" };
+            let response = await citySchema.update({_id: id}, body);
+            return { status: "success", msg:"city Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };
@@ -73,4 +73,4 @@ class stateController{
     }
 
 }
-module.exports = new stateController();
+module.exports = new cityController();
