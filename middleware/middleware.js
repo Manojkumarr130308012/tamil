@@ -14,7 +14,7 @@ const countryRouter = require('../router/country');
 const stateRouter = require('../router/state');
 const cityRouter = require('../router/city');
 const genderRouter = require('../router/gender');
-
+const membershipRouter = require('../router/membershiptype');
 
 
 // console.log("enter")
@@ -45,7 +45,7 @@ server.use("/country", countryRouter);
 server.use("/state", stateRouter);
 server.use("/city", cityRouter);
 server.use("/gender", genderRouter);
-
+server.use("/membershiptype", membershipRouter);
 
 
 module.exports= server;
