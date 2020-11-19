@@ -5,7 +5,7 @@ const stateSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         required: false
     }, 
-    StateName: {
+    StateName:{
         type: String,
         required: true
     }
