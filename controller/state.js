@@ -70,6 +70,27 @@ class stateController{
             return { status: "error", error: error };
         }
 
+	}
+	
+
+	async aggregation() {
+		try {
+		return  await stateSchema.aggregate([
+				{$lookup:
+					  {
+						from: "countries",
+						localField: "Country",
+						foreignField: "_id",
+						as: "CountryDetails"
+					  }
+				 },			 
+				]);
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
     }
 
 }
