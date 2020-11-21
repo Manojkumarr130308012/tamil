@@ -72,7 +72,19 @@ class stateController{
 
 	}
 	
-
+	async fetchByCountry(country1){
+		try{
+			let response = await stateSchema.find({'Country':country1});
+			return {
+				response: response
+			};	
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async aggregation() {
 		try {
 		return  await stateSchema.aggregate([
