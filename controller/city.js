@@ -73,7 +73,7 @@ class cityController{
     }
 	async aggregation() {
 		try {
-		return  await stateSchema.aggregate([
+		return  await citySchema.aggregate([
 				{$lookup:
 					  {
 						from: "countries",
