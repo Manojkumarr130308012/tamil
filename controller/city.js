@@ -71,6 +71,32 @@ class cityController{
         }
 
     }
+	async aggregation() {
+		try {
+		return  await stateSchema.aggregate([
+				{$lookup:
+					  {
+						from: "countries",
+						localField: "Country",
+						foreignField: "_id",
+						as: "CountryDetails"
+					  }
+				 },{$lookup:
+					{
+					  from: "states",
+					  localField: "State",
+					  foreignField: "_id",
+					  as: "StateDetails"
+					}
+			   }		 
+				]);
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 
 }
 module.exports = new cityController();
