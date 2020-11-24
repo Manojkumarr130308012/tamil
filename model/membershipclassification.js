@@ -10,4 +10,4 @@ const membershipclassificationSchema = new mongoose.Schema({
         required: true
     }
 })
-module.exports = new mongoose.model('membershipstatus',membershipclassificationSchema);
+module.exports = new mongoose.model('membershipclass',membershipclassificationSchema);
