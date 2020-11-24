@@ -5,15 +5,7 @@ const membershiptypeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Amount : {
-        type: String,
-        required: true
-    },
-    WomenOffer : {
-        type: String,
-        required: true
-    },
-    Status : {
+    description : {
         type: String,
         required: true
     }
