@@ -9,7 +9,7 @@ const regionSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         required: false
     }, 
-    CityName:{
+    region:{
         type: String,
         required: true
     }
