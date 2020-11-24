@@ -8,7 +8,11 @@ const citySchema = new mongoose.Schema({
     State:{
         type: mongoose.Schema.ObjectId,
         required: false
-    }, 
+    },
+    region:{
+        type: mongoose.Schema.ObjectId,
+        required: false
+    },  
     CityName:{
         type: String,
         required: true
