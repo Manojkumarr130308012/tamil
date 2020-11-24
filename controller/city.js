@@ -88,7 +88,14 @@ class cityController{
 					  foreignField: "_id",
 					  as: "StateDetails"
 					}
-			   }		 
+			   },{$lookup:
+				{
+				  from: "regions",
+				  localField: "region",
+				  foreignField: "_id",
+				  as: "regionsDetails"
+				}
+		   }		 
 				]);
 		} catch (error) {
 			return {

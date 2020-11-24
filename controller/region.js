@@ -71,6 +71,21 @@ class regionController{
         }
 
     }
+
+    async fetchBystate(state1){
+		try{
+			let response = await stateSchema.find({'State':state1});
+			return {
+				response: response
+			};	
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+    
 	async aggregation() {
 		try {
 		return  await regionSchema.aggregate([

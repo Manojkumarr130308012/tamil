@@ -28,4 +28,8 @@ router.get('/aggregation', async (req, res) =>{
 	res.send(response);
 	
 })
+router.get('/fetchBystate', async (req, res) => {
+	const response = await regionController.fetchBystate(req.query.State);
+	res.send(response); 
+})
 module.exports = router;
