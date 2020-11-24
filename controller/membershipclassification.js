@@ -1,12 +1,12 @@
-const membershipstatusSchema = require('../model/membershipstatus');
+const membershipclassSchema = require('../model/membershipclassification');
 const errorHandler = require('../utils/error.handler');
 
-class membershipstatusController{
+class membershipclassificationController{
 
 
 	async add(farm){
 		try{
-			let response = await membershipstatusSchema.create(farm);
+			let response = await membershipclassSchema.create(farm);
 			return { status: "success",   msg:"membershipstatus Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
@@ -18,7 +18,7 @@ class membershipstatusController{
 	
 	async fetch(){
 		try{
-			let response = await membershipstatusSchema.find({});
+			let response = await membershipclassSchema.find({});
 			let count=Object.keys(response).length;
 			return {
 				response: response,
@@ -34,7 +34,7 @@ class membershipstatusController{
 
 	async fetchdata(id){
 		try{
-			let response = await membershipstatusSchema.find({'_id':id});
+			let response = await membershipclassSchema.find({'_id':id});
 			return response;
 			
 		} catch(error){
@@ -47,7 +47,7 @@ class membershipstatusController{
 
 	async delete(id){
 		try{
-			let response = await membershipstatusSchema.deleteOne({_id: id});
+			let response = await membershipclassSchema.deleteOne({_id: id});
 			return {
 				status: "success",
 				response: response
@@ -63,7 +63,7 @@ class membershipstatusController{
 	async update(id, body) {
 
         try {
-            let response = await membershipstatusSchema.update({_id: id}, body);
+            let response = await membershipclassSchema.update({_id: id}, body);
             return { status: "success", msg:"membershipstatus Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
@@ -73,4 +73,4 @@ class membershipstatusController{
     }
 
 }
-module.exports = new membershipstatusController();
+module.exports = new membershipclassificationController();
