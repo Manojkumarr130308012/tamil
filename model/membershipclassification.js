@@ -5,7 +5,7 @@ const membershipclassificationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description : {
+    Desription : {
         type: String,
         required: true
     }
