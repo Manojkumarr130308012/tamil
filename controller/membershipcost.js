@@ -71,6 +71,32 @@ class membershipcostController{
         }
 
     }
+    async aggregation() {
+		try {
+		return  await membershipcostSchema.aggregate([
+				{$lookup:
+					  {
+						from: "membershiptypes",
+						localField: "membershiptype",
+						foreignField: "_id",
+						as: "membershiptypeDetails"
+					  }
+				 },{$lookup:
+					{
+					  from: "membershipclasses",
+					  localField: "membershipclassification",
+					  foreignField: "_id",
+					  as: "membershipclassificationDetails"
+					}
+			   }		 
+				]);
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 
 }
 module.exports = new membershipcostController();
