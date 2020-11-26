@@ -104,6 +104,18 @@ class cityController{
 			};
 		}
     }
-
+	async fetchBycity(region){
+		try{
+			let response = await citySchema.find({'region':region});
+			return {
+				response: response
+			};	
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 }
 module.exports = new cityController();
