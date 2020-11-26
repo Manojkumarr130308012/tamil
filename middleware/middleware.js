@@ -19,6 +19,7 @@ const membershipRouter = require('../router/membershiptype');
 const interestsRouter = require('../router/interests');
 const bussinesscategoryRouter = require('../router/bussinesscategory');
 const membershipclassRouter = require('../router/membershipclassification');
+const membershipcostRouter = require('../router/membershipcost');
 const chapterRouter = require('../router/chapter');
 
 // console.log("enter")
