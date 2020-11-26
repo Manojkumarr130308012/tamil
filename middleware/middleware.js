@@ -19,7 +19,8 @@ const membershipRouter = require('../router/membershiptype');
 const interestsRouter = require('../router/interests');
 const bussinesscategoryRouter = require('../router/bussinesscategory');
 const membershipclassRouter = require('../router/membershipclassification');
-const membershipcostRouter = require('../router/membershipcost');
+const chapterRouter = require('../router/chapter');
+
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
@@ -54,4 +55,5 @@ server.use("/interests", interestsRouter);
 server.use("/bussinesscategory", bussinesscategoryRouter);
 server.use("/membershipclass", membershipclassRouter);
 server.use("/membershipcost", membershipcostRouter);
+server.use("/chapter", chapterRouter);
 module.exports= server;
