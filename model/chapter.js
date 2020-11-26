@@ -39,15 +39,15 @@ const chapterSchema = new mongoose.Schema({
     },
     CreatedOn  :{
         type: String,
-        required: true
+        required: false
     },
     UpdatedOn  :{
         type: String,
-        required: true
+        required: false
     },
     Status  :{
         type: String,
-        required: true
+        required: false
     }
 })
 module.exports = new mongoose.model('chapter',chapterSchema);
