@@ -7,7 +7,7 @@ class districtController{
 	async add(farm){
 		try{
 			let response = await districtSchema.create(farm);
-			return { status: "success",   msg:"city Added successfully", result: response, message: "Added Successfully" };
+			return { status: "success",   msg:"District Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
 				status: "error",
