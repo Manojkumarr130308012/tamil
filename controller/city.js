@@ -111,9 +111,9 @@ class cityController{
 			};
 		}
     }
-	async fetchBycity(region){
+	async fetchBycity(district){
 		try{
-			let response = await citySchema.find({'region':region});
+			let response = await citySchema.find({'district':district});
 			return {
 				response: response
 			};	
