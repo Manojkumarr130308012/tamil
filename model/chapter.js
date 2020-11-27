@@ -12,6 +12,10 @@ const chapterSchema = new mongoose.Schema({
     region:{
         type: mongoose.Schema.ObjectId,
         required: false
+    }, 
+    district:{
+        type: mongoose.Schema.ObjectId,
+        required: false
     },   
     CityName:{
         type: mongoose.Schema.ObjectId,
