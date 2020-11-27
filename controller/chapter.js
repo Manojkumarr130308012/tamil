@@ -102,7 +102,14 @@ class chapterController{
 			  foreignField: "_id",
 			  as: "districtsDetails"
 			}
-	   }			 
+	   },{$lookup:
+		{
+		  from: "cities",
+		  localField: "CityName",
+		  foreignField: "_id",
+		  as: "CityNamesDetails"
+		}
+   }			 
 				]);
 		} catch (error) {
 			return {
