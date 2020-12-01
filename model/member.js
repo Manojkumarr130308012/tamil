@@ -110,4 +110,4 @@ const memberSchema = new mongoose.Schema({
         required: false
     }
 })
-module.exports = new mongoose.model('chapter',memberSchema);
+module.exports = new mongoose.model('member',memberSchema);
