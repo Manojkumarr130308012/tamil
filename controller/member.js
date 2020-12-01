@@ -109,28 +109,7 @@ class memberController{
 		  foreignField: "_id",
 		  as: "CityNamesDetails"
 		}
-   },{$lookup:
-	{
-	  from: "membershiptypes",
-	  localField: "MembershipType",
-	  foreignField: "_id",
-	  as: "MembershipTypeDetails"
-	}
-},{$lookup:
-	{
-	  from: "chapters",
-	  localField: "ChapterName",
-	  foreignField: "_id",
-	  as: "ChapterNameDetails"
-	}
-},{$lookup:
-	{
-	  from: "membershipclasses",
-	  localField: "Category",
-	  foreignField: "_id",
-	  as: "membershipclassesDetails"
-	}
-}				 
+   }		 
 				]);
 		} catch (error) {
 			return {
