@@ -59,5 +59,5 @@ server.use("/membershipclass", membershipclassRouter);
 server.use("/membershipcost", membershipcostRouter);
 server.use("/chapter", chapterRouter);
 server.use("/district", districtRouter);
-server.use("/member", memberRouter);
+// server.use("/member", memberRouter);
 module.exports= server;
