@@ -39,63 +39,63 @@ const memberSchema = new mongoose.Schema({
     },
     Name:{
         type: String,
-        required: true
+        required: false
     },
     DOB:{
         type: String,
-        required: true
+        required: false
     },
     Email :{
         type: String,
-        required: true
+        required: false
     },
     Mobile  :{
         type: String,
-        required: true
+        required: false
     },
     BusinessName  :{
         type: String,
-        required: true
+        required: false
     }, 
     Address:{
         type: String,
-        required: true
+        required: false
     },
     Pincode :{
         type: String,
-        required: true
+        required: false
     }, 
     ProfilePicture :{
         type: String,
-        required: true
+        required: false
     }, 
     BusinessLogo :{
         type: String,
-        required: true
+        required: false
     },
     Products :{
         type: String,
-        required: true
+        required: false
     },
     Keywords :{
         type: String,
-        required: true
+        required: false
     },
     Website :{
         type: String,
-        required: true
+        required: false
     },
     Interests :{
         type: String,
-        required: true
+        required: false
     },
     SocialMediaLinks  :{
         type: String,
-        required: true
+        required: false
     },
     ValidUpto  :{
         type: String,
-        required: true
+        required: false
     },
     CreatedOn  :{
         type: String,
