@@ -28,4 +28,7 @@ router.get('/aggregation', async (req, res) =>{
 	res.send(response);
 	
 })
+router.post('/register', async (req, res) => {
+    res.send(await memberController.register(req.body));
+});
 module.exports = router;
