@@ -119,7 +119,7 @@ class memberController{
 },{$lookup:
 	{
 	  from: "chapters",
-	  localField: "ChapterName",
+	  localField: "Chapter",
 	  foreignField: "_id",
 	  as: "ChapterNameDetails"
 	}
