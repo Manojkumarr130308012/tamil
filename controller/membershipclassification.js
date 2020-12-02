@@ -20,10 +20,7 @@ class membershipclassificationController{
 		try{
 			let response = await membershipclassSchema.find({});
 			let count=Object.keys(response).length;
-			return {
-				response: response,
-				count
-			};
+			return response;
 		} catch(error){
 			return {
 				status: "error",
