@@ -167,10 +167,10 @@ class memberController{
 			"Countrycode": ""+Countrycode,
 			"Country": ""+Country,
 			 }
-			 let response = await memberSchema.create(member);
-			//  let memberid=response[0]._id;
+			 let member = await memberSchema.create(member);
+		 let memberid=member[0]._id;
         	return{
-				response:response,
+				response:memberid,
 				Status:'true',
 				msg:'Member add Registered Successfully',
 				Payment:cost		
