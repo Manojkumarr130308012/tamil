@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const memberSchema = new mongoose.Schema({
+const eventsSchema = new mongoose.Schema({
     Country: {
         type: mongoose.Schema.ObjectId,
         required: false
@@ -21,11 +21,7 @@ const memberSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         required: false
     }, 
-    Gender:{
-        type: mongoose.Schema.ObjectId,
-        required: false
-    }, 
-    MembershipType :{
+    PostedBy :{
         type: mongoose.Schema.ObjectId,
         required: false
     },
@@ -33,68 +29,39 @@ const memberSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         required: false
     },
-    Category :{
-        type: mongoose.Schema.ObjectId,
-        required: false
-    },
-    Name:{
+    FromDate:{
         type: String,
         required: false
     },
-    DOB:{
+    ToDate:{
         type: String,
         required: false
     },
-    Email :{
+    Title :{
         type: String,
         required: false
     },
-    Mobile  :{
+    Description  :{
         type: String,
-        unique: true,
         required: false
     },
-    bussinessname  :{
+    Image  :{
         type: String,
         required: false
     }, 
-    Address:{
+    ExternalLinks:{
         type: String,
         required: false
     },
-    pincode :{
+    Attachments :{
         type: String,
         required: false
     }, 
-    // ProfilePicture :{
-    //     type: String,
-    //     required: false
-    // }, 
-    // BusinessLogo :{
-    //     type: String,
-    //     required: false
-    // },
-    Products :{
+    Venue :{
         type: String,
         required: false
     },
-    Keywords :{
-        type: String,
-        required: false
-    },
-    Website :{
-        type: String,
-        required: false
-    },
-    Interests :{
-        type: String,
-        required: false
-    },
-    SocialMediaLinks  :{
-        type: String,
-        required: false
-    },
-    ValidUpto  :{
+    Cost :{
         type: String,
         required: false
     },
@@ -109,14 +76,6 @@ const memberSchema = new mongoose.Schema({
     status  :{
         type: String,
         required: false
-    },
-    password  :{
-        type: String,
-        required: false
-    },
-    Countrycode  :{
-        type: String,
-        required: false
     }
 })
-module.exports = new mongoose.model('member',memberSchema);
+module.exports = new mongoose.model('events',eventsSchema);
