@@ -53,7 +53,7 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    BusinessName  :{
+    bussinessname  :{
         type: String,
         required: false
     }, 
@@ -61,7 +61,7 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    Pincode :{
+    pincode :{
         type: String,
         required: false
     }, 
