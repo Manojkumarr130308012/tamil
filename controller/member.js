@@ -152,15 +152,27 @@ class memberController{
 	   let MembershipType=newGender.MembershipType;
 	   let Category=newGender.Category;
 	   let password=newGender.password;
-
         try{
 			let countryres = await countrySchema.find({'Countrycode':Countrycode});
 			let costres = await membershipcostSchema.find({'membershiptype':""+MembershipType,'membershipclassification':""+Category});
 			 let Country=countryres[0]._id;
 			 let cost=costres[0].amount;
+           let member={
+			"Name": ""+Name,
+			"Mobile": ""+Mobile,
+			"Email": ""+Email,
+			"MembershipType": ""+MembershipType,
+			"Category": ""+Category, 
+			"password": ""+password,
+			"Countrycode": ""+Countrycode,
+			"Country": ""+Country,
+			 }
+
         	return{
-				Country:Country,
-				cost:cost
+				Sucess:'true',
+				msg:'Member add Registered Successfully',
+				cost:cost,
+				member:member
 			}
         } catch(err){
             return {
