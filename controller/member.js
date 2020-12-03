@@ -167,12 +167,13 @@ class memberController{
 			"Countrycode": ""+Countrycode,
 			"Country": ""+Country,
 			 }
-
+			 let response = await memberSchema.create(member);
         	return{
+				Status:response,
 				Sucess:'true',
 				msg:'Member add Registered Successfully',
-				cost:cost,
-				member:member
+				Payment:cost,
+				
 			}
         } catch(err){
             return {
