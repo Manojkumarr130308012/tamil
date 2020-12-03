@@ -140,5 +140,34 @@ class memberController{
 		}
     }
 
+
+
+	async register(newGender){
+
+       let Countrycode=newGender.Countrycode;
+
+        try{
+			return  await stateSchema.aggregate([
+				{$lookup:
+					  {
+						from: "countries",
+						localField: ""+Countrycode,
+						foreignField: "Countrycode",
+						as: "CountrysDetails"
+					  }
+				 },			 
+				]);
+        } catch(err){
+            return {
+                status: 'error',
+                msg: 'User creation failed'
+            }
+        }
+    }
+
+
+
+
+
 }
 module.exports = new memberController();
