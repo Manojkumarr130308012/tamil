@@ -156,9 +156,11 @@ class memberController{
         try{
 			let countryres = await countrySchema.find({'Countrycode':Countrycode});
 			let costres = await membershipcostSchema.find({'membershiptype':""+MembershipType,'membershipclassification':""+Category});
-             let Country=countryres[0]._id;
+			 let Country=countryres[0]._id;
+			 let cost=costres[0].amount;
         	return{
-				Country:Country
+				Country:Country,
+				cost:cost
 
 			}
         } catch(err){
