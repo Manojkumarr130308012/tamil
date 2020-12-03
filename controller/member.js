@@ -149,7 +149,7 @@ class memberController{
         try{
 			let response = await countrySchema.find({'Countrycode':Countrycode});
         
-        	return response.CountryName;
+        	return response;
         } catch(err){
             return {
                 status: 'error',
