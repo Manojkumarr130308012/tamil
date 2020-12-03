@@ -152,7 +152,7 @@ class memberController{
 					  {
 						from: "countries",
 						localField: ""+Countrycode,
-						foreignField: "Countrycode",
+						foreignField: "_id",
 						as: "CountrysDetails"
 					  }
 				 },			 
