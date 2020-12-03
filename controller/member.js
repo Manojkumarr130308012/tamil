@@ -161,7 +161,6 @@ class memberController{
         	return{
 				Country:Country,
 				cost:cost
-
 			}
         } catch(err){
             return {
