@@ -144,12 +144,18 @@ class memberController{
 
 	async register(newGender){
 
-       let Countrycode=newGender.Countrycode;
+	   let Countrycode=newGender.Countrycode;
+	   let Name=newGender.Name;
+	   let Mobile=newGender.Mobile;
+	   let Email=newGender.Email;
+	   let MembershipType=newGender.MembershipType;
+	   let Category=newGender.Category;
+	   let password=newGender.password;
 
         try{
 			let response = await countrySchema.find({'Countrycode':Countrycode});
         
-        	return response;
+        	return response[0]._id;
         } catch(err){
             return {
                 status: 'error',
