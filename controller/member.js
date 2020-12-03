@@ -169,15 +169,15 @@ class memberController{
 			 }
 			 let response = await memberSchema.create(member);
         	return{
-				Status:response,
-				Sucess:'true',
+				response:response,
+				Status:'true',
 				msg:'Member add Registered Successfully',
 				Payment:cost,
 				
 			}
         } catch(err){
             return {
-                status: 'error',
+                status: 'false',
                 msg: 'User creation failed'
             }
         }
