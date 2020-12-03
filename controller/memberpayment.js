@@ -13,7 +13,7 @@ class memberpaymentController{
 			let response = await memberpaymentSchema.create(farm);
             return { 
               status: "success", 
-              msg:"State Added successfully",
+              msg:"Member Paymet successfully",
               result: response, message: "Added Successfully"
              };
 		} catch(error){
