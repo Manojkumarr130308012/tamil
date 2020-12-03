@@ -5,6 +5,10 @@ class memberpaymentController{
 
 
 	async add(farm){
+
+    // let userid=farm.userid;
+    // let razorypayid=farm.razorypayid;
+
 		try{
 			let response = await memberpaymentSchema.create(farm);
             return { 
