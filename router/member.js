@@ -31,4 +31,14 @@ router.get('/aggregation', async (req, res) =>{
 router.post('/register', async (req, res) => {
     res.send(await memberController.register(req.body));
 });
+router.post('/login', async (req, res) => {
+    res.send(await memberController.login(req.body));
+});
+
+router.get('/login1', async (req, res) => {
+    res.send(await memberController.login1(req.query.Mobile,req.query.password));
+});
+router.get('/login2', async (req, res) => {
+    res.send(await memberController.login2(req.query.Mobile));
+});
 module.exports = router;

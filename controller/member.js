@@ -184,9 +184,85 @@ class memberController{
         }
     }
 
+	async login(responce){
+        let Mobile=responce.Mobile;
+        let password=responce.password;
+        try{
+            let user = await memberSchema.findOne({
+                Mobile: Mobile,
+                password: password,
+            });
+
+            if(!user){
+                throw new Error('invalid creds');
+            }
+
+            return {
+                status: "1",
+                msg: "Login Sucessfully",
+                user
+            };
+
+        } catch(error){
+            return {
+                status: '0',
+                msg: 'username or password invalid'
+            }
+        }
+    }
 
 
 
+    async login1(Mobile,password){
+       
+        try{
+            let user = await memberSchema.findOne({
+                Mobile: Mobile,
+                password: password,
+            });
+
+            if(!user){
+                throw new Error('invalid creds');
+            }
+
+            return {
+                status: "1",
+                msg: "Login Sucessfully",
+                user
+            };
+
+        } catch(error){
+            return {
+                status: '0',
+                msg: 'username or password invalid'
+            }
+        }
+    }
+
+	async login2(Mobile){
+       
+        try{
+            let user = await memberSchema.findOne({
+                Mobile: Mobile
+            });
+
+            if(!user){
+                throw new Error('invalid creds');
+            }
+
+            return {
+                status: "1",
+                msg: "Login Sucessfully",
+                user
+            };
+
+        } catch(error){
+            return {
+                status: '0',
+                msg: 'username or password invalid'
+            }
+        }
+    }
 
 }
 module.exports = new memberController();
