@@ -2,6 +2,7 @@ const memberSchema = require('../model/member');
 const errorHandler = require('../utils/error.handler');
 const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
+const { response } = require('express');
 class memberController{
 
 
@@ -168,9 +169,9 @@ class memberController{
 			"Country": ""+Country,
 			 }
 			 let member = await memberSchema.create(member);
-		 let memberid=member[0]._id;
+		//  let memberid=member[0]._id;
         	return{
-				response:memberid,
+				response:response,
 				Status:'true',
 				msg:'Member add Registered Successfully',
 				Payment:cost		
