@@ -108,6 +108,14 @@ const memberSchema = new mongoose.Schema({
     status  :{
         type: String,
         required: false
+    },
+    password  :{
+        type: String,
+        required: false
+    },
+    Countrycode  :{
+        type: String,
+        required: false
     }
 })
 module.exports = new mongoose.model('member',memberSchema);
