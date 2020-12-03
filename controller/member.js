@@ -178,7 +178,7 @@ class memberController{
         } catch(err){
             return {
                 status: 'false',
-                msg: 'User creation failed'
+                msg: 'Member creation failed'
             }
         }
     }
