@@ -147,7 +147,7 @@ class memberController{
        let Countrycode=newGender.Countrycode;
 
         try{
-			return  await stateSchema.aggregate([
+			return  await memberSchema.aggregate([
 				{$lookup:
 					  {
 						from: "countries",
