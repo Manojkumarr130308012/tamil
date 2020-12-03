@@ -169,7 +169,7 @@ class memberController{
 			 }
 			 let response = await memberSchema.create(member);
         	return{
-				response:response[0]._id,
+				response:response,
 				Status:'true',
 				msg:'Member add Registered Successfully',
 				Payment:cost,
