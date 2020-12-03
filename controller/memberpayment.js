@@ -6,14 +6,26 @@ class memberpaymentController{
 
 	async add(farm){
 
-    // let userid=farm.userid;
-    // let razorypayid=farm.razorypayid;
+    let memberid=farm.memberid;
+    let razorpayid=farm.razorpayid;
+    var dateTime = require('node-datetime');
+    var dt = dateTime.create();
+    var formatted = dt.format('Y-m-d H:M:S');
+    console.log(formatted);
+    let cdateTime=formatted;
+
+    let memberpayment={
+        "memberid": ""+memberid,
+        "razorpayid": ""+razorpayid,
+        "dateTime": ""+cdateTime
+         }
+
 
 		try{
-			let response = await memberpaymentSchema.create(farm);
+			let response = await memberpaymentSchema.create(memberpayment);
             return { 
               status: "success", 
-              msg:"Member Paymet successfully",
+              msg:"Member Paymet  successfully",
               result: response, message: "Added Successfully"
              };
 		} catch(error){

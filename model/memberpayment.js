@@ -8,6 +8,10 @@ const memberpaymentSchema = new mongoose.Schema({
     razorpayid:{
         type: String,
         required: true
+    }, 
+    dateTime:{
+        type: String,
+        required: true
     }
 })
 module.exports = new mongoose.model('memberpayment',memberpaymentSchema);
