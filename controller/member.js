@@ -1,6 +1,7 @@
 const memberSchema = require('../model/member');
 const errorHandler = require('../utils/error.handler');
 const countrySchema = require('../model/country');
+const membershipcostSchema = require('../model/membershipcost');
 class memberController{
 
 
@@ -153,9 +154,10 @@ class memberController{
 	   let password=newGender.password;
 
         try{
-			let response = await countrySchema.find({'Countrycode':Countrycode});
-             let Country=response[0]._id;
-        	return Country;
+			let countryres = await countrySchema.find({'Countrycode':Countrycode});
+			let costres = await membershipcostSchema.find({'membershiptype':""+MembershipType,'membershipclassification':""+Category);
+             let Country=countryres[0]._id;
+        	return Country,costres;
         } catch(err){
             return {
                 status: 'error',
