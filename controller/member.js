@@ -1,6 +1,6 @@
 const memberSchema = require('../model/member');
 const errorHandler = require('../utils/error.handler');
-
+const countrySchema = require('../model/country');
 class memberController{
 
 
@@ -147,16 +147,8 @@ class memberController{
        let Countrycode=newGender.Countrycode;
 
         try{
-			return  await memberSchema.aggregate([
-				{$lookup:
-					  {
-						from: "countries",
-						localField: ""+Countrycode,
-						foreignField: "_id",
-						as: "CountrysDetails"
-					  }
-				 },			 
-				]);
+			let response = await countrySchema.find({'Countrycode':Countrycode});
+        	return response;
         } catch(err){
             return {
                 status: 'error',
