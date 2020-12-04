@@ -28,17 +28,4 @@ router.get('/aggregation', async (req, res) =>{
 	res.send(response);
 	
 })
-router.post('/register', async (req, res) => {
-    res.send(await eventsController.register(req.body));
-});
-router.post('/login', async (req, res) => {
-    res.send(await eventsController.login(req.body));
-});
-
-router.get('/login1', async (req, res) => {
-    res.send(await eventsController.login1(req.query.Mobile,req.query.password));
-});
-router.get('/login2', async (req, res) => {
-    res.send(await eventsController.login2(req.query.Mobile));
-});
 module.exports = router;
