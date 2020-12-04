@@ -111,7 +111,14 @@ class eventsController{
 		  foreignField: "_id",
 		  as: "CityNamesDetails"
 		}
-   }				 
+   },{$lookup:
+	{
+	  from: "chapters",
+	  localField: "Chapter",
+	  foreignField: "_id",
+	  as: "ChapterNameDetails"
+	}
+}			 
 				]);
 		} catch (error) {
 			return {
@@ -120,9 +127,6 @@ class eventsController{
 			};
 		}
     }
-
-
-
 
 
 }
