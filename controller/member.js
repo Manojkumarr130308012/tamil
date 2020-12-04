@@ -153,20 +153,52 @@ class memberController{
 	   let MembershipType=newGender.MembershipType;
 	   let Category=newGender.Category;
 	   let password=newGender.password;
+	   let date_ob = new Date();
+
+	   // adjust 0 before single digit date
+	   let date = ("0" + date_ob.getDate()).slice(-2);
+	   
+	   // current month
+	   let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+	   
+	   // current year
+	   let year = date_ob.getFullYear();
+		   // console.log(year + "-" + month + "-" + date);
+		   let cdateTime=year + "-" + month + "-" + date;
+	   
         try{
 			let countryres = await countrySchema.find({'Countrycode':Countrycode});
 			let costres = await membershipcostSchema.find({'membershiptype':""+MembershipType,'membershipclassification':""+Category});
 			 let Country=countryres[0]._id;
 			 let cost=costres[0].amount;
            let member={
-			"Name": ""+Name,
-			"Mobile": ""+Mobile,
-			"Email": ""+Email,
+			"Country":""+Country,
+			"State":"",
+			"region":"",
+			"district":"",
+			"CityName":  "",
+			"Name":  ""+Name,
+			"Gender": "",
+			"Chapter": "",
+			"Category": ""+Category,
 			"MembershipType": ""+MembershipType,
-			"Category": ""+Category, 
-			"password": ""+password,
-			"Countrycode": ""+Countrycode,
-			"Country": ""+Country,
+			"Address": "",
+			"Email": ""+Email,
+			"Mobile":  ""+Mobile,
+			"bussinessname":  "",
+			"DOB":  "",
+			"pincode": "",
+			"Products":  "",
+			"Keywords":  "",
+			"Website": "",
+			"Interests": "",
+			"SocialMediaLinks":"",
+			"ValidUpto":  "",
+			  "CreatedOn": ""+cdateTime,
+			  'UpdatedOn':"",
+			  "password":""+password,
+			  "Countrycode":""+Countrycode,
+			  'status': ""
 			 }
 			 let response = await memberSchema.create(member);
 
