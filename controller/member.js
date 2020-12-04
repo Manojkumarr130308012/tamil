@@ -149,7 +149,7 @@ async aggregation1(id) {
 		return  await memberSchema.aggregate([
 			{
 				$match: {
-					_id:""+id
+					_id:ObjectId(id)
 					//fuelDate: { "$gte": "2019-10-1", "$lt": "2019-10-26" }
 					
 				}
