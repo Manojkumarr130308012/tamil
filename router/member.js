@@ -15,6 +15,11 @@ router.get('/fetchdata', async (req, res) => {
 	const response = await memberController.fetchdata(req.query.id);
 	res.send(response);
 })
+router.get('/fetchdata1', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await memberController.aggregation1(req.query.id);
+	res.send(response);
+})
 router.delete('/delete', async (req, res) => {
 	const response = await memberController.delete(req.query.id);
 	res.send(response);
