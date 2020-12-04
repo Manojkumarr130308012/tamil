@@ -147,13 +147,13 @@ class memberController{
 async aggregation1(id) {
 		try {
 		return  await memberSchema.aggregate([
-			{
-				$match: {
-					_id:ObjectId(id)
-					//fuelDate: { "$gte": "2019-10-1", "$lt": "2019-10-26" }
+			// {
+			// 	$match: {
+			// 		_id:ObjectId(id)
+			// 		//fuelDate: { "$gte": "2019-10-1", "$lt": "2019-10-26" }
 					
-				}
-			},
+			// 	}
+			// },
 			{$lookup:
 					  {
 						from: "countries",
