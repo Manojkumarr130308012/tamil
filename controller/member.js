@@ -147,7 +147,7 @@ class memberController{
 async aggregation1(Mobile) {
 
 		try {
-		return  await memberSchema.aggregate([
+		let responce=await memberSchema.aggregate([
 			{
 				$match: {
 					Mobile: Mobile
@@ -218,6 +218,9 @@ async aggregation1(Mobile) {
 	}
 }				 
 				]);
+
+
+				return responce;
 		} catch (error) {
 			return {
 				status: "error",
