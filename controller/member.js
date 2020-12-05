@@ -144,8 +144,7 @@ class memberController{
 		}
     }
 
-async aggregation1(member) {
-	let id=member._id;
+async aggregation1(id) {
 		try {
 		return  await memberSchema.aggregate([
 			{
