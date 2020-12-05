@@ -147,77 +147,77 @@ class memberController{
 async aggregation1(id1) {
 		try {
 		return  await memberSchema.aggregate([
-			{
-				$match: {
-					_id: ObjectId(id1),	
-					//fuelDate: { "$gte": "2019-10-1", "$lt": "2019-10-26" }
+			// {
+			// 	$match: {
+			// 		_id: ObjectId(id1),	
+			// 		//fuelDate: { "$gte": "2019-10-1", "$lt": "2019-10-26" }
 					
+			// 	}
+			// }
+			{$lookup:
+					  {
+						from: "countries",
+						localField: "Country",
+						foreignField: "_id",
+						as: "CountryDetails"
+					  }
+				 },{$lookup:
+					{
+					  from: "states",
+					  localField: "State",
+					  foreignField: "_id",
+					  as: "StateDetails"
+					}
+			   },{$lookup:
+				{
+				  from: "regions",
+				  localField: "region",
+				  foreignField: "_id",
+				  as: "regionsDetails"
 				}
+		   },{$lookup:
+			{
+			  from: "districts",
+			  localField: "district",
+			  foreignField: "_id",
+			  as: "districtsDetails"
 			}
-// 			{$lookup:
-// 					  {
-// 						from: "countries",
-// 						localField: "Country",
-// 						foreignField: "_id",
-// 						as: "CountryDetails"
-// 					  }
-// 				 },{$lookup:
-// 					{
-// 					  from: "states",
-// 					  localField: "State",
-// 					  foreignField: "_id",
-// 					  as: "StateDetails"
-// 					}
-// 			   },{$lookup:
-// 				{
-// 				  from: "regions",
-// 				  localField: "region",
-// 				  foreignField: "_id",
-// 				  as: "regionsDetails"
-// 				}
-// 		   },{$lookup:
-// 			{
-// 			  from: "districts",
-// 			  localField: "district",
-// 			  foreignField: "_id",
-// 			  as: "districtsDetails"
-// 			}
-// 	   },{$lookup:
-// 		{
-// 		  from: "cities",
-// 		  localField: "CityName",
-// 		  foreignField: "_id",
-// 		  as: "CityNamesDetails"
-// 		}
-//    },{$lookup:
-// 	{
-// 	  from: "membershiptypes",
-// 	  localField: "MembershipType",
-// 	  foreignField: "_id",
-// 	  as: "MembershipTypeDetails"
-// 	}
-// },{$lookup:
-// 	{
-// 	  from: "chapters",
-// 	  localField: "Chapter",
-// 	  foreignField: "_id",
-// 	  as: "ChapterNameDetails"
-// 	}
-// },{$lookup:
-// 	{
-// 	  from: "membershipclasses",
-// 	  localField: "Category",
-// 	  foreignField: "_id",
-// 	  as: "membershipclassesDetails"
-// 	}
-// },{$lookup:
-// 	{
-// 	  from: "genders",
-// 	  localField: "Gender",
-// 	  foreignField: "_id",
-// 	  as: "gendersDetails"
-// 	}
-// }				 
+	   },{$lookup:
+		{
+		  from: "cities",
+		  localField: "CityName",
+		  foreignField: "_id",
+		  as: "CityNamesDetails"
+		}
+   },{$lookup:
+	{
+	  from: "membershiptypes",
+	  localField: "MembershipType",
+	  foreignField: "_id",
+	  as: "MembershipTypeDetails"
+	}
+},{$lookup:
+	{
+	  from: "chapters",
+	  localField: "Chapter",
+	  foreignField: "_id",
+	  as: "ChapterNameDetails"
+	}
+},{$lookup:
+	{
+	  from: "membershipclasses",
+	  localField: "Category",
+	  foreignField: "_id",
+	  as: "membershipclassesDetails"
+	}
+},{$lookup:
+	{
+	  from: "genders",
+	  localField: "Gender",
+	  foreignField: "_id",
+	  as: "gendersDetails"
+	}
+}				 
 				]);
 		} catch (error) {
 			return {
