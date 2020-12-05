@@ -37,7 +37,8 @@ class memberController{
 	async fetchdata(id){
 		try{
 			let response = await memberSchema.find({'_id':id});
-			let response1 = await countrySchema.find({'_id':responce[0].Country});
+           let country=responce[0].Country;
+			let response1 = await countrySchema.find({'_id':country});
 			return response,response1;
 			
 		} catch(error){
