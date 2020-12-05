@@ -144,12 +144,13 @@ class memberController{
 		}
     }
 
-async aggregation1(id) {
+async aggregation1(member) {
+let memberid=member._id;
 		try {
 		return  await memberSchema.aggregate([
 			{
 				$match: {
-					_id: ObjectId(id)
+					_id: ObjectId(this.memberid)
 				}
 			},
 			{$lookup:
