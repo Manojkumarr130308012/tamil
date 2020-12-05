@@ -294,7 +294,8 @@ async aggregation1(Mobile) {
         } catch(err){
             return {
                 status: 'false',
-                msg: 'Member creation failed'
+				msg: 'Member creation failed',
+				error: errorHandler.parseMongoError(error)
             }
         }
     }
