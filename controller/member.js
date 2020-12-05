@@ -150,7 +150,7 @@ let memberid=member._id;
 		return  await memberSchema.aggregate([
 			{
 				$match: {
-					_id: ObjectId(this.memberid)
+					_id: ObjectId(memberid)
 				}
 			},
 			{$lookup:

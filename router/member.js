@@ -15,7 +15,7 @@ router.get('/fetchdata', async (req, res) => {
 	const response = await memberController.fetchdata(req.query.id);
 	res.send(response);
 })
-router.post('/fetchdata1', async (req, res) => {
+router.get('/fetchdata1', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
 	const response = await memberController.aggregation1(req.body);
 	res.send(response);
