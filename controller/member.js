@@ -37,8 +37,6 @@ class memberController{
 	async fetchdata(id){
 		try{
 			let response = await memberSchema.find({'_id':id});
-           let country=responce[0].Country;
-		// 	let response1 = await countrySchema.find({'_id':country});
 			return response;
 			
 		} catch(error){
@@ -146,13 +144,13 @@ class memberController{
 		}
     }
 
-async aggregation1(member) {
-let memberid=member._id;
+async aggregation1(Mobile) {
+
 		try {
 		return  await memberSchema.aggregate([
 			{
 				$match: {
-					_id: ObjectId(memberid)
+					Mobile: ObjectId(Mobile)
 				}
 			},
 			{$lookup:
