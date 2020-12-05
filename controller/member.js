@@ -150,7 +150,7 @@ async aggregation1(Mobile) {
 		return  await memberSchema.aggregate([
 			{
 				$match: {
-					Mobile: ObjectId(Mobile)
+					Mobile: Mobile
 				}
 			},
 			{$lookup:
