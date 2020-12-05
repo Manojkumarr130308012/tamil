@@ -148,11 +148,11 @@ async aggregation1(member) {
 	let id=member._id;
 		try {
 		return  await memberSchema.aggregate([
-			{
-				$match: {
-					_id: ObjectId(id)
-				}
-			},
+			// {
+			// 	$match: {
+			// 		_id: ObjectId(id)
+			// 	}
+			// },
 			{$lookup:
 					  {
 						from: "countries",
