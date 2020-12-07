@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const trackerSchema = new mongoose.Schema({
     Event : {
-        // type: mongoose.Schema.ObjectId,
-        type: String,
+        type: mongoose.Schema.ObjectId,
         required: false
     }, 
     TrackName:{
