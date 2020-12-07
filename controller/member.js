@@ -68,7 +68,7 @@ class memberController{
 
         try {
             let response = await memberSchema.update({_id: id}, body);
-            return { status: "success", msg:"city Updated successfully",result: response, message: "Updated Successfully" };
+            return { status: "success", msg:"Member Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };
