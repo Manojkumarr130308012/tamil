@@ -72,9 +72,9 @@ class trackerController{
 
 	}
 	
-	async fetchByCountry(country1){
+	async fetchByEvent(Event){
 		try{
-			let response = await trackerSchema.find({'Country':country1});
+			let response = await trackerSchema.find({'Event':Event});
 			return {
 				response: response
 			};	

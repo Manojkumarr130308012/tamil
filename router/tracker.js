@@ -29,7 +29,7 @@ router.get('/aggregation', async (req, res) =>{
 	
 })
 router.get('/fetchByevenid', async (req, res) => {
-	const response = await trackerController.fetchByCountry(req.query.Country);
+	const response = await trackerController.fetchByEvent(req.query.Event);
 	res.send(response); 
 })
 module.exports = router;
