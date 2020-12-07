@@ -90,17 +90,18 @@ class trackerController{
 		return  await trackerSchema.aggregate([
             {
 				$match: {
-					Event: eventid
-				}
-			},
-				{$lookup:
-					  {
-						from: "events",
-						localField: "Event",
-						foreignField: "_id",
-						as: "EventsDetails"
-					  }
-				 },			 
+					Event: ObjectId(eventid)
+                }
+            }
+		
+			// 	{$lookup:
+			// 		  {
+			// 			from: "events",
+			// 			localField: "Event",
+			// 			foreignField: "_id",
+			// 			as: "EventsDetails"
+			// 		  }
+			// 	 },			 
 				]);
 		} catch (error) {
 			return {
