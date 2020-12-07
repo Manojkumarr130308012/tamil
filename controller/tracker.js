@@ -92,16 +92,14 @@ class trackerController{
 				$match: {
 					Event: ObjectId(eventid)
                 }
-            }
-		
-			// 	{$lookup:
-			// 		  {
-			// 			from: "events",
-			// 			localField: "Event",
-			// 			foreignField: "_id",
-			// 			as: "EventsDetails"
-			// 		  }
-			// 	 },			 
+            },{$lookup:
+					  {
+						from: "events",
+						localField: "Event",
+						foreignField: "_id",
+						as: "EventsDetails"
+					  }
+				 },			 
 				]);
 		} catch (error) {
 			return {
