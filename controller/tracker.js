@@ -90,10 +90,10 @@ class trackerController{
 		return  await trackerSchema.aggregate([
 				{$lookup:
 					  {
-						from: "countries",
-						localField: "Country",
+						from: "events",
+						localField: "Event",
 						foreignField: "_id",
-						as: "CountryDetails"
+						as: "EventsDetails"
 					  }
 				 },			 
 				]);
