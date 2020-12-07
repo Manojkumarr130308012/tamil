@@ -85,9 +85,14 @@ class trackerController{
 			};
 		}
 	}
-	async aggregation() {
+	async aggregation(eventid) {
 		try {
 		return  await trackerSchema.aggregate([
+            {
+				$match: {
+					Event: eventid
+				}
+			},
 				{$lookup:
 					  {
 						from: "events",

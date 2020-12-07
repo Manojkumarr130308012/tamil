@@ -24,7 +24,7 @@ router.put('/update', async (req, res) => {
 	res.send(response);
 })
 router.get('/aggregation', async (req, res) =>{
-	let response = await trackerController.aggregation();
+	let response = await trackerController.aggregation(req.query.Event);
 	res.send(response);
 	
 })
