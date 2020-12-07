@@ -90,7 +90,7 @@ class trackerController{
 		return  await trackerSchema.aggregate([
             {
 				$match: {
-					Event: ObjectId(eventid)
+					Event: eventid
 				}
 			},
 				{$lookup:
