@@ -88,11 +88,11 @@ class trackerController{
 	async aggregation(eventid) {
 		try {
 		return  await trackerSchema.aggregate([
-            // {
-			// 	$match: {
-			// 		Event: ObjectId(eventid)
-            //     }
-            // },
+            {
+				$match: {
+					Event: ObjectId(eventid)
+                }
+            },
             {$lookup:
 					  {
 						from: "events",
