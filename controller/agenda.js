@@ -75,7 +75,7 @@ class agendaController{
     async fetchByEventandtrack(Event,track)
 	{
 		try{
-			let response = await trackerSchema.find({'Event':Event,'track':track});
+			let response = await trackerSchema.find({'event':Event,'track':track});
 			return {
 				response: response
 			};	
