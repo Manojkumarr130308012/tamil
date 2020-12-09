@@ -73,9 +73,15 @@ class agendaController{
     }
 
    
-	async aggregation() {
+	async aggregation(eventid,trackid) {
 		try {
 		return  await agendaSchema.aggregate([
+            {
+				$match: {
+                    event: ObjectId(eventid),
+                    track: ObjectId(trackid)
+                }
+            },
 				{$lookup:
 					  {
 						from: "events",
