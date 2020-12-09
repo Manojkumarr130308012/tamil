@@ -27,6 +27,7 @@ const memberpaymentRouter = require('../router/memberpayment');
 const eventsRouter = require('../router/events');
 const speakerproRouter = require('../router/speakerpro');
 const trackerproRouter = require('../router/tracker');
+const agendaRouter = require('../router/agenda');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
@@ -68,4 +69,5 @@ server.use("/memberpayment", memberpaymentRouter);
 server.use("/events", eventsRouter);
 server.use("/speaker", speakerproRouter);
 server.use("/tracker", trackerproRouter);
+server.use("/agenda", agendaRouter);
 module.exports= server;
