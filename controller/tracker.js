@@ -72,7 +72,8 @@ class trackerController{
 
 	}
 	
-	async fetchByEvent(Event){
+	async fetchByEvent(Event)
+	{
 		try{
 			let response = await trackerSchema.find({'Event':Event});
 			return {

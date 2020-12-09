@@ -28,6 +28,10 @@ router.get('/aggregation', async (req, res) =>{
 	res.send(response);
 	
 })
+router.get('/fetchByevenidtrackid', async (req, res) => {
+	const response = await trackerController.fetchByEvent(req.query.event,req.query.track);
+	res.send(response); 
+})
 router.get('/fetchByevent', async (req, res) => {
 	const response = await agendaController.fetchBystate(req.query.track);
 	res.send(response); 
