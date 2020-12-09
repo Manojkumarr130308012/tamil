@@ -31,6 +31,18 @@ class interestController{
 			};
 		}
 	}
+	async fetch1(){
+		try{
+			return await interestsSchema.find({});
+			// let count=Object.keys(response).length;
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 
 	async fetchdata(id){
 		try{
