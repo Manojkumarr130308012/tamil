@@ -8,7 +8,13 @@ router.post('/add', async (req, res) => {
 })
 router.post('/', upload.single("image"),async (req, res) => {
 	const result = await cloudinary.uploader.upload(req.file.path);
-	const response = await memberController.upload1(req.body,result);
+	let member={
+		"Name":""+req.body.Name,
+		"Photo":""+result.secure_url,
+		"cloudinary_id":""+result.public_id
+	}
+
+	const response = await memberController.upload1(member);
 	res.send(response);
 })
 router.get('/', async (req, res) => {

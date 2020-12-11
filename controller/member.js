@@ -17,19 +17,14 @@ class memberController{
 			};
 		}
 	}
-	async upload1(farm,result){
+	async upload1(member){
 		
 		// let user = new fileupload({
 		// 	Name: farm.body.Name,
 		// 	photo: result.secure_url,
 		// 	cloudinary_id: result.public_id,
 		//   });
-		  let member={
-			"Name":""+farm.Name,
-			"photo":""+result.secure_url,
-			"cloudinary_id":""+result.public_id
-		}
-
+		 
 		try{
 			let response = await memberSchema.create(member);
 			return { status: "success",   msg:"member Added successfully", result: response, message: "Added Successfully" };
