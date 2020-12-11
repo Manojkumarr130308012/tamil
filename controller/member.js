@@ -3,6 +3,8 @@ const errorHandler = require('../utils/error.handler');
 const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
 const { response } = require('express');
+const cloudinary = require("../utils/cloudinary");
+
 class memberController{
 
 
@@ -17,7 +19,7 @@ class memberController{
 			};
 		}
 	}
-	async upload(farm){
+	async upload1(farm){
 		const result = await cloudinary.uploader.upload(req.file.path);
 		let user = new fileupload({
 			Name: farm.body.Name,
