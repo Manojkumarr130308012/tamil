@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const cloudinary = require("../utils/cloudinary");
-const upload = require("../utils/multer");
+const upload1 = require("../utils/multer");
 const fileupload = require("../model/fileupload");
 
-router.post("/", upload.single("image"), async (req, res) => {
+router.post("/", upload1.single("image"), async (req, res) => {
   try {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
@@ -45,7 +45,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", upload.single("image"), async (req, res) => {
+router.put("/:id", upload1.single("image"), async (req, res) => {
   try {
     let user = await fileupload.findById(req.params.id);
     // Delete image from cloudinary

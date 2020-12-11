@@ -19,8 +19,8 @@ class memberController{
 			};
 		}
 	}
-	async upload1(farm){
-		const result = await cloudinary.uploader.upload(farm.file);
+	async upload1(farm,result){
+		
 		// let user = new fileupload({
 		// 	Name: farm.body.Name,
 		// 	photo: result.secure_url,

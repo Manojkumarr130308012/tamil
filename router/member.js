@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const memberController = require('../controller/member');
 const upload = require("../utils/multer");
-
+const cloudinary = require("../utils/cloudinary");
 router.post('/add', async (req, res) => {
 	const response = await memberController.add(req.body);
 	res.send(response);
 })
 router.post('/', upload.single("image"),async (req, res) => {
-	const response = await memberController.upload1(req.body);
+	const result = await cloudinary.uploader.upload(req.file.path);
+	const response = await memberController.upload1(req.body,result);
 	res.send(response);
 })
 router.get('/', async (req, res) => {
