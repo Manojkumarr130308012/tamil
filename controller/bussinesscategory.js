@@ -64,7 +64,7 @@ class bussinesscategoryController{
 
         try {
             let response = await bussinesscategorySchema.update({_id: id}, body);
-            return { status: "success", msg:"interest Updated successfully",result: response, message: "Updated Successfully" };
+            return { status: "success", msg:"Bussinesscategory Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };

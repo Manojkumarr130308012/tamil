@@ -6,7 +6,12 @@ class interestController{
 
 	async add(farm){
 		try{
-			let response = await interestsSchema.create(farm);
+
+            let interest={
+				"Interestscode":""+Math.floor(Math.random() * (100 - 1) + 1),
+				"Interests":""+farm.Interests
+				 }
+			let response = await interestsSchema.create(interest);
 			return { status: "success",   msg:"interest Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {

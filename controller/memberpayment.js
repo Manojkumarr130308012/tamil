@@ -91,7 +91,7 @@ let year = date_ob.getFullYear();
 
         try {
             let response = await memberpaymentSchema.update({_id: id}, body);
-            return { status: "success", msg:"State Updated successfully",result: response, message: "Updated Successfully" };
+            return { status: "success", msg:"memberpayment Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };

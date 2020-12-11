@@ -7,7 +7,7 @@ class membershipcostController{
 	async add(farm){
 		try{
 			let response = await membershipcostSchema.create(farm);
-			return { status: "success",   msg:"Country Added successfully", result: response, message: "Added Successfully" };
+			return { status: "success",   msg:"membershipcost Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
 				status: "error",
@@ -64,7 +64,7 @@ class membershipcostController{
 
         try {
             let response = await membershipcostSchema.update({_id: id}, body);
-            return { status: "success", msg:"Country Updated successfully",result: response, message: "Updated Successfully" };
+            return { status: "success", msg:"membershipcost Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };
