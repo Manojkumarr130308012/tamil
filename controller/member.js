@@ -4,7 +4,8 @@ const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
 const { response } = require('express');
 const cloudinary = require("../utils/cloudinary");
-const imgupload= require("../utils/multer");
+const upload = require("../utils/multer");
+const cloudinary = require("../utils/cloudinary");
 class memberController{
 
 
