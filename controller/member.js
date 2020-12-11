@@ -20,7 +20,7 @@ class memberController{
 		}
 	}
 	async upload1(farm){
-		const result = await cloudinary.uploader.upload(req.file.path);
+		const result = await cloudinary.uploader.upload(farm.file.path);
 		let user = new fileupload({
 			Name: farm.body.Name,
 			photo: result.secure_url,
