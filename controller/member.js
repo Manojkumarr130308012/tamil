@@ -81,10 +81,10 @@ class memberController{
 		}
 	}
 
-	async update(id, body,member,user) {
+	async update(id,body,member,user) {
 
 
-		let body={
+		let memberupdate={
 			"Country":""+req.body.Country || user.Country,
 			"State":""+req.body.State || user.State,
 			"region":""+req.body.region || user.region,
@@ -117,7 +117,7 @@ class memberController{
 			 }
 
         try {
-            let response = await memberSchema.update({_id: id}, body);
+            let response = await memberSchema.update({_id: id}, memberupdate);
             return { status: "success", msg:"Member Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {

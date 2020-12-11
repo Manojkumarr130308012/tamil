@@ -36,7 +36,7 @@ router.delete('/delete', async (req, res) => {
 	await cloudinary.uploader.destroy(response.cloudinary_id);
 	res.send(response);
 })
-router.put('/update', upload1.single("image"), async (req, res) => {
+router.put('/update', upload.single("image"), async (req, res) => {
 
 	const user = await memberController.fetchdata(req.query.id);
 	await cloudinary.uploader.destroy(user.cloudinary_id);
