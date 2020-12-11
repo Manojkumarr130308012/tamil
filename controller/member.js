@@ -17,7 +17,23 @@ class memberController{
 			};
 		}
 	}
-	
+	async upload(farm){
+		const result = await cloudinary.uploader.upload(req.file.path);
+		let user = new fileupload({
+			name: farm.body.name,
+			photo: result.secure_url,
+			cloudinary_id: result.public_id,
+		  });
+		try{
+			let response = await memberSchema.create(user);
+			return { status: "success",   msg:"member Added successfully", result: response, message: "Added Successfully" };
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async fetch(){
 		try{
 			let response = await memberSchema.find({});

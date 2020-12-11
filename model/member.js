@@ -66,14 +66,14 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: false
     }, 
-    // ProfilePicture :{
-    //     type: String,
-    //     required: false
-    // }, 
-    // BusinessLogo :{
-    //     type: String,
-    //     required: false
-    // },
+    Photo :{
+        type: String,
+        required: false
+    }, 
+    cloudinary_id :{
+        type: String,
+        required: false
+    },
     Products :{
         type: String,
         required: false
