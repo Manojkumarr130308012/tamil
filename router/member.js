@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const memberController = require('../controller/member');
-const upload = require("../utils/multer");
+
 
 router.post('/add', async (req, res) => {
 	const response = await memberController.add(req.body);

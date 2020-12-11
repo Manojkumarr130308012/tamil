@@ -4,7 +4,7 @@ const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
 const { response } = require('express');
 const cloudinary = require("../utils/cloudinary");
-
+const imgupload= require("../utils/multer");
 class memberController{
 
 
@@ -20,14 +20,20 @@ class memberController{
 		}
 	}
 	async upload1(farm){
-		const result = await cloudinary.uploader.upload(farm.file.path);
-		let user = new fileupload({
-			Name: farm.body.Name,
-			photo: result.secure_url,
-			cloudinary_id: result.public_id,
-		  });
+		const result = await cloudinary.uploader.imgupload(farm.file.path);
+		// let user = new fileupload({
+		// 	Name: farm.body.Name,
+		// 	photo: result.secure_url,
+		// 	cloudinary_id: result.public_id,
+		//   });
+		  let member={
+			"Name":""+farm.Name,
+			"photo":""+result.secure_url,
+			"cloudinary_id":""+result.public_id
+		}
+
 		try{
-			let response = await memberSchema.create(user);
+			let response = await memberSchema.create(member);
 			return { status: "success",   msg:"member Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
