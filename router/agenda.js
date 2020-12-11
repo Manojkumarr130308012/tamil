@@ -32,6 +32,10 @@ router.get('/fetchByevenidtrackid', async (req, res) => {
 	const response = await agendaController.fetchByEventandtrack(req.query.event,req.query.track);
 	res.send(response); 
 })
+router.get('/fetchByevenid', async (req, res) => {
+	const response = await agendaController.fetchByEventandtrack(req.query.event);
+	res.send(response); 
+})
 router.get('/fetchByevent', async (req, res) => {
 	const response = await agendaController.fetchBystate(req.query.track);
 	res.send(response); 

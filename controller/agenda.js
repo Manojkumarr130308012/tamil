@@ -85,6 +85,20 @@ class agendaController{
 				error: errorHandler.parseMongoError(error)
 			};
 		}
+    }
+    async fetchByEvent(Event)
+	{
+		try{
+			let response = await agendaSchema.find({'event':Event});
+			return {
+				response: response
+			};	
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
 	}
 	async aggregation(eventid,trackid) {
 		try {
