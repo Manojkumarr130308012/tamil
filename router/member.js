@@ -33,19 +33,10 @@ router.get('/fetchdata1', async (req, res) => {
 })
 router.delete('/delete', async (req, res) => {
 	const response = await memberController.delete(req.query.id);
-	await cloudinary.uploader.destroy(response.cloudinary_id);
 	res.send(response);
 })
-router.put('/update', upload.single("image"), async (req, res) => {
-
-	const user = await memberController.fetchdata(req.query.id);
-	await cloudinary.uploader.destroy(user.cloudinary_id);
-	const result = await cloudinary.uploader.upload(req.file.path);
-	let member={
-		"Photo":""+result.secure_url,
-		"cloudinary_id":""+result.public_id
-	}
-	const response = await memberController.update(req.query.id, req.body,member,user);
+router.put('/update', async (req, res) => {
+	const response = await memberController.update(req.query.id, req.body);
 	res.send(response);
 })
 router.get('/aggregation', async (req, res) =>{
@@ -54,12 +45,7 @@ router.get('/aggregation', async (req, res) =>{
 	
 })
 router.post('/register', async (req, res) => {
-	const result = await cloudinary.uploader.upload(req.file.path);
-	let member={
-		"Photo":""+result.secure_url,
-		"cloudinary_id":""+result.public_id
-	}
-    res.send(await memberController.register(req.body,member));
+    res.send(await memberController.register(req.body));
 });
 router.post('/login', async (req, res) => {
     res.send(await memberController.login(req.body));
