@@ -100,6 +100,20 @@ class agendaController{
 			};
 		}
 	}
+	async fetchByEventdate(Event,FromDate)
+	{
+		try{
+			let response = await agendaSchema.find({'event':Event,'FromDate':FromDate});
+			return {
+				response: response
+			};	
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async aggregation(eventid,trackid) {
 		try {
 		return  await agendaSchema.aggregate([

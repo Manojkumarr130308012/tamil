@@ -10,7 +10,16 @@ router.post('/add', async (req, res) => {
 	res.send(response);
 })
 router.post('/', upload.single("image"),async (req, res) => {
+
+
+
+
 	const result = await cloudinary.uploader.upload(req.file.path);
+	let photo=""+result.secure_url;
+	let cloudinary_id=""+result.public_id;
+
+	
+	
 	let Countrycode=req.body.Countrycode;
 	let Name=req.body.Name;
 	let Mobile=req.body.Mobile;
@@ -18,8 +27,7 @@ router.post('/', upload.single("image"),async (req, res) => {
 	let MembershipType=req.body.MembershipType;
 	let Category=req.body.Category;
 	let password=req.body.password;
-	let photo=""+result.secure_url;
-	let cloudinary_id=""+result.public_id;
+
 	let date_ob = new Date();
 
 	// adjust 0 before single digit date
