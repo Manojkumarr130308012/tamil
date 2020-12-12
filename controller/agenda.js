@@ -110,6 +110,7 @@ class agendaController{
 		} catch(error){
 			return {
 				status: "error",
+				response:"no data found",
 				error: errorHandler.parseMongoError(error)
 			};
 		}
