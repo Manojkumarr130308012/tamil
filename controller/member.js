@@ -17,7 +17,7 @@ class memberController{
 			};
 		}
 	}
-	async upload1(member){
+	async upload1(member,cost){
 		
 		// let user = new fileupload({
 		// 	Name: farm.body.Name,
@@ -27,7 +27,12 @@ class memberController{
 		 
 		try{
 			let response = await memberSchema.create(member);
-			return { status: "success",   msg:"member Added successfully", result: response, message: "Added Successfully" };
+			return { 
+				response:response,
+				Status:'true',
+				msg:'Member add Registered Successfully',
+				Payment:cost	
+			 };
 		} catch(error){
 			return {
 				status: "error",

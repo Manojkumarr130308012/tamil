@@ -8,12 +8,62 @@ router.post('/add', async (req, res) => {
 })
 router.post('/', upload.single("image"),async (req, res) => {
 	const result = await cloudinary.uploader.upload(req.file.path);
-	let member={
-		"Photo":""+result.secure_url,
-		"cloudinary_id":""+result.public_id
-	}
+	let Countrycode=req.body.Countrycode;
+	let Name=req.body.Name;
+	let Mobile=req.body.Mobile;
+	let Email=req.body.Email;
+	let MembershipType=req.body.MembershipType;
+	let Category=req.body.Category;
+	let password=req.body.password;
+	let photo=""+result.secure_url;
+	let cloudinary_id=""+result.public_id;
+	let date_ob = new Date();
 
-	const response = await memberController.upload1(member);
+	// adjust 0 before single digit date
+	let date = ("0" + date_ob.getDate()).slice(-2);
+	// current month
+	let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);	
+	// current year
+	let year = date_ob.getFullYear();
+		// console.log(year + "-" + month + "-" + date);
+		let cdateTime=year + "-" + month + "-" + date;
+		let countryres = await countrySchema.find({'Countrycode':Countrycode});
+		let costres = await membershipcostSchema.find({'membershiptype':""+MembershipType,'membershipclassification':""+Category});
+		 let Country=countryres[0]._id;
+		 let cost=costres[0].amount;
+	   let member={
+		"Country":""+Country,
+		"State":"5fca137899eac60017fc2363",
+		"region":"5fca155699eac60017fc236d",
+		"district":"5fca157a99eac60017fc236e",
+		"CityName": "5fca159c99eac60017fc236f",
+		"Name":""+Name,
+		"Gender":"5fb60d3932c37100176ce0af",
+		"Chapter":"5fca14c699eac60017fc236a",
+		"Category":""+Category,
+		"MembershipType":""+MembershipType,
+		"Address":"null",
+		"Email":""+Email,
+		"Mobile":""+Mobile,
+		"bussinessname":"null",
+		"DOB":"null",
+		"pincode":"null",
+		"Photo":""+photo,
+		"cloudinary_id":""+cloudinary_id,
+		"Products":"null",
+		"Keywords":"null",
+		"Website":"null",
+		"Interests":"null",
+		"SocialMediaLinks":"null",
+		"ValidUpto": "null",
+		"CreatedOn":""+cdateTime,
+		'UpdatedOn':"null",
+		"password":""+password,
+		"Countrycode":""+Countrycode,
+		'status':"null"
+		 }
+
+	const response = await memberController.upload1(member,cost);
 	res.send(response);
 })
 router.get('/', async (req, res) => {
