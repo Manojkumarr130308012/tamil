@@ -37,7 +37,7 @@ router.get('/fetchByevenid', async (req, res) => {
 	res.send(response); 
 })
 router.get('/fetchByevendate', async (req, res) => {
-	const response = await agendaController.fetchByEventdate(req.query.event,req.query.FromDate);
+	const response = await agendaController.fetchByEventdate(req.query.event,req.query.date);
 	res.send(response); 
 })
 router.get('/fetchByevent', async (req, res) => {
