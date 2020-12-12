@@ -2,11 +2,13 @@ const router = require('express').Router();
 const memberController = require('../controller/member');
 const upload = require("../utils/multer");
 const cloudinary = require("../utils/cloudinary");
+const countrySchema = require('../model/country');
+const membershipcostSchema = require('../model/membershipcost');
 router.post('/add', async (req, res) => {
 	const response = await memberController.add(req.body);
 	res.send(response);
 })
-router.post('/', upload.single("image"),async (req, res) => {
+router.post('/', upload.single("photo"),async (req, res) => {
 	const result = await cloudinary.uploader.upload(req.file.path);
 	let Countrycode=req.body.Countrycode;
 	let Name=req.body.Name;
@@ -82,17 +84,53 @@ router.get('/fetchdata1', async (req, res) => {
 	res.send(response);
 })
 router.delete('/delete', async (req, res) => {
+	let user = await memberController.findById(req.query.id);
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(user.cloudinary_id);
 	const response = await memberController.delete(req.query.id);
 	res.send(response);
 })
-router.put('/update', async (req, res) => {
-	const response = await memberController.update(req.query.id, req.body);
+router.put('/update',upload.single("photo"),async (req, res) => {
+	let user = await memberController.findById(req.query.id);
+await cloudinary.uploader.destroy(user.cloudinary_id);
+const result = await cloudinary.uploader.upload(req.file.path);
+	let member={
+			"Country":""+req.body.Country || user.Country,
+			"State":""+req.body.State || user.State,
+			"region":""+req.body.region || user.region,
+			"district":""+req.body.district || user.district,
+			"CityName": ""+req.body.CityName || user.CityName,
+			"Name":""+req.body.Name || user.Name,
+			"Gender":""+req.body.Gender || user.Gender,
+			"Chapter":""+req.body.Chapter || user.Chapter,
+			"Category":""+req.body.Category || user.Category,
+			"MembershipType":""+req.body.MembershipType || user.MembershipType,
+			"Address":""+req.body.Address || user.Address,
+			"Email":""+req.body.Email || user.Email,
+			"Mobile":""+req.body.Mobile || user.Mobile,
+			"bussinessname":""+req.body.bussinessname || user.bussinessname,
+			"DOB":""+req.body.DOB || user.DOB,
+			"pincode":""+req.body.pincode || user.pincode,
+			"Photo":""+result.secure_url || user.Photo,
+			"cloudinary_id":""+result.public_id || user.cloudinary_id,
+			"Products":""+req.body.Products || user.Products,
+			"Keywords":""+req.body.Keywords || user.Keywords,
+			"Website":""+req.body.Website || user.Website,
+			"Interests":""+req.body.Interests || user.Interests,
+			"SocialMediaLinks":""+req.body.SocialMediaLinks || user.SocialMediaLinks,
+			"ValidUpto": ""+req.body.ValidUpto || user.ValidUpto,
+			"CreatedOn":""+req.body.CreatedOn || user.CreatedOn,
+			'UpdatedOn':""+req.body.UpdatedOn || user.UpdatedOn,
+			"password":""+req.body.password || user.password,
+			"Countrycode":""+req.body.Countrycode || user.Countrycode,
+			'status':""+req.body.Interests || user.Interests
+			 }
+    const response = await memberController.update(req.query.id,member);
 	res.send(response);
 })
 router.get('/aggregation', async (req, res) =>{
 	let response = await memberController.aggregation();
-	res.send(response);
-	
+	res.send(response);	
 })
 router.post('/register', async (req, res) => {
     res.send(await memberController.register(req.body));
