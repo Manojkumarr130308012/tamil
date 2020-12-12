@@ -81,7 +81,7 @@ class memberController{
 		}
 	}
 
-	async update(id, body,member,user) {
+	async update(id, body) {
 
 
 		// let member={
