@@ -103,7 +103,7 @@ class agendaController{
 	async fetchByEventdate(Event,FromDate)
 	{
 		try{
-			let response = await agendaSchema.find({'event':Event,'FromDate':FromDate});
+			let response = await agendaSchema.find({'event':Event,'date':FromDate});
 			return {
 				response: response
 			};	
