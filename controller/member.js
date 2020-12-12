@@ -73,7 +73,8 @@ class memberController{
 
 	async delete(id){
 		try{
-			let response = await memberSchema.deleteOne({_id: id});
+
+	let response = await memberSchema.deleteOne({_id: id});
 			return {
 				status: "success",
 				response: response
@@ -88,38 +89,6 @@ class memberController{
 
 	async update(id, body) {
 
-
-		// let member={
-		// 	"Country":""+req.body.Country || user.Country,
-		// 	"State":""+req.body.State || user.State,
-		// 	"region":""+req.body.region || user.region,
-		// 	"district":""+req.body.district || user.district,
-		// 	"CityName": ""+req.body.CityName || user.CityName,
-		// 	"Name":""+req.body.Name || user.Name,
-		// 	"Gender":""+req.body.Gender || user.Gender,
-		// 	"Chapter":""+req.body.Chapter || user.Chapter,
-		// 	"Category":""+req.body.Category || user.Category,
-		// 	"MembershipType":""+req.body.MembershipType || user.MembershipType,
-		// 	"Address":""+req.body.Address || user.Address,
-		// 	"Email":""+req.body.Email || user.Email,
-		// 	"Mobile":""+req.body.Mobile || user.Mobile,
-		// 	"bussinessname":""+req.body.bussinessname || user.bussinessname,
-		// 	"DOB":""+req.body.DOB || user.DOB,
-		// 	"pincode":""+req.body.pincode || user.pincode,
-		// 	"Photo":""+member.Photo || user.Photo,
-		// 	"cloudinary_id":""+member.cloudinary_id || user.cloudinary_id,
-		// 	"Products":""+req.body.Products || user.Products,
-		// 	"Keywords":""+req.body.Keywords || user.Keywords,
-		// 	"Website":""+req.body.Website || user.Website,
-		// 	"Interests":""+req.body.Interests || user.Interests,
-		// 	"SocialMediaLinks":""+req.body.SocialMediaLinks || user.SocialMediaLinks,
-		// 	"ValidUpto": ""+req.body.ValidUpto || user.ValidUpto,
-		// 	"CreatedOn":""+req.body.CreatedOn || user.CreatedOn,
-		// 	'UpdatedOn':""+req.body.UpdatedOn || user.UpdatedOn,
-		// 	"password":""+req.body.password || user.password,
-		// 	"Countrycode":""+req.body.Countrycode || user.Countrycode,
-		// 	'status':""+req.body.Interests || user.Interests
-		// 	 }
 
         try {
             let response = await memberSchema.update({_id: id}, body);

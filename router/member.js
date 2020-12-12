@@ -4,11 +4,12 @@ const upload = require("../utils/multer");
 const cloudinary = require("../utils/cloudinary");
 const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
+const memberSchema = require('../model/member');
 router.post('/add', async (req, res) => {
 	const response = await memberController.add(req.body);
 	res.send(response);
 })
-router.post('/', upload.single("photo"),async (req, res) => {
+router.post('/', upload.single("image"),async (req, res) => {
 	const result = await cloudinary.uploader.upload(req.file.path);
 	let Countrycode=req.body.Countrycode;
 	let Name=req.body.Name;
@@ -84,17 +85,20 @@ router.get('/fetchdata1', async (req, res) => {
 	res.send(response);
 })
 router.delete('/delete', async (req, res) => {
-	let user = await memberController.findById(req.query.id);
+	let user = await memberSchema.findById(req.query.id);
     // Delete image from cloudinary
     await cloudinary.uploader.destroy(user.cloudinary_id);
 	const response = await memberController.delete(req.query.id);
 	res.send(response);
 })
-router.put('/update',upload.single("photo"),async (req, res) => {
-	let user = await memberController.findById(req.query.id);
+router.put('/update',upload.single("image"),async (req, res) => {
+	let user = await memberSchema.findById(req.query.id);
+	let memberid=user.cloudinary_id;
+	console.log("memberid",""+memberid);
 await cloudinary.uploader.destroy(user.cloudinary_id);
+
 const result = await cloudinary.uploader.upload(req.file.path);
-	let member={
+	let body={
 			"Country":""+req.body.Country || user.Country,
 			"State":""+req.body.State || user.State,
 			"region":""+req.body.region || user.region,
@@ -123,9 +127,9 @@ const result = await cloudinary.uploader.upload(req.file.path);
 			'UpdatedOn':""+req.body.UpdatedOn || user.UpdatedOn,
 			"password":""+req.body.password || user.password,
 			"Countrycode":""+req.body.Countrycode || user.Countrycode,
-			'status':""+req.body.Interests || user.Interests
+			'status':""+req.body.status || user.status
 			 }
-    const response = await memberController.update(req.query.id,member);
+    const response = await memberController.update(req.query.id,body);
 	res.send(response);
 })
 router.get('/aggregation', async (req, res) =>{
