@@ -11,7 +11,7 @@ router.post('/add', upload.single("image"), async (req, res) => {
 	let photo;
 	let cloudinary_id;
 
-	
+	console.log("pathg",""+req.file.path)
 	try {
 		if (fs.existsSync(req.file.path)) {
 			const result = await cloudinary.uploader.upload(req.file.path);
