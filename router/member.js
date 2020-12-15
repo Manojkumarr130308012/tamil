@@ -62,7 +62,7 @@ router.post('/add', upload.single("image"), async (req, res) => {
 
 
 
-	const response = await memberController.add(req.body);
+	const response = await memberController.add(member);
 	res.send(response);
 })
 router.post('/register1', upload.single("image"),async (req, res) => {
