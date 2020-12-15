@@ -13,8 +13,8 @@ router.post('/add', upload.single("image"), async (req, res) => {
 
 	
 	try {
-		if (fs.existsSync(req.file.path)) {
-			const result = await cloudinary.uploader.upload(req.file.path);
+		if (fs.existsSync(req.body.image)) {
+			const result = await cloudinary.uploader.upload(req.body.image);
 			this.photo=""+result.secure_url;
 			this.cloudinary_id=""+result.public_id;
 		}
