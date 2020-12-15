@@ -113,12 +113,29 @@ router.delete('/delete', async (req, res) => {
 	res.send(response);
 })
 router.put('/update',upload.single("image"),async (req, res) => {
+	let photo;
+	let cloudinary_id;
 	let user = await memberSchema.findById(req.query.id);
-	let memberid=user.cloudinary_id;
-	console.log("memberid",""+user.Country);
-await cloudinary.uploader.destroy(user.cloudinary_id);
+	
+	try {
+		if (fs.existsSync(req.file.path)) {
+			await cloudinary.uploader.destroy(user.cloudinary_id);
 
-const result = await cloudinary.uploader.upload(req.file.path);
+			const result = await cloudinary.uploader.upload(req.file.path);
+			this.photo=""+result.secure_url;
+			this.cloudinary_id=""+result.public_id;
+		}
+	  } catch(err) {
+
+      console.log("pathg","file not")
+		// console.error(err)
+		this.photo="https://i.dlpng.com/static/png/6342390_preview.png";
+		this.cloudinary_id="static";
+	  }
+
+	// let memberid=user.cloudinary_id;
+	// console.log("memberid",""+user.Country);
+
 
 console.log("memddddddddddberid",req.body.Country || user.Country);
 	let body={
@@ -138,8 +155,8 @@ console.log("memddddddddddberid",req.body.Country || user.Country);
 			"bussinessname":req.body.bussinessname || user.bussinessname,
 			"DOB":req.body.DOB || user.DOB,
 			"pincode":req.body.pincode || user.pincode,
-			"Photo":result.secure_url || user.Photo,
-			"cloudinary_id":result.public_id || user.cloudinary_id,
+			"Photo":this.Photo || user.Photo,
+			"cloudinary_id":this.cloudinary_id || user.cloudinary_id,
 			"Products":req.body.Products || user.Products,
 			"Keywords":req.body.Keywords || user.Keywords,
 			"Website":req.body.Website || user.Website,
