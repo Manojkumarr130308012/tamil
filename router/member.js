@@ -6,7 +6,62 @@ const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
 const memberSchema = require('../model/member');
 const fs = require('fs')
-router.post('/add', async (req, res) => {
+router.post('/add', upload.single("image"), async (req, res) => {
+
+	let photo;
+	let cloudinary_id;
+
+	
+	try {
+		if (fs.existsSync(req.file.path)) {
+			const result = await cloudinary.uploader.upload(req.file.path);
+			this.photo=""+result.secure_url;
+			this.cloudinary_id=""+result.public_id;
+		}
+	  } catch(err) {
+
+      console.log("pathg","file not")
+		// console.error(err)
+		this.photo="https://i.dlpng.com/static/png/6342390_preview.png";
+		this.cloudinary_id="static";
+	  }
+
+	  let member={
+		"Country":""+req.body.Country,
+		"State":""+req.body.State,
+		"region":""+req.body.region,
+		"district":""+req.body.district,
+		"CityName": ""+req.body.CityName,
+		"Name":""+req.body.Name,
+		"Gender":""+req.body.Gender,
+		"Chapter":""+req.body.Chapter,
+		"Category":""+req.body.Category,
+		"MembershipType":""+req.body.MembershipType,
+		"Address":""+req.body.Address,
+		"Email":""+req.body.Email,
+		"Mobile":""+req.body.Mobile,
+		"bussinessname":""+req.body.bussinessname,
+		"DOB":""+req.body.DOB,
+		"pincode":""+req.body.pincode,
+		"Photo":""+this.photo,
+		"cloudinary_id":""+this.cloudinary_id,
+		"Products":""+req.body.Products,
+		"Keywords":""+req.body.Keywords,
+		"Website":""+req.body.Website,
+		"Interests":""+req.body.Interests,
+		"SocialMediaLinks":""+req.body.SocialMediaLinks,
+		"ValidUpto": ""+req.body.ValidUpto,
+		"CreatedOn":""+req.body.CreatedOn,
+		'UpdatedOn':""+req.body.UpdatedOn,
+		"password":""+req.body.password,
+		"Countrycode":"+91",
+		"fcmstatus":"gg",
+		"fcmtoken":"ggg",
+		'status':""+req.body.status
+		 }
+
+
+
 	const response = await memberController.add(req.body);
 	res.send(response);
 })
