@@ -117,6 +117,14 @@ const memberSchema = new mongoose.Schema({
     Countrycode  :{
         type: String,
         required: false
+    },
+    fcmstatus  :{
+        type: String,
+        required: false
+    },
+    fcmtoken  :{
+        type: String,
+        required: false
     }
 })
 module.exports = new mongoose.model('member',memberSchema);

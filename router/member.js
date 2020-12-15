@@ -5,20 +5,31 @@ const cloudinary = require("../utils/cloudinary");
 const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
 const memberSchema = require('../model/member');
+const fs = require('fs')
 router.post('/add', async (req, res) => {
 	const response = await memberController.add(req.body);
 	res.send(response);
 })
-router.post('/', upload.single("image"),async (req, res) => {
-
-
-
-
-	const result = await cloudinary.uploader.upload(req.file.path);
-	let photo=""+result.secure_url;
-	let cloudinary_id=""+result.public_id;
+router.post('/register1', upload.single("image"),async (req, res) => {
+	let photo;
+	let cloudinary_id;
 
 	
+	try {
+		if (fs.existsSync(req.file.path)) {
+			const result = await cloudinary.uploader.upload(req.file.path);
+			this.photo=""+result.secure_url;
+			this.cloudinary_id=""+result.public_id;
+		}
+	  } catch(err) {
+
+      console.log("pathg","file not")
+		// console.error(err)
+		this.photo="https://i.dlpng.com/static/png/6342390_preview.png";
+		this.cloudinary_id="static";
+	  }
+
+
 	
 	let Countrycode=req.body.Countrycode;
 	let Name=req.body.Name;
@@ -59,8 +70,8 @@ router.post('/', upload.single("image"),async (req, res) => {
 		"bussinessname":"null",
 		"DOB":"null",
 		"pincode":"null",
-		"Photo":""+photo,
-		"cloudinary_id":""+cloudinary_id,
+		"Photo":""+this.photo,
+		"cloudinary_id":""+this.cloudinary_id,
 		"Products":"null",
 		"Keywords":"null",
 		"Website":"null",
@@ -71,6 +82,8 @@ router.post('/', upload.single("image"),async (req, res) => {
 		'UpdatedOn':"null",
 		"password":""+password,
 		"Countrycode":""+Countrycode,
+		"fcmstatus":"ffffff",
+		"fcmtoken":"gggg",
 		'status':"null"
 		 }
 
@@ -102,40 +115,42 @@ router.delete('/delete', async (req, res) => {
 router.put('/update',upload.single("image"),async (req, res) => {
 	let user = await memberSchema.findById(req.query.id);
 	let memberid=user.cloudinary_id;
-	console.log("memberid",""+memberid);
+	console.log("memberid",""+user.Country);
 await cloudinary.uploader.destroy(user.cloudinary_id);
 
 const result = await cloudinary.uploader.upload(req.file.path);
+
+console.log("memddddddddddberid",req.body.Country || user.Country);
 	let body={
-			"Country":""+req.body.Country || user.Country,
-			"State":""+req.body.State || user.State,
-			"region":""+req.body.region || user.region,
-			"district":""+req.body.district || user.district,
-			"CityName": ""+req.body.CityName || user.CityName,
-			"Name":""+req.body.Name || user.Name,
-			"Gender":""+req.body.Gender || user.Gender,
-			"Chapter":""+req.body.Chapter || user.Chapter,
-			"Category":""+req.body.Category || user.Category,
-			"MembershipType":""+req.body.MembershipType || user.MembershipType,
-			"Address":""+req.body.Address || user.Address,
-			"Email":""+req.body.Email || user.Email,
-			"Mobile":""+req.body.Mobile || user.Mobile,
-			"bussinessname":""+req.body.bussinessname || user.bussinessname,
-			"DOB":""+req.body.DOB || user.DOB,
-			"pincode":""+req.body.pincode || user.pincode,
-			"Photo":""+result.secure_url || user.Photo,
-			"cloudinary_id":""+result.public_id || user.cloudinary_id,
-			"Products":""+req.body.Products || user.Products,
-			"Keywords":""+req.body.Keywords || user.Keywords,
-			"Website":""+req.body.Website || user.Website,
-			"Interests":""+req.body.Interests || user.Interests,
-			"SocialMediaLinks":""+req.body.SocialMediaLinks || user.SocialMediaLinks,
-			"ValidUpto": ""+req.body.ValidUpto || user.ValidUpto,
-			"CreatedOn":""+req.body.CreatedOn || user.CreatedOn,
-			'UpdatedOn':""+req.body.UpdatedOn || user.UpdatedOn,
-			"password":""+req.body.password || user.password,
-			"Countrycode":""+req.body.Countrycode || user.Countrycode,
-			'status':""+req.body.status || user.status
+			"Country":req.body.Country || user.Country,
+			"State":req.body.State || user.State,
+			"region":req.body.region || user.region,
+			"district":req.body.district || user.district,
+			"CityName": req.body.CityName || user.CityName,
+			"Name":req.body.Name || user.Name,
+			"Gender":req.body.Gender || user.Gender,
+			"Chapter":req.body.Chapter || user.Chapter,
+			"Category":req.body.Category || user.Category,
+			"MembershipType":req.body.MembershipType || user.MembershipType,
+			"Address":req.body.Address || user.Address,
+			"Email":req.body.Email || user.Email,
+			"Mobile":req.body.Mobile || user.Mobile,
+			"bussinessname":req.body.bussinessname || user.bussinessname,
+			"DOB":req.body.DOB || user.DOB,
+			"pincode":req.body.pincode || user.pincode,
+			"Photo":result.secure_url || user.Photo,
+			"cloudinary_id":result.public_id || user.cloudinary_id,
+			"Products":req.body.Products || user.Products,
+			"Keywords":req.body.Keywords || user.Keywords,
+			"Website":req.body.Website || user.Website,
+			"Interests":req.body.Interests || user.Interests,
+			"SocialMediaLinks":req.body.SocialMediaLinks || user.SocialMediaLinks,
+			"ValidUpto": req.body.ValidUpto || user.ValidUpto,
+			"CreatedOn":req.body.CreatedOn || user.CreatedOn,
+			'UpdatedOn':req.body.UpdatedOn || user.UpdatedOn,
+			"password":req.body.password || user.password,
+			"Countrycode":req.body.Countrycode || user.Countrycode,
+			'status':req.body.status || user.status
 			 }
     const response = await memberController.update(req.query.id,body);
 	res.send(response);
@@ -152,7 +167,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/login1', async (req, res) => {
-    res.send(await memberController.login1(req.query.Mobile,req.query.password));
+    res.send(await memberController.login1(req.query.Mobile,req.query.password,req.query.fcmstatus,req.query.fcmtoken));
 });
 router.get('/login2', async (req, res) => {
     res.send(await memberController.login2(req.query.Mobile));

@@ -338,8 +338,8 @@ async aggregation1(Mobile) {
             let user = await memberSchema.findOne({
                 Mobile: Mobile,
                 password: password,
-            });
-
+			});
+			
             if(!user){
                 throw new Error('invalid creds');
             }
@@ -360,13 +360,20 @@ async aggregation1(Mobile) {
 
 
 
-    async login1(Mobile,password){
+    async login1(Mobile,password,fcmstatus,fcmtoken){
        
         try{
             let user = await memberSchema.findOne({
                 Mobile: Mobile,
                 password: password,
-            });
+			});
+
+			let member={
+				"fcmstatus":""+fcmstatus,
+				"fcmtoken":""+fcmtoken,
+				 }
+
+			let response = await memberSchema.update({_id: user.id}, member);
 
             if(!user){
                 throw new Error('invalid creds');
