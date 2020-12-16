@@ -52,35 +52,35 @@ class chapterController{
 				{$lookup:
 					  {
 						from: "countries",
-						localField: "Country",
+						localField: ""+response.Country,
 						foreignField: "_id",
 						as: "CountryDetails"
 					  }
 				 },{$lookup:
 					{
 					  from: "states",
-					  localField: "State",
+					  localField: ""+response.State,
 					  foreignField: "_id",
 					  as: "StateDetails"
 					}
 			   },{$lookup:
 				{
 				  from: "regions",
-				  localField: "region",
+				  localField: ""+response.region,
 				  foreignField: "_id",
 				  as: "regionsDetails"
 				}
 		   },{$lookup:
 			{
 			  from: "districts",
-			  localField: "district",
+			  localField: ""+response.district,
 			  foreignField: "_id",
 			  as: "districtsDetails"
 			}
 	   },{$lookup:
 		{
 		  from: "cities",
-		  localField: "CityName",
+		  localField: ""+response.CityName,
 		  foreignField: "_id",
 		  as: "CityNamesDetails"
 		}
