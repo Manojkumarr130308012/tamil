@@ -2,6 +2,7 @@ const chapterSchema = require('../model/chapter');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
+const memberSchema = require('../model/member');
 class chapterController{
 
 
@@ -90,7 +91,12 @@ as: "CityNamesDetails"
 }
 }			  ])
 
-			return response;
+let result = await memberSchema.find({'_id':response.id});
+			
+	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
+	let count=Object.keys(result).length;
+
+			return response,count;
 			
 		} catch(error){
 			return {

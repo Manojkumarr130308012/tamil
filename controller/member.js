@@ -73,7 +73,9 @@ class memberController{
 
 	async fetchdatachapter(Chapter){
 		try{
-			let response=await chapterSchema.aggregate( [	{
+
+
+			let response=await memberSchema.aggregate( [	{
 				$match: {
 					Chapter: ObjectId(Chapter)
 				}
