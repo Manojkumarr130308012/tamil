@@ -44,7 +44,18 @@ class chapterController{
 			};
 		}
 	}
-
+	async fetchdata1(district){
+		try{
+			let response = await chapterSchema.find({'district':district});
+			return response;
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async delete(id){
 		try{
 			let response = await chapterSchema.deleteOne({_id: id});

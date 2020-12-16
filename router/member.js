@@ -10,8 +10,6 @@ router.post('/add', upload.single("image"), async (req, res) => {
 
 	let photo;
 	let cloudinary_id;
-
-	console.log("pathg",""+req.file.path)
 	try {
 		if (fs.existsSync(req.file.path)) {
 			const result = await cloudinary.uploader.upload(req.file.path);
@@ -64,6 +62,7 @@ router.post('/add', upload.single("image"), async (req, res) => {
 
 	const response = await memberController.add(member);
 	res.send(response);
+	
 })
 router.post('/register1', upload.single("image"),async (req, res) => {
 	let photo;
