@@ -3,6 +3,8 @@ const errorHandler = require('../utils/error.handler');
 const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
 const cloudinary = require("../utils/cloudinary");
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 class memberController{
 
 
@@ -71,8 +73,48 @@ class memberController{
 
 	async fetchdatachapter(Chapter){
 		try{
-			let response = await memberSchema.find({'Chapter':Chapter});
-			return response;
+			let response=await chapterSchema.aggregate( [	{
+				$match: {
+					Chapter: ObjectId(Chapter)
+				}
+			},	{$lookup:
+				{
+				  from: "countries",
+				  localField: "Country",
+				  foreignField: "_id",
+				  as: "CountryDetails"
+				}
+		   },{$lookup:
+			  {
+				from: "states",
+				localField: "State",
+				foreignField: "_id",
+				as: "StateDetails"
+			  }
+		 },{$lookup:
+		  {
+			from: "regions",
+			localField: "region",
+			foreignField: "_id",
+			as: "regionsDetails"
+		  }
+	 },{$lookup:
+	  {
+		from: "districts",
+		localField: "district",
+		foreignField: "_id",
+		as: "districtsDetails"
+	  }
+	},{$lookup:
+	{
+	from: "cities",
+	localField: "CityName",
+	foreignField: "_id",
+	as: "CityNamesDetails"
+	}
+	}			  ])
+	
+				return response;
 			
 		} catch(error){
 			return {
