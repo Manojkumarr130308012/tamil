@@ -89,7 +89,7 @@ localField: "CityName",
 foreignField: "_id",
 as: "CityNamesDetails"
 }
-}			  ])
+}]);
 
 let result = await memberSchema.find({'_id':response.id});
 			
