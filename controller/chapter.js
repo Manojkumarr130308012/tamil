@@ -47,6 +47,46 @@ class chapterController{
 	async fetchdata1(district){
 		try{
 			let response = await chapterSchema.find({'district':district});
+
+            await chapterSchema.aggregate([
+				{$lookup:
+					  {
+						from: "countries",
+						localField: "Country",
+						foreignField: "_id",
+						as: "CountryDetails"
+					  }
+				 },{$lookup:
+					{
+					  from: "states",
+					  localField: "State",
+					  foreignField: "_id",
+					  as: "StateDetails"
+					}
+			   },{$lookup:
+				{
+				  from: "regions",
+				  localField: "region",
+				  foreignField: "_id",
+				  as: "regionsDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "districts",
+			  localField: "district",
+			  foreignField: "_id",
+			  as: "districtsDetails"
+			}
+	   },{$lookup:
+		{
+		  from: "cities",
+		  localField: "CityName",
+		  foreignField: "_id",
+		  as: "CityNamesDetails"
+		}
+   }			 
+				]);
+
 			return response;
 			
 		} catch(error){
