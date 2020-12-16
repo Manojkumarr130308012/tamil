@@ -142,9 +142,10 @@ class memberController{
 		  foreignField: "_id",
 		  as: "gendersDetails"
 		}
-	}				  ])
+	} ])
 	
-				return response;
+				return response,
+				response[0].ChapterNameDetails[0].ChapterName
 			
 		} catch(error){
 			return {
