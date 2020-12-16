@@ -93,12 +93,12 @@ as: "CityNamesDetails"
 
 console.log("ddddddd",""+response.id)
 
-   let result = await memberSchema.find({'_id':response.id});
+//    let result = await memberSchema.find({'_id':response.id});
 			
-	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
-	let count=Object.keys(result).length;
+// 	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
+// 	let count=Object.keys(result).length;
 
-			return response,count;
+			return response;
 			
 		} catch(error){
 			return {
