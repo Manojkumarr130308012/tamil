@@ -69,7 +69,7 @@ router.post('/add', upload.single("image"), async (req, res) => {
 router.post('/register1', upload.single("file"),async (req, res) => {
 	let photo;
 	let cloudinary_id;
-	const file = req.file.path;
+	// const file = req.file.path;
 	
 	try {
 		if (fs.existsSync(req.file.path)) {
