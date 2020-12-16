@@ -116,33 +116,13 @@ class memberController{
 	}
 	},{$lookup:
 		{
-		  from: "membershiptypes",
-		  localField: "MembershipType",
-		  foreignField: "_id",
-		  as: "MembershipTypeDetails"
-		}
-	},{$lookup:
-		{
 		  from: "chapters",
 		  localField: "Chapter",
 		  foreignField: "_id",
 		  as: "ChapterNameDetails"
 		}
-	},{$lookup:
-		{
-		  from: "membershipclasses",
-		  localField: "Category",
-		  foreignField: "_id",
-		  as: "membershipclassesDetails"
-		}
-	},{$lookup:
-		{
-		  from: "genders",
-		  localField: "Gender",
-		  foreignField: "_id",
-		  as: "gendersDetails"
-		}
-	} ])
+	}
+	])
 			
 		} catch(error){
 			return {
