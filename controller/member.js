@@ -75,7 +75,7 @@ class memberController{
 		try{
 
 
-			let response=await memberSchema.aggregate( [	{
+			return await memberSchema.aggregate( [	{
 				$match: {
 					Chapter: ObjectId(Chapter)
 				}
@@ -143,8 +143,6 @@ class memberController{
 		  as: "gendersDetails"
 		}
 	} ])
-	
-				return response
 			
 		} catch(error){
 			return {
