@@ -51,7 +51,7 @@ class chapterController{
           return await chapterSchema.aggregate([
 			{
 				$match: {
-					district: ObjectId(district)
+					district: district
 				}
 			}
 // 			,{$lookup:
