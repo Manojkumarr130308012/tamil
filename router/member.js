@@ -13,8 +13,8 @@ router.post('/add', upload.single("image"), async (req, res) => {
 	const file = req.image;
 	
 	try {
-		if (fs.existsSync(file)) {
-			const result = await cloudinary.uploader.upload(file);
+		if (fs.existsSync(req.image)) {
+			const result = await cloudinary.uploader.upload(req.image);
 			this.photo=""+result.secure_url;
 			this.cloudinary_id=""+result.public_id;
 		}
@@ -66,7 +66,7 @@ router.post('/add', upload.single("image"), async (req, res) => {
 	res.send(response);
 
 })
-router.post('/register1', upload.single("file"),async (req, res) => {
+router.post('/register1', upload.single("image"),async (req, res) => {
 	let photo;
 	let cloudinary_id;
 	// const file = req.file.path;
