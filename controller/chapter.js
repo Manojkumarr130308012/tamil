@@ -46,15 +46,15 @@ class chapterController{
 	}
 	async fetchdata1(district1){
 		try{
-			// let response = await chapterSchema.find({'district':district});
+			//  = await chapterSchema.find({'district':district});
 
-          return await chapterSchema.aggregate( [	{
+			let response=await chapterSchema.aggregate( [	{
 			$match: {
 				district: ObjectId(district1)
 			}
 		}, ])
 
-			
+			return response;
 			
 		} catch(error){
 			return {
