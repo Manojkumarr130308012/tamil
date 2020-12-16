@@ -48,7 +48,11 @@ class chapterController{
 		try{
 			// let response = await chapterSchema.find({'district':district});
 
-          return await chapterSchema.aggregate( [ { $match : { district : ObjectId(district1) } } ])
+          return await chapterSchema.aggregate( [	{
+			$match: {
+				district: ObjectId(district)
+			}
+		}, ])
 
 			
 			
