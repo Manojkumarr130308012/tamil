@@ -144,8 +144,7 @@ class memberController{
 		}
 	} ])
 	
-				return response,
-				response[0].ChapterNameDetails[0].ChapterName
+				return response
 			
 		} catch(error){
 			return {
