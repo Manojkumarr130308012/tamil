@@ -48,7 +48,7 @@ class chapterController{
 		try{
 			let response = await chapterSchema.find({'district':district});
 
-            await chapterSchema.aggregate([
+          let result=  await chapterSchema.aggregate([
 				{$lookup:
 					  {
 						from: "countries",
@@ -87,7 +87,7 @@ class chapterController{
    }			 
 				]);
 
-			return response;
+			return response,result;
 			
 		} catch(error){
 			return {
