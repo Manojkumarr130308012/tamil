@@ -52,7 +52,7 @@ class chapterController{
 			$match: {
 				district: ObjectId(district1)
 			}
-		}, ])
+		} ])
 
 			return response;
 			
