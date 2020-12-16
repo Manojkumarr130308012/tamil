@@ -69,7 +69,18 @@ class memberController{
 		}
 	}
 
-
+	async fetchdatachapter(Chapter){
+		try{
+			let response = await memberSchema.find({'Chapter':Chapter});
+			return response;
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 
 	async delete(id){
 		try{

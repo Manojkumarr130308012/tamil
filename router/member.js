@@ -62,7 +62,7 @@ router.post('/add', upload.single("image"), async (req, res) => {
 
 	const response = await memberController.add(member);
 	res.send(response);
-	
+
 })
 router.post('/register1', upload.single("image"),async (req, res) => {
 	let photo;
@@ -154,11 +154,20 @@ router.get('/fetchdata', async (req, res) => {
 	const response = await memberController.fetchdata(req.query.id);
 	res.send(response);
 })
+
+router.get('/fetchdatabychapter', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await memberController.fetchdatachapter(req.query.Chapter);
+	res.send(response);
+})
+
 router.get('/fetchdata1', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
 	const response = await memberController.aggregation1(req.query.Mobile);
 	res.send(response);
 })
+
+
 router.delete('/delete', async (req, res) => {
 	let user = await memberSchema.findById(req.query.id);
     // Delete image from cloudinary
