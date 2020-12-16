@@ -50,7 +50,7 @@ class chapterController{
 		try{
 			//  = await chapterSchema.find({'district':district});
 
-			let response=await chapterSchema.aggregate( [	{
+			let response=await chapterSchema.aggregate( [{
 			$match: {
 				district: ObjectId(district1)
 			}
@@ -91,7 +91,9 @@ as: "CityNamesDetails"
 }
 }]);
 
-let result = await memberSchema.find({'_id':response.id});
+console.log("ddddddd",""+response.id)
+
+   let result = await memberSchema.find({'_id':response.id});
 			
 	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
 	let count=Object.keys(result).length;
