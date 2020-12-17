@@ -198,7 +198,7 @@ console.log("memddddddddddberid",req.body.Country || user.Country);
 			"DOB":req.body.DOB || user.DOB,
 			"pincode":req.body.pincode || user.pincode,
 			"Photo":req.body.Photo || user.Photo,
-			"cloudinary_id":this.cloudinary_id || user.cloudinary_id,
+			"cloudinary_id":"statoce" || user.cloudinary_id,
 			"Products":req.body.Products || user.Products,
 			"Keywords":req.body.Keywords || user.Keywords,
 			"Website":req.body.Website || user.Website,
