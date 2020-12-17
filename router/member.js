@@ -54,7 +54,7 @@ router.post('/add', async (req, res) => {
 		"fcmtoken":"ggg",
 		'status':""+req.body.status,
 		"description":"ggggg",
-		"newseventnoti":"0",
+		"newseventnoti":false,
 		 }
 
 
@@ -136,7 +136,7 @@ router.post('/register1',async (req, res) => {
 		"fcmtoken":"gggg",
 		'status':"null",
 		"description":"ggggg",
-		"newseventnoti":"false",
+		"newseventnoti":false,
 		 }
 
 	const response = await memberController.upload1(member,cost);
