@@ -12,7 +12,7 @@ router.post('/add', upload.single("image"), async (req, res) => {
 	let cloudinary_id;
 
 
-	try {
+	
 		if (req.body.image != null||"") {
 			this.photo=""+req.body.image;
 			this.cloudinary_id="dynamic";
@@ -66,7 +66,7 @@ router.post('/register1',async (req, res) => {
 	let cloudinary_id;
 	// const file = req.file.path;
 	
-	try {
+
 		if (req.body.image != null||"") {
 			this.photo=""+req.body.image;
 			this.cloudinary_id="dynamic";
@@ -163,9 +163,8 @@ router.get('/fetchdata1', async (req, res) => {
 
 
 router.delete('/delete', async (req, res) => {
-	let user = await memberSchema.findById(req.query.id);
+
     // Delete image from cloudinary
-    await cloudinary.uploader.destroy(user.cloudinary_id);
 	const response = await memberController.delete(req.query.id);
 	res.send(response);
 })
