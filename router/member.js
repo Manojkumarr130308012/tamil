@@ -10,21 +10,16 @@ router.post('/add', upload.single("image"), async (req, res) => {
 
 	let photo;
 	let cloudinary_id;
-	const file = req.image;
-	
-	try {
-		if (fs.existsSync(req.image)) {
-			const result = await cloudinary.uploader.upload(req.image);
-			this.photo=""+result.secure_url;
-			this.cloudinary_id=""+result.public_id;
-		}
-	  } catch(err) {
 
-      console.log("pathg","file not")
-		// console.error(err)
-		this.photo="https://i.dlpng.com/static/png/6342390_preview.png";
-		this.cloudinary_id="static";
-	  }
+
+	try {
+		if (req.body.image != null||"") {
+			this.photo=""+req.body.image;
+			this.cloudinary_id="dynamic";
+		}else{
+			this.photo="https://i.dlpng.com/static/png/6342390_preview.png";
+			this.cloudinary_id="static";
+		}
 
 	  let member={
 		"Country":""+req.body.Country,
@@ -66,24 +61,21 @@ router.post('/add', upload.single("image"), async (req, res) => {
 	res.send(response);
 
 })
-router.post('/register1', upload.single("image"),async (req, res) => {
+router.post('/register1',async (req, res) => {
 	let photo;
 	let cloudinary_id;
 	// const file = req.file.path;
 	
 	try {
-		if (fs.existsSync(req.file.path)) {
-			const result = await cloudinary.uploader.upload(req.file.path);
-			this.photo=""+result.secure_url;
-			this.cloudinary_id=""+result.public_id;
+		if (req.body.image != null||"") {
+			this.photo=""+req.body.image;
+			this.cloudinary_id="dynamic";
+		}else{
+			this.photo="https://i.dlpng.com/static/png/6342390_preview.png";
+			this.cloudinary_id="static";
 		}
-	  } catch(err) {
+	 
 
-      console.log("pathg","file not")
-		// console.error(err)
-		this.photo="https://i.dlpng.com/static/png/6342390_preview.png";
-		this.cloudinary_id="static";
-	  }
 
 
 	
@@ -178,7 +170,7 @@ router.delete('/delete', async (req, res) => {
 	res.send(response);
 })
 router.put('/update',async (req, res) => {
-	
+	let user = await memberSchema.findById(req.query.id);
 console.log("memddddddddddberid",req.body.Country || user.Country);
 	let body={
 			"Country":req.body.Country || user.Country,
@@ -198,7 +190,7 @@ console.log("memddddddddddberid",req.body.Country || user.Country);
 			"DOB":req.body.DOB || user.DOB,
 			"pincode":req.body.pincode || user.pincode,
 			"Photo":req.body.Photo || user.Photo,
-			"cloudinary_id":"statoce" || user.cloudinary_id,
+			"cloudinary_id":"Dynamic" || user.cloudinary_id,
 			"Products":req.body.Products || user.Products,
 			"Keywords":req.body.Keywords || user.Keywords,
 			"Website":req.body.Website || user.Website,
