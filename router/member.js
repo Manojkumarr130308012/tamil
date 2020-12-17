@@ -52,7 +52,9 @@ router.post('/add', async (req, res) => {
 		"Countrycode":"+91",
 		"fcmstatus":"gg",
 		"fcmtoken":"ggg",
-		'status':""+req.body.status
+		'status':""+req.body.status,
+		"description":"ggggg",
+		"newseventnoti":"0",
 		 }
 
 
@@ -132,7 +134,9 @@ router.post('/register1',async (req, res) => {
 		"Countrycode":""+Countrycode,
 		"fcmstatus":"ffffff",
 		"fcmtoken":"gggg",
-		'status':"null"
+		'status':"null",
+		"description":"ggggg",
+		"newseventnoti":"0",
 		 }
 
 	const response = await memberController.upload1(member,cost);
@@ -203,7 +207,9 @@ console.log("memddddddddddberid",req.body.Country || user.Country);
 			'UpdatedOn':req.body.UpdatedOn || user.UpdatedOn,
 			"password":req.body.password || user.password,
 			"Countrycode":req.body.Countrycode || user.Countrycode,
-			'status':req.body.status || user.status
+			'status':req.body.status || user.status,
+			"description":req.body.description || user.description,
+		"newseventnoti":req.body.newseventnoti || user.newseventnoti,
 			 }
     const response = await memberController.update(req.query.id,body);
 	res.send(response);

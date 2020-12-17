@@ -125,6 +125,14 @@ const memberSchema = new mongoose.Schema({
     fcmtoken  :{
         type: String,
         required: false
+    },
+    description  :{
+        type: String,
+        required: false
+    },
+    newseventnoti  :{
+        type: String,
+        required: false
     }
 })
 module.exports = new mongoose.model('member',memberSchema);

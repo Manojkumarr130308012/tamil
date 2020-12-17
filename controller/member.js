@@ -373,6 +373,8 @@ async aggregation1(Mobile) {
 			'UpdatedOn':"null",
 			"password":""+password,
 			"Countrycode":""+Countrycode,
+			"description":"ggggg",
+			"newseventnoti":"0",
 			'status':"null"
 			 }
 			 let response = await memberSchema.create(member);
