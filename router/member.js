@@ -6,7 +6,7 @@ const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
 const memberSchema = require('../model/member');
 const fs = require('fs')
-router.post('/add', upload.single("image"), async (req, res) => {
+router.post('/add', async (req, res) => {
 
 	let photo;
 	let cloudinary_id;
@@ -67,7 +67,7 @@ router.post('/register1',async (req, res) => {
 	// const file = req.file.path;
 	
 
-		if (req.body.image != null||"") {
+		if (req.body.photo != null||"") {
 			this.photo=""+req.body.image;
 			this.cloudinary_id="dynamic";
 		}else{
