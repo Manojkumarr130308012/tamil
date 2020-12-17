@@ -171,6 +171,9 @@ router.delete('/delete', async (req, res) => {
 router.put('/update',async (req, res) => {
 	let user = await memberSchema.findById(req.query.id);
 console.log("memddddddddddberid",req.body.Country || user.Country);
+
+
+
 	let body={
 			"Country":req.body.Country || user.Country,
 			"State":req.body.State || user.State,
