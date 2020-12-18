@@ -45,18 +45,18 @@ const eventsSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    // Image  :{
-    //     type: String,
-    //     required: false
-    // }, 
+    Image  :{
+        type: String,
+        required: false
+    }, 
     ExternalLinks:{
         type: String,
         required: false
     },
-    // Attachments :{
-    //     type: String,
-    //     required: false
-    // }, 
+    Attachments :{
+        type: String,
+        required: false
+    }, 
     Venue :{
         type: String,
         required: false
