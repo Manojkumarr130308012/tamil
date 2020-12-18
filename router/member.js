@@ -195,7 +195,7 @@ console.log("memddddddddddberid",req.body.Country || user.Country);
 			"bussinessname":req.body.bussinessname || user.bussinessname,
 			"DOB":req.body.DOB || user.DOB,
 			"pincode":req.body.pincode || user.pincode,
-			"Photo":req.body.Photo || user.Photo,
+			"Photo":req.body.image || user.Photo,
 			"cloudinary_id":"Dynamic" || user.cloudinary_id,
 			"Products":req.body.Products || user.Products,
 			"Keywords":req.body.Keywords || user.Keywords,
