@@ -21,6 +21,13 @@ router.post('/add', async (req, res) => {
 			this.cloudinary_id="static";
 		}
 
+		if (req.body.bussinesslogo != null||"") {
+			this.bussinesslogo=""+req.body.bussinesslogo;
+		
+		}else{
+			this.bussinesslogo="https://i.dlpng.com/static/png/6342390_preview.png";
+		}
+
 	  let member={
 		"Country":""+req.body.Country,
 		"State":""+req.body.State,
@@ -39,6 +46,7 @@ router.post('/add', async (req, res) => {
 		"DOB":""+req.body.DOB,
 		"pincode":""+req.body.pincode,
 		"Photo":""+this.photo,
+		"bussinesslogo":""+this.bussinesslogo,
 		"cloudinary_id":""+this.cloudinary_id,
 		"Products":""+req.body.Products,
 		"Keywords":""+req.body.Keywords,
