@@ -77,7 +77,12 @@ router.post('/register1',async (req, res) => {
 			this.cloudinary_id="static";
 		}
 	 
-
+		if (req.body.bussinesslogo != null||"") {
+			this.bussinesslogo=""+req.body.bussinesslogo;
+		
+		}else{
+			this.bussinesslogo="https://i.dlpng.com/static/png/6342390_preview.png";
+		}
 
 
 	
@@ -121,6 +126,7 @@ router.post('/register1',async (req, res) => {
 		"DOB":"null",
 		"pincode":"null",
 		"Photo":""+this.photo,
+		"bussinesslogo":""+this.bussinesslogo,
 		"cloudinary_id":""+this.cloudinary_id,
 		"Products":"null",
 		"Keywords":"null",
@@ -196,6 +202,7 @@ console.log("memddddddddddberid",req.body.Country || user.Country);
 			"DOB":req.body.DOB || user.DOB,
 			"pincode":req.body.pincode || user.pincode,
 			"Photo":req.body.image || user.Photo,
+			"bussinesslogo":req.body.bussinesslogo || user.bussinesslogo,
 			"cloudinary_id":"Dynamic" || user.cloudinary_id,
 			"Products":req.body.Products || user.Products,
 			"Keywords":req.body.Keywords || user.Keywords,

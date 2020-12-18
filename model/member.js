@@ -70,6 +70,10 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: false
     }, 
+    bussinesslogo :{
+        type: String,
+        required: false
+    },
     cloudinary_id :{
         type: String,
         required: false
