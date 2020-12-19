@@ -29,6 +29,7 @@ const speakerproRouter = require('../router/speakerpro');
 const trackerproRouter = require('../router/tracker');
 const agendaRouter = require('../router/agenda');
 const fileuploadRouter = require('../router/fileupload');
+const eventimageRouter = require('../router/eventimage');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
@@ -72,4 +73,5 @@ server.use("/speaker", speakerproRouter);
 server.use("/tracker", trackerproRouter);
 server.use("/agenda", agendaRouter);
 server.use("/fileupload", fileuploadRouter);
+server.use("/eventimage", eventimageRouter);
 module.exports= server;
