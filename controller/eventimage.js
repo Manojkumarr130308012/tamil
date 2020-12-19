@@ -1,4 +1,4 @@
-const eventimageSchema = require('../model/tracker');
+const eventimageSchema = require('../model/eventimage');
 const errorHandler = require('../utils/error.handler');
 
 class eventimageController{
