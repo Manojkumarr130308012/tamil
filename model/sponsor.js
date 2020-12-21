@@ -35,27 +35,27 @@ const sponsorproSchema = new mongoose.Schema({
     },
     sponsorbanner: {
         type: String,
-        required: true
+        required: false
     },
     image1: {
         type: String,
-        required: true
+        required: false
     },
     image2: {
         type: String,
-        required: true
+        required: false
     },
     image3: {
         type: String,
-        required: true
+        required: false
     },
     image4: {
         type: String,
-        required: true
+        required: false
     },
     image5: {
         type: String,
-        required: true
+        required: false
     }
 })
 module.exports = new mongoose.model('sponsor',sponsorproSchema);
