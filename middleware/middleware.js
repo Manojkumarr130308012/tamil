@@ -31,6 +31,7 @@ const agendaRouter = require('../router/agenda');
 const fileuploadRouter = require('../router/fileupload');
 const eventimageRouter = require('../router/eventimage');
 const eventlinkRouter = require('../router/eventlink');
+const sponsorRouter = require('../router/sponsor');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
@@ -76,4 +77,5 @@ server.use("/agenda", agendaRouter);
 server.use("/fileupload", fileuploadRouter);
 server.use("/eventimage", eventimageRouter);
 server.use("/eventlink", eventlinkRouter);
+server.use("/sponsor", sponsorRouter);
 module.exports= server;

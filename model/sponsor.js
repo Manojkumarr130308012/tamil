@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const speakerproSchema = new mongoose.Schema({
+const sponsorproSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -58,4 +58,4 @@ const speakerproSchema = new mongoose.Schema({
         required: true
     }
 })
-module.exports = new mongoose.model('speaker',speakerproSchema);
+module.exports = new mongoose.model('sponsor',sponsorproSchema);
