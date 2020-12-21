@@ -24,6 +24,10 @@ const speakerproSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true
+    }, 
+    profile: {
+        type: String,
+        required: true
     },
     mobile: {
         type: String,
