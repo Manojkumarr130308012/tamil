@@ -48,6 +48,10 @@ const eventsSchema = new mongoose.Schema({
     Image  :{
         type: String,
         required: false
+    },  
+    banner  :{
+        type: String,
+        required: false
     }, 
     ExternalLinks:{
         type: String,
