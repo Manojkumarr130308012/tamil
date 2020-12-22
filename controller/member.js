@@ -80,7 +80,7 @@ class memberController{
 					Chapter: ObjectId(Chapter)
 				}
 			},
-			{ $group : { Chapter : ""+Chapter, count: { $sum: 1 } } },	{$lookup:
+			{ $group : { Chapter : Chapter, count: { $sum: 1 } } },	{$lookup:
 				{
 				  from: "countries",
 				  localField: "Country",
