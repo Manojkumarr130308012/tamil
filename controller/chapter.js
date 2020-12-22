@@ -54,7 +54,8 @@ class chapterController{
 			$match: {
 				district: ObjectId(district1)
 			}
-		},	{$lookup:
+		},
+			{$lookup:
 			{
 			  from: "countries",
 			  localField: "Country",
@@ -91,6 +92,13 @@ as: "CityNamesDetails"
 }
 }]);
 
+let result=await memberSchema.aggregate( [	
+	{
+	$match: {
+		Chapter: ObjectId(Chapter)
+	}
+}
+])
 // console.log("ddddddd",""+response[0]._id)
 
 //    let result = await memberSchema.find({'_id':response[0]._id});
@@ -98,7 +106,7 @@ as: "CityNamesDetails"
 // 	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
 // 	let count=Object.keys(result).length;
 
-			return response;
+			return response,result;
 			
 		} catch(error){
 			return {
