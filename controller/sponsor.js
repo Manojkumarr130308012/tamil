@@ -72,5 +72,21 @@ class sponsorController{
 
     }
 
+
+    async fetchByEvent(Event)
+	{
+		try{
+			let response = await sponsorSchema.find({'Event':Event});
+			return {
+				response: response
+			};	
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
+
 }
 module.exports = new sponsorController();

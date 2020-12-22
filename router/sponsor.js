@@ -23,5 +23,9 @@ router.put('/update', async (req, res) => {
 	const response = await sponsorController.update(req.query.id, req.body);
 	res.send(response);
 })
+router.get('/fetchByevenid', async (req, res) => {
+	const response = await sponsorController.fetchByEvent(req.query.Event);
+	res.send(response); 
+})
 
 module.exports = router;

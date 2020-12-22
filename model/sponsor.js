@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const sponsorproSchema = new mongoose.Schema({
+    Event : {
+        type: mongoose.Schema.ObjectId,
+        required: false
+    },
     name: {
         type: String,
         required: true
