@@ -93,10 +93,12 @@ as: "CityNamesDetails"
 }]);
 
 let result=await memberSchema.aggregate( [	
-	{"$group" : {_id:"$Chapter", count:{$sum:1}}}
-
+	{
+	$match: {
+		Chapter: ObjectId(response[0]._id)
+	}
+}
 ]);
-
 // console.log("ddddddd",""+response[0]._id)
 
 //    let result = await memberSchema.find({'_id':response[0]._id});
@@ -104,8 +106,8 @@ let result=await memberSchema.aggregate( [
 // 	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
 // 	let count=Object.keys(result).length;
 
-			return {response: response,count:result
-				}
+			return response;
+			
 			
 		} catch(error){
 			return {
