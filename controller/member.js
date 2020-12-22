@@ -79,7 +79,8 @@ class memberController{
 				$match: {
 					Chapter: ObjectId(Chapter)
 				}
-			},	{$lookup:
+			},
+			{ $group : { Chapter : ""+Chapter, count: { $sum: 1 } } },	{$lookup:
 				{
 				  from: "countries",
 				  localField: "Country",
