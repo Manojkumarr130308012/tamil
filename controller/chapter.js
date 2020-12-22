@@ -95,10 +95,10 @@ as: "CityNamesDetails"
 let result=await memberSchema.aggregate( [	
 	{
 	$match: {
-		Chapter: ObjectId(Chapter)
+		Chapter: ObjectId(response[0]._id)
 	}
 }
-])
+]);
 // console.log("ddddddd",""+response[0]._id)
 
 //    let result = await memberSchema.find({'_id':response[0]._id});
