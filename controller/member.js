@@ -75,11 +75,12 @@ class memberController{
 		try{
 
 
-			return await memberSchema.aggregate( [	{
-				$match: {
-					Chapter: ObjectId(Chapter)
-				}
-			},
+			return await memberSchema.aggregate( [	
+			// 	{
+			// 	$match: {
+			// 		Chapter: ObjectId(Chapter)
+			// 	}
+			// },
 			{ $group : { Chapter : ObjectId(Chapter), count: { $sum: 1 } } },	
 			{$lookup:
 				{
