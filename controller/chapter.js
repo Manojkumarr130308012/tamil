@@ -106,7 +106,8 @@ let result=await memberSchema.aggregate( [
 // 	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
 // 	let count=Object.keys(result).length;
 
-			return response,result;
+			return response,
+			result=""+result;
 			
 		} catch(error){
 			return {
