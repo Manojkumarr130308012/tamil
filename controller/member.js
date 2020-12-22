@@ -82,49 +82,49 @@ class memberController{
 			// 	}
 			// },
 			{ $group : { Chapter : ObjectId(Chapter), count: { $sum: 1 } } },	
-			{$lookup:
-				{
-				  from: "countries",
-				  localField: "Country",
-				  foreignField: "_id",
-				  as: "CountryDetails"
-				}
-		   },{$lookup:
-			  {
-				from: "states",
-				localField: "State",
-				foreignField: "_id",
-				as: "StateDetails"
-			  }
-		 },{$lookup:
-		  {
-			from: "regions",
-			localField: "region",
-			foreignField: "_id",
-			as: "regionsDetails"
-		  }
-	 },{$lookup:
-	  {
-		from: "districts",
-		localField: "district",
-		foreignField: "_id",
-		as: "districtsDetails"
-	  }
-	},{$lookup:
-	{
-	from: "cities",
-	localField: "CityName",
-	foreignField: "_id",
-	as: "CityNamesDetails"
-	}
-	},{$lookup:
-		{
-		  from: "chapters",
-		  localField: "Chapter",
-		  foreignField: "_id",
-		  as: "ChapterNameDetails"
-		}
-	}
+	// 		{$lookup:
+	// 			{
+	// 			  from: "countries",
+	// 			  localField: "Country",
+	// 			  foreignField: "_id",
+	// 			  as: "CountryDetails"
+	// 			}
+	// 	   },{$lookup:
+	// 		  {
+	// 			from: "states",
+	// 			localField: "State",
+	// 			foreignField: "_id",
+	// 			as: "StateDetails"
+	// 		  }
+	// 	 },{$lookup:
+	// 	  {
+	// 		from: "regions",
+	// 		localField: "region",
+	// 		foreignField: "_id",
+	// 		as: "regionsDetails"
+	// 	  }
+	//  },{$lookup:
+	//   {
+	// 	from: "districts",
+	// 	localField: "district",
+	// 	foreignField: "_id",
+	// 	as: "districtsDetails"
+	//   }
+	// },{$lookup:
+	// {
+	// from: "cities",
+	// localField: "CityName",
+	// foreignField: "_id",
+	// as: "CityNamesDetails"
+	// }
+	// },{$lookup:
+	// 	{
+	// 	  from: "chapters",
+	// 	  localField: "Chapter",
+	// 	  foreignField: "_id",
+	// 	  as: "ChapterNameDetails"
+	// 	}
+	// }
 	])
 			
 		} catch(error){
