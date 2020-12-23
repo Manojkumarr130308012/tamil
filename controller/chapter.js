@@ -119,7 +119,10 @@ as: "CityNamesDetails"
 // 	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
 // 	let count=Object.keys(result).length;
 
-			return response,result; 
+			return{
+				result: result,
+				response: response
+			}; 
 			
 			
 		} catch(error){
