@@ -93,11 +93,12 @@ as: "CityNamesDetails"
 }]);
 
 
- console.log("ddddddd",""+response[1]._id)
 
- let result = await memberSchema.aggregate([
-             
-	{
+ let result = await memberSchema.aggregate([{
+	$match: {
+		district: ObjectId(district1)
+	}
+},{
  $lookup:
 	  {
 		from: "chapters",
@@ -111,15 +112,16 @@ as: "CityNamesDetails"
 	  {
 		  _id:"$ChapterNameDetails.ChapterName",
 			"numOfmembers":{$sum:1},
-		  "listOfmembers":{$push:"$Name"}
 	  }
-  }
+  },{$sort:{"_id.Chapter":1}}
 ]);
 			
 // 	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
 // 	let count=Object.keys(result).length;
 
-			return response,result;
+			return{
+				result: result,response
+			}; 
 			
 			
 		} catch(error){
