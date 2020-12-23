@@ -240,8 +240,8 @@ router.post('/login', async (req, res) => {
     res.send(await memberController.login(req.body));
 });
 
-router.get('/login1', async (req, res) => {
-    res.send(await memberController.login1(req.query.Mobile,req.query.password,req.query.fcmstatus,req.query.fcmtoken));
+router.post('/login1', async (req, res) => {
+    res.send(await memberController.login1(req.body));
 });
 router.get('/login2', async (req, res) => {
     res.send(await memberController.login2(req.query.Mobile));

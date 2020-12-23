@@ -425,17 +425,17 @@ async aggregation1(Mobile) {
 
 
 
-    async login1(Mobile,password,fcmstatus,fcmtoken){
+    async login1(body){
        
         try{
             let user = await memberSchema.findOne({
-                Mobile: Mobile,
-                password: password,
+                Mobile: body.Mobile,
+                password: body.password,
 			});
 
 			let member={
-				"fcmstatus":""+fcmstatus,
-				"fcmtoken":""+fcmtoken,
+				"fcmstatus":""+body.fcmstatus,
+				"fcmtoken":""+body.fcmtoken,
 				 }
 
 			let response = await memberSchema.update({_id: user.id}, member);
