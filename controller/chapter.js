@@ -93,9 +93,28 @@ as: "CityNamesDetails"
 }]);
 
 
- console.log("ddddddd",""+response[0]._id)
+ console.log("ddddddd",""+response[1]._id)
 
-    let result = await memberSchema.find({'_id':response[0]._id});
+ let result = await memberSchema.aggregate([
+             
+	{
+ $lookup:
+	  {
+		from: "chapters",
+		localField: "Chapter",
+		foreignField: "_id",
+		as: "ChapterNameDetails"
+	  }  
+  },
+  {
+	  $group:
+	  {
+		  _id:"$ChapterNameDetails.ChapterName",
+			"numOfmembers":{$sum:1},
+		  "listOfmembers":{$push:"$Name"}
+	  }
+  }
+]);
 			
 // 	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
 // 	let count=Object.keys(result).length;
