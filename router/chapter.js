@@ -33,4 +33,9 @@ router.get('/aggregation', async (req, res) =>{
 	res.send(response);
 	
 })
+router.get('/fetchdatafilter', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await chapterController.fetchdatafilter(req.query.Country,req.query.State,req.query.region,req.query.district);
+	res.send(response);
+})
 module.exports = router;

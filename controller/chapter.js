@@ -157,7 +157,60 @@ as: "CityNamesDetails"
             return { status: "error", error: error };
         }
 
-    }
+	}
+	
+
+	async fetchdatafilter(Country,state,region,district){
+	
+		try{
+			 let response = await chapterSchema.find({$and:[{Country:{$regex: Country, $options: 'i'}},{State:{$regex: state, $options: 'i'}},{region:{$regex: region, $options: 'i'}},{district:{$regex: district, $options: 'i'}}]}).aggregate([
+				{$lookup:
+					  {
+						from: "countries",
+						localField: "Country",
+						foreignField: "_id",
+						as: "CountryDetails"
+					  }
+				 },{$lookup:
+					{
+					  from: "states",
+					  localField: "State",
+					  foreignField: "_id",
+					  as: "StateDetails"
+					}
+			   },{$lookup:
+				{
+				  from: "regions",
+				  localField: "region",
+				  foreignField: "_id",
+				  as: "regionsDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "districts",
+			  localField: "district",
+			  foreignField: "_id",
+			  as: "districtsDetails"
+			}
+	   },{$lookup:
+		{
+		  from: "cities",
+		  localField: "CityName",
+		  foreignField: "_id",
+		  as: "CityNamesDetails"
+		}
+   }			 
+				]);
+	
+			return response;
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async aggregation() {
 		try {
 		return  await chapterSchema.aggregate([
