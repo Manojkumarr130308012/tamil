@@ -8,7 +8,7 @@ class bussopController{
 
 	async add(buss){
 
-		let colors = ['#00FFFF', '#00FF00', '#00FFFF','#0000FF','#FFFF00']
+		let colors = ['0xff008cff', '0xffff7b00', '0xff00b0bd','0xff8400bd','0xffbd0029']
         let memberid=buss.member;
 		let member = await memberSchema.find({'_id':memberid});
 		
