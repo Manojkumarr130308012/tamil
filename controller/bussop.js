@@ -136,7 +136,7 @@ class bussopController{
 				$match: {
 					status: "Open"
 				}
-			}
+			}]);
 				
 		} catch (error) {
 			return {
