@@ -64,6 +64,10 @@ const bussopSchema = new mongoose.Schema({
     status  : {
         type: String,
         required: true
+    }, 
+    color  : {
+        type: String,
+        required: true
     }
 
 })

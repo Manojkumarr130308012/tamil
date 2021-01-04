@@ -7,8 +7,12 @@ class bussopController{
 
 
 	async add(buss){
+
+		let colors = ['#00FFFF', '#00FF00', '#00FFFF','#0000FF','#FFFF00']
         let memberid=buss.member;
-        let member = await memberSchema.find({'_id':memberid});
+		let member = await memberSchema.find({'_id':memberid});
+		
+		let colorid= Math.floor(Math.random() * (4 - 0) ) + 0
         let bussop={
 			"member":""+memberid,
 			"date":""+buss.date,
@@ -26,6 +30,7 @@ class bussopController{
 			"image2":""+buss.image2,
 			"image3":""+buss.image3,
 			"status":""+buss.status,
+			"color":""+colors[colorid],
 			 }
 		try{
 			let response = await bussopSchema.create(bussop);
