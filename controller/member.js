@@ -323,7 +323,6 @@ async aggregation1(Mobile) {
 	   let Name=newGender.Name;
 	   let Mobile=newGender.Mobile;
 	   let Email=newGender.Email;
-	   let MembershipType=newGender.MembershipType;
 	   let Category=newGender.Category;
 	   let password=newGender.password;
 	   let photo=member.photo;
@@ -343,7 +342,7 @@ async aggregation1(Mobile) {
 	   
         try{
 			let countryres = await countrySchema.find({'Countrycode':Countrycode});
-			let costres = await membershipcostSchema.find({'membershiptype':""+MembershipType,'membershipclassification':""+Category});
+			let costres = await membershipcostSchema.find({'membershiptype':"5fc22d68700dab00178d50a3",'membershipclassification':""+Category});
 			 let Country=countryres[0]._id;
 			 let cost=costres[0].amount;
            let member={
@@ -356,7 +355,7 @@ async aggregation1(Mobile) {
 			"Gender":"5fb60d3932c37100176ce0af",
 			"Chapter":"5fca14c699eac60017fc236a",
 			"Category":""+Category,
-			"MembershipType":""+MembershipType,
+			"MembershipType":"5fc22d68700dab00178d50a3",
 			"Address":"null",
 			"Email":""+Email,
 			"Mobile":""+Mobile,
