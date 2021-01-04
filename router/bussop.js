@@ -23,5 +23,9 @@ router.put('/update', async (req, res) => {
 	const response = await bussopController.update(req.query.id, req.body);
 	res.send(response);
 })
-
+router.get('/aggregation', async (req, res) =>{
+	let response = await bussopController.aggregation(req.query.member);
+	res.send(response);
+	
+})
 module.exports = router;

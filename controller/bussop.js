@@ -1,12 +1,14 @@
 const bussopSchema = require('../model/bussop');
 const errorHandler = require('../utils/error.handler');
 const memberSchema = require('../model/member');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 class bussopController{
 
 
 	async add(buss){
         let memberid=buss.member;
-        let member = await memberSchema.find({'_id':member});
+        let member = await memberSchema.find({'_id':memberid});
         let bussop={
 			"member":""+memberid,
 			"date":""+buss.date,
@@ -90,7 +92,41 @@ class bussopController{
             return { status: "error", error: error };
         }
 
+	}
+	
+
+
+	async aggregation(memberid) {
+		try {
+		let result=await bussopSchema.aggregate([
+			{
+				$match: {
+					member: ObjectId(memberid)
+				}
+			}, {
+				$group: {
+				  _id:'$status',
+				  total: {
+					$sum: 1
+				  }
+				}
+			  }, {$sort:{"_id":1}}
+				]);
+
+				return {
+					result: result,
+
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
     }
 
 }
+
+
+
 module.exports = new bussopController();
