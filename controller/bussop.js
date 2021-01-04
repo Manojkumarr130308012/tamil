@@ -129,6 +129,22 @@ class bussopController{
 			};
 		}
     }
+	async aggregation1() {
+		try {
+			return await bussopSchema.aggregate([
+			{
+				$match: {
+					status: "Open"
+				}
+			}
+				
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 
 }
 

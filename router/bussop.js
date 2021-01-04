@@ -28,4 +28,9 @@ router.get('/aggregation', async (req, res) =>{
 	res.send(response);
 	
 })
+router.get('/openaggregation', async (req, res) =>{
+	let response = await bussopController.aggregation1();
+	res.send(response);
+	
+})
 module.exports = router;
