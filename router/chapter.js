@@ -20,6 +20,11 @@ router.get('/fetchbydistrict', async (req, res) => {
 	const response = await chapterController.fetchdata1(req.query.district);
 	res.send(response);
 })
+router.get('/fetchbycountrystate', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await chapterController.fetchdata2(req.query.Country,req.query.State);
+	res.send(response);
+})
 router.delete('/delete', async (req, res) => {
 	const response = await chapterController.delete(req.query.id);
 	res.send(response);

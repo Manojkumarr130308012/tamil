@@ -132,6 +132,97 @@ as: "CityNamesDetails"
 			};
 		}
 	}
+
+
+
+	async fetchdata2(Country,State){
+		try{
+			//  = await chapterSchema.find({'district':district});
+
+			let response=await chapterSchema.aggregate( [{
+			$match: {
+				Country: ObjectId(Country),
+				State: ObjectId(State)
+			}
+		},
+			{$lookup:
+			{
+			  from: "countries",
+			  localField: "Country",
+			  foreignField: "_id",
+			  as: "CountryDetails"
+			}
+	   },{$lookup:
+		  {
+			from: "states",
+			localField: "State",
+			foreignField: "_id",
+			as: "StateDetails"
+		  }
+	 },{$lookup:
+	  {
+		from: "regions",
+		localField: "region",
+		foreignField: "_id",
+		as: "regionsDetails"
+	  }
+ },{$lookup:
+  {
+	from: "districts",
+	localField: "district",
+	foreignField: "_id",
+	as: "districtsDetails"
+  }
+},{$lookup:
+{
+from: "cities",
+localField: "CityName",
+foreignField: "_id",
+as: "CityNamesDetails"
+}
+}]);
+
+
+
+ let result = await memberSchema.aggregate([{
+	$match: {
+		Country: ObjectId(Country),
+				State: ObjectId(State)
+	}
+},{
+ $lookup:
+	  {
+		from: "chapters",
+		localField: "Chapter",
+		foreignField: "_id",
+		as: "ChapterNameDetails"
+	  }  
+  },
+  {
+	  $group:
+	  {
+		  _id:"$ChapterNameDetails.ChapterName",
+			"numOfmembers":{$sum:1},
+	  }
+  },{$sort:{"_id.Chapter":1}}
+]);
+			
+// 	console.log('hfjdhfjdhjhsjkdfjdddkdkj',result);
+// 	let count=Object.keys(result).length;
+
+			return{
+				result: result,
+				response: response
+			}; 
+			
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async delete(id){
 		try{
 			let response = await chapterSchema.deleteOne({_id: id});
@@ -163,7 +254,7 @@ as: "CityNamesDetails"
 	async fetchdatafilter(Country,state,region,district){
 	
 		try{
-			 let response = await chapterSchema.find({$and:[{Country:{$regex: ObjectId(Country), $options: 'i'}},{State:{$regex: ObjectId(state), $options: 'i'}},{region:{$regex: ObjectId(region), $options: 'i'}},{district:{$regex: ObjectId(district), $options: 'i'}}]});
+			 let response = await chapterSchema.find({$and:[{Country:{$regex: Country, $options: 'i'}},{State:{$regex: state, $options: 'i'}},{region:{$regex: region, $options: 'i'}},{district:{$regex: district, $options: 'i'}}]});
 	
 			return response;
 			

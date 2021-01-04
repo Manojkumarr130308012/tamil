@@ -34,6 +34,7 @@ const eventlinkRouter = require('../router/eventlink');
 const sponsorRouter = require('../router/sponsor');
 const bussicategoryRouter = require('../router/bussinesscate');
 const bussiconRouter = require('../router/busscon');
+const bannerRouter = require('../router/Banner');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
@@ -82,4 +83,5 @@ server.use("/eventlink", eventlinkRouter);
 server.use("/sponsor", sponsorRouter);
 server.use("/bussicategory", bussicategoryRouter);
 server.use("/bussinesscon", bussiconRouter);
+server.use("/banner", bannerRouter);
 module.exports= server;
