@@ -113,7 +113,7 @@ router.post('/register1',async (req, res) => {
 		// console.log(year + "-" + month + "-" + date);
 		let cdateTime=year + "-" + month + "-" + date;
 		let countryres = await countrySchema.find({'Countrycode':Countrycode});
-		let costres = await membershipcostSchema.find({'membershiptype':""+MembershipType,'membershipclassification':""+Category});
+		let costres = await membershipcostSchema.find({'membershiptype':"5fc22d68700dab00178d50a3",'membershipclassification':""+Category});
 		 let Country=countryres[0]._id;
 		 let cost=costres[0].amount;
 	   let member={
@@ -126,7 +126,7 @@ router.post('/register1',async (req, res) => {
 		"Gender":"5fb60d3932c37100176ce0af",
 		"Chapter":"5fca14c699eac60017fc236a",
 		"Category":""+Category,
-		"MembershipType":""+MembershipType,
+		"MembershipType":"5fc22d68700dab00178d50a3",
 		"Address":"null",
 		"Email":""+Email,
 		"Mobile":""+Mobile,
