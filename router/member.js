@@ -1,11 +1,9 @@
 const router = require('express').Router();
 const memberController = require('../controller/member');
-const upload = require("../utils/multer");
-const cloudinary = require("../utils/cloudinary");
 const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
 const memberSchema = require('../model/member');
-const fs = require('fs')
+
 router.post('/add', async (req, res) => {
 
 	let photo;
@@ -77,7 +75,7 @@ router.post('/register1',async (req, res) => {
 	// const file = req.file.path;
 	
 
-		if (req.body.photo != null||"") {
+		if (req.body.image != null||"") {
 			this.photo=""+req.body.image;
 			this.cloudinary_id="dynamic";
 		}else{
@@ -93,12 +91,12 @@ router.post('/register1',async (req, res) => {
 		}
 
 
-	
+		
 	let Countrycode=req.body.Countrycode;
 	let Name=req.body.Name;
 	let Mobile=req.body.Mobile;
 	let Email=req.body.Email;
-	
+	let MembershipType="5fc22d68700dab00178d50a3";
 	let Category=req.body.Category;
 	let password=req.body.password;
 
@@ -110,11 +108,14 @@ router.post('/register1',async (req, res) => {
 	let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);	
 	// current year
 	let year = date_ob.getFullYear();
-		// console.log(year + "-" + month + "-" + date);
+	
 		let cdateTime=year + "-" + month + "-" + date;
 		let countryres = await countrySchema.find({'Countrycode':Countrycode});
-		let costres = await membershipcostSchema.find({'membershiptype':"5fc22d68700dab00178d50a3",'membershipclassification':""+Category});
-		 let Country=countryres[0]._id;
+
+		let costres = await membershipcostSchema.find({'membershiptype':MembershipType,'membershipclassification':Category});
+	
+		let Country=countryres[0]._id;
+
 		 let cost=costres[0].amount;
 	   let member={
 		"Country":""+Country,
