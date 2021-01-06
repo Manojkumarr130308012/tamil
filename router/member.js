@@ -98,7 +98,7 @@ router.post('/register1',async (req, res) => {
 	let Name=req.body.Name;
 	let Mobile=req.body.Mobile;
 	let Email=req.body.Email;
-	let MembershipType=req.body.MembershipType;
+	
 	let Category=req.body.Category;
 	let password=req.body.password;
 
