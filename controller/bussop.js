@@ -136,7 +136,14 @@ class bussopController{
 				$match: {
 					status: "Open"
 				}
-			}]);
+			},{$lookup:
+				{
+				  from: "members",
+				  localField: "member",
+				  foreignField: "_id",
+				  as: "Memberdetails"
+				}
+		   }]);
 				
 		} catch (error) {
 			return {
