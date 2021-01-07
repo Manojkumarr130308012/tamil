@@ -36,7 +36,7 @@ const bussicategoryRouter = require('../router/bussinesscate');
 const bussiconRouter = require('../router/busscon');
 const bussiopRouter = require('../router/bussop');
 const bannerRouter = require('../router/Banner');
-const bussop = require("../model/bussop");
+const newsRouter = require('../router/news');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
@@ -87,4 +87,5 @@ server.use("/bussicategory", bussicategoryRouter);
 server.use("/bussinesscon", bussiconRouter);
 server.use("/banner", bannerRouter);
 server.use("/businessop", bussiopRouter);
+server.use("/news", newsRouter);
 module.exports= server;
