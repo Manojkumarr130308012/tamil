@@ -23,7 +23,7 @@ router.put('/update', async (req, res) => {
 	const response = await boardController.update(req.query.id, req.body);
 	res.send(response);
 })
-router.put('/fetchBychapteridtrackid', async (req, res) => {
+router.get('/fetchBychapteridtrackid', async (req, res) => {
 	const response = await boardController.fetchBychapter(req.query.chapter);
 	res.send(response);
 })
