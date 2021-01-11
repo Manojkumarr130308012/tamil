@@ -72,10 +72,10 @@ class boardController{
 
     }
 
-    async fetchBychapter(chapter)
+    async fetchBychapter(chapter1)
 	{
 		try{
-			let response = await boardSchema.find({'chapter':chapter});
+			let response = await boardSchema.find({'chapter':chapter1});
 			return {
 				response: response
 			};	
