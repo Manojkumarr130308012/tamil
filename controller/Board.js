@@ -72,5 +72,20 @@ class boardController{
 
     }
 
+    async fetchBychapter(chapter)
+	{
+		try{
+			let response = await boardSchema.find({'chapter':chapter});
+			return {
+				response: response
+			};	
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+
 }
 module.exports = new boardController();
