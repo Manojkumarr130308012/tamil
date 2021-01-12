@@ -29,6 +29,10 @@ const memberSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         required: false
     },
+    board :{
+        type: mongoose.Schema.ObjectId,
+        required: false
+    },
     Chapter :{
         type: mongoose.Schema.ObjectId,
         required: false
