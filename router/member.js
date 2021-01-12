@@ -76,7 +76,8 @@ router.post('/register1',async (req, res) => {
 	let photo;
 	let cloudinary_id;
 	// const file = req.file.path;
-	
+	let offset = new Date().getTimezoneOffset(); 
+	let formatted = -(offset / 60);
 
 		if (req.body.image != null||"") {
 			this.photo=""+req.body.image;
@@ -155,6 +156,7 @@ router.post('/register1',async (req, res) => {
 		'status':"null",
 		"description":"ggggg",
 		"newseventnoti":false,
+		"offset":formatted,
 		 }
 
 	const response = await memberController.upload1(member,cost);
@@ -230,6 +232,7 @@ console.log("memddddddddddberid",req.body.Country || user.Country);
 			'status':req.body.status || user.status,
 			"description":req.body.description || user.description,
 		"newseventnoti":req.body.newseventnoti || user.newseventnoti,
+		"offset":user.offset,
 			 }
     const response = await memberController.update(req.query.id,body);
 	res.send(response);
