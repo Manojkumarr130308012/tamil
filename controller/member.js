@@ -332,7 +332,8 @@ async aggregation1(Mobile) {
 
 
 	async register(newGender,member){
-
+		let offset = new Date().getTimezoneOffset(); 
+		let formatted = -(offset / 60);
 	   let Countrycode=newGender.Countrycode;
 	   let Name=newGender.Name;
 	   let Mobile=newGender.Mobile;
@@ -390,7 +391,8 @@ async aggregation1(Mobile) {
 			"Countrycode":""+Countrycode,
 			"description":"ggggg",
 			"newseventnoti":"0",
-			'status':"null"
+			'status':"null",
+			"offset":formatted
 			 }
 			 let response = await memberSchema.create(member);
 
