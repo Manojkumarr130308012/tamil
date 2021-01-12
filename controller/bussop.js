@@ -152,7 +152,30 @@ class bussopController{
 			};
 		}
     }
-
+	async aggregation2(memberid) {
+		try {
+			return await bussopSchema.aggregate([
+			{
+				$match: {
+					status: "Open",
+					member: ObjectId(memberid)
+				}
+			},{$lookup:
+				{
+				  from: "members",
+				  localField: "member",
+				  foreignField: "_id",
+				  as: "Memberdetails"
+				}
+		   }]);
+				
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 }
 
 
