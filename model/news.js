@@ -61,7 +61,7 @@ const newsSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    news  :{
+    postedby  :{
         type: String,
         required: false
     },
