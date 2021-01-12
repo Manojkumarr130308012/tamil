@@ -61,6 +61,10 @@ const newsSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    news  :{
+        type: String,
+        required: false
+    },
     UpdatedOn  :{
         type: String,
         required: false
