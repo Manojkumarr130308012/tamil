@@ -80,6 +80,10 @@ const eventsSchema = new mongoose.Schema({
     status  :{
         type: String,
         required: false
+    },
+    offset  :{
+        type: String,
+        required: false
     }
 })
 module.exports = new mongoose.model('events',eventsSchema);
