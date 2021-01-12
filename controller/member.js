@@ -123,6 +123,13 @@ class memberController{
 		  foreignField: "_id",
 		  as: "ChapterNameDetails"
 		}
+	},{$lookup:
+		{
+		  from: "chapters",
+		  localField: "Chapter",
+		  foreignField: "_id",
+		  as: "ChapterNameDetails"
+		}
 	}
 	])
 			
@@ -220,6 +227,13 @@ class memberController{
 	  localField: "Category",
 	  foreignField: "_id",
 	  as: "membershipclassesDetails"
+	}
+},{$lookup:
+	{
+	  from: "boards",
+	  localField: "board",
+	  foreignField: "_id",
+	  as: "boardDetails"
 	}
 }				 
 				]);
