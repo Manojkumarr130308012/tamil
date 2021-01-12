@@ -8,7 +8,8 @@ router.post('/add', async (req, res) => {
 
 	let photo;
 	let cloudinary_id;
-
+	let offset = new Date().getTimezoneOffset(); 
+	let formatted = -(offset / 60);
 
 	
 		if (req.body.image != null||"") {
@@ -62,6 +63,7 @@ router.post('/add', async (req, res) => {
 		'status':""+req.body.status,
 		"description":"ggggg",
 		"newseventnoti":false,
+		"offset":formatted,
 		 }
 
 
