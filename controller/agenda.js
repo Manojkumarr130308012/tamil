@@ -1,6 +1,6 @@
 const agendaSchema = require('../model/agenda');
 const errorHandler = require('../utils/error.handler');
-
+import timeZoneConverter from 'time-zone-converter'
 class agendaController{
 
 
@@ -89,7 +89,7 @@ class agendaController{
     async fetchByEvent(Event,track,FromDate)
 	{
 		try{
-			let response = await agendaSchema.find({'event':Event,'track':track,'FromDate':FromDate});
+			let response = await agendaSchema.find({'event':Event,'track':track,'date':FromDate});
 			return {
 				response: response
 			};	
