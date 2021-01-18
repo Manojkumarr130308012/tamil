@@ -1,6 +1,7 @@
 const busiopcommentSchema = require('../model/busiopcomments');
 const errorHandler = require('../utils/error.handler');
-
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 class bussinessopcommentController{
 
 
@@ -86,24 +87,22 @@ class bussinessopcommentController{
 		}
     }
     
-	async aggregation() {
+	async aggregation(busiop) {
 		try {
 		return  await busiopcommentSchema.aggregate([
+            {
+				$match: {
+                    busiop: ObjectId(busiop)
+                }
+            },
 				{$lookup:
 					  {
-						from: "countries",
-						localField: "Country",
+						from: "members",
+						localField: "member",
 						foreignField: "_id",
-						as: "CountryDetails"
+						as: "memberDetails"
 					  }
-				 },{$lookup:
-					{
-					  from: "states",
-					  localField: "State",
-					  foreignField: "_id",
-					  as: "StateDetails"
-					}
-			   }		 
+				 }	 
 				]);
 		} catch (error) {
 			return {
