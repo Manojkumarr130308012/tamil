@@ -33,12 +33,12 @@ const eventimageRouter = require('../router/eventimage');
 const eventlinkRouter = require('../router/eventlink');
 const sponsorRouter = require('../router/sponsor');
 const bussicategoryRouter = require('../router/bussinesscate');
-const bussiconRouter = require('../router/busscon');
-const bussiopRouter = require('../router/bussop');
+const bussiconRouter = require('../router/bizcon');
+const bussiopRouter = require('../router/bizop');
 const bannerRouter = require('../router/Banner');
 const newsRouter = require('../router/news');
 const boardRouter = require('../router/Board');
-const bussinessopcommentRouter = require('../router/busiopcomments');
+const bussinessopcommentRouter = require('../router/bizopcomments');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
