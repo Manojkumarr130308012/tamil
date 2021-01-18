@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const bussopController = require('../controller/bussop');
+const bussopController = require('../controller/bizop');
 
 router.post('/add', async (req, res) => {
 	const response = await bussopController.add(req.body);

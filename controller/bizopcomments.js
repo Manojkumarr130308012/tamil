@@ -1,7 +1,7 @@
-const busiopcommentSchema = require('../model/busiopcomments');
+const busiopcommentSchema = require('../model/bizopcomments');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
-const bussopSchema = require('../model/bussop');
+const bussopSchema = require('../model/bizop');
 const ObjectId = mongoose.Types.ObjectId;
 class bussinessopcommentController{
 

@@ -1,4 +1,4 @@
-const bussconSchema = require('../model/busscon');
+const bussconSchema = require('../model/bizcon');
 const errorHandler = require('../utils/error.handler');
 
 class stateController{

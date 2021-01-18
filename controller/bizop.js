@@ -1,4 +1,4 @@
-const bussopSchema = require('../model/bussop');
+const bussopSchema = require('../model/bizop');
 const errorHandler = require('../utils/error.handler');
 const memberSchema = require('../model/member');
 const mongoose = require('mongoose');
