@@ -20,7 +20,7 @@ router.delete('/delete', async (req, res) => {
 	res.send(response);
 })
 router.put('/update', async (req, res) => {
-	const response = await bussinessopController.update(req.query.id, req.body);
+	const response = await bussinessopController.update(req.query.id,req.query.busiop, req.body);
 	res.send(response);
 })
 

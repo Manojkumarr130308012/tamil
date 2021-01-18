@@ -12,6 +12,13 @@ const busiopcommentSchema = new mongoose.Schema({
     comments:{
         type: String,
         required: true
+    },date:{
+        type: String,
+        required: true
+    }, 
+    status:{
+        type: String,
+        required: true
     }
 })
 module.exports = new mongoose.model('businessopcomment',busiopcommentSchema);
