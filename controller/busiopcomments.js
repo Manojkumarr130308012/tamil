@@ -85,7 +85,7 @@ class bussinessopcommentController{
 	async update(id,busiop,body) {
 
         try {
-            // let response = await bussopSchema.update({_id: busiop}, body);
+             let response1 = await bussopSchema.update({_id: busiop}, body);
             let response = await busiopcommentSchema.update({_id: id}, body);
             return { status: "success", msg:"Comments Updated successfully",result: response, message: "Updated Successfully" };
 
