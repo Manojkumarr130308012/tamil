@@ -1,6 +1,6 @@
 const agendaSchema = require('../model/agenda');
 const errorHandler = require('../utils/error.handler');
-import timeZoneConverter from 'time-zone-converter'
+
 class agendaController{
 
 
