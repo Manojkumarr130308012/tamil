@@ -11,11 +11,22 @@ class bussopController{
 		let colors = ['0xff0297db', '0xff9dd3af', '0xfff6abaf']
         let memberid=buss.member;
 		let member = await memberSchema.find({'_id':memberid});
+		let date_ob = new Date();
+
+		// adjust 0 before single digit date
+		let date = ("0" + date_ob.getDate()).slice(-2);
 		
+		// current month
+		let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+		
+		// current year
+		let year = date_ob.getFullYear();
+			// console.log(year + "-" + month + "-" + date);
+			let cdateTime=year + "-" + month + "-" + date;
 		let colorid= Math.floor(Math.random() * (2 - 0) ) + 0
         let bussop={
 			"member":""+memberid,
-			"date":""+buss.date,
+			"date":""+cdateTime,
 			"chapter":""+member[0].Chapter,
 			"city":""+member[0].CityName,
 			"district": ""+member[0].district,
