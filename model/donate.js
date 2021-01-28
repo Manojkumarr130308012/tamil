@@ -16,7 +16,26 @@ const donateSchema = new mongoose.Schema({
     banner: {
         type: String,
         required: false
-    }
-
+    },
+    AboutFundraiser: {
+        type: String,
+        required: false
+    },
+    Contactperson: {
+        type: String,
+        required: false
+    },
+    Contactmobile: {
+        type: String,
+        required: false
+    },
+    Totalamount: {
+        type: String,
+        required: false
+    },
+    Status : {
+        type: String,
+        required: false
+    },
 })
 module.exports = new mongoose.model('donate',donateSchema);
