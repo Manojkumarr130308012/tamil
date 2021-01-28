@@ -15,7 +15,7 @@ const donateSchema = new mongoose.Schema({
     },
     banner: {
         type: String,
-        required: true
+        required: false
     }
 
 })
