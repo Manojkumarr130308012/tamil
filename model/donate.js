@@ -33,7 +33,7 @@ const donateSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    Status : {
+    status : {
         type: String,
         required: false
     },
