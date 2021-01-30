@@ -69,6 +69,10 @@ const newsSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+     live :{
+        type: String,
+        required: false
+    },
     status  :{
         type: String,
         required: false
