@@ -12,6 +12,18 @@ const donateSchema = new mongoose.Schema({
     donate: {
         type: String,
         required: true
+    }, 
+     collected: {
+        type: String,
+        required: false
+    },  
+    percentage: {
+        type: String,
+        required: false
+    },
+    email: {
+        type: String,
+        required: false
     },
     banner: {
         type: String,
