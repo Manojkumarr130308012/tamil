@@ -76,6 +76,7 @@ class newsController{
 	async aggregation() {
 		try {
 		return  await newsSchema.aggregate([
+			{ $group : { _id : "$live" } },
 				{$lookup:
 					  {
 						from: "countries",
