@@ -32,9 +32,9 @@ class stateController{
 		}
 	}
 
-	async fetchdata(id){
+	async fetchdata(){
 		try{
-			let response = await bussconSchema.find({'_id':id});
+			let response = await bussconSchema.find({'live':"Live"});
 			return response;
 			
 		} catch(error){

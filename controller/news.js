@@ -130,7 +130,50 @@ class newsController{
 	async aggregation1() {
 		try {
 		return  await newsSchema.aggregate([
-			{ "$group": { "_id": "$live"}}
+			{ "$group": { "_id": "$live"}},
+			{$lookup:
+				{
+				  from: "countries",
+				  localField: "Country",
+				  foreignField: "_id",
+				  as: "CountryDetails"
+				}
+		   },{$lookup:
+			  {
+				from: "states",
+				localField: "State",
+				foreignField: "_id",
+				as: "StateDetails"
+			  }
+		 },{$lookup:
+		  {
+			from: "regions",
+			localField: "region",
+			foreignField: "_id",
+			as: "regionsDetails"
+		  }
+	 },{$lookup:
+	  {
+		from: "districts",
+		localField: "district",
+		foreignField: "_id",
+		as: "districtsDetails"
+	  }
+ },{$lookup:
+  {
+	from: "cities",
+	localField: "CityName",
+	foreignField: "_id",
+	as: "CityNamesDetails"
+  }
+},{$lookup:
+{
+from: "chapters",
+localField: "Chapter",
+foreignField: "_id",
+as: "ChapterNameDetails"
+}
+}	
 				]);
 		} catch (error) {
 			return {
