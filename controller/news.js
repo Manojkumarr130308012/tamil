@@ -52,7 +52,11 @@ class newsController{
 			
 			 let nonlive = await newsSchema.find({'live':nonline});
 			 let response = await newsSchema.find({'live':live});
-			return nonlive,response;
+			return{
+				status: "success",
+				response,
+				response: nonlive
+			};
 			
 		} catch(error){
 			return {
