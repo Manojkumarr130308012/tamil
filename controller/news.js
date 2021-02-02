@@ -127,7 +127,18 @@ class newsController{
 			};
 		}
     }
-
+	async aggregation1() {
+		try {
+		return  await newsSchema.aggregate([
+			{ "$group": { "_id": "$live"}}
+				]);
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 
 }
 module.exports = new newsController();

@@ -33,4 +33,9 @@ router.get('/aggregation', async (req, res) =>{
 	res.send(response);
 	
 })
+router.get('/aggregation1', async (req, res) =>{
+	let response = await newssController.aggregation1();
+	res.send(response);
+	
+})
 module.exports = router;
