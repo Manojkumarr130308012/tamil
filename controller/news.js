@@ -36,9 +36,12 @@ class newsController{
 
 	async fetchdata(){
 		let live="Live";
+		let nonline="Nonlive"
 		try{
 			let response = await newsSchema.find({'live':live});
-			return response;
+			let response1 = await newsSchema.find({'live':nonline});
+			return response,
+			response=response1;
 			
 		} catch(error){
 			return {
