@@ -37,7 +37,7 @@ class bussopController{
 			"description":""+buss.description,
 			"quantity":""+buss.quantity,
 			"ordervalue":""+buss.ordervalue,
-			"image1":""+buss.image1,
+			"image1":""+member[0].Photo,
 			"image2":""+buss.image2,
 			"image3":""+buss.image3,
 			"status":"Open",
