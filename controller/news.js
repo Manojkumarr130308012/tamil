@@ -53,7 +53,7 @@ class newsController{
 			 let response = await newsSchema.find({'live':nonline});
 		 let response1 = await newsSchema.find({'live':live});
 			return{
-				 response,response1
+				response1,response
 			};
 			
 		} catch(error){
