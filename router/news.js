@@ -17,7 +17,7 @@ router.get('/fetchdata', async (req, res) => {
 })
 router.get('/fetchbyevent', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
-	const response = await newssController.fetchdata();
+	const response = await newssController.fetchdata1();
 	res.send(response);
 })
 router.delete('/delete', async (req, res) => {

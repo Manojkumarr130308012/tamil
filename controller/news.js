@@ -33,8 +33,19 @@ class newsController{
 			};
 		}
 	}
-
-	async fetchdata(){
+	async fetchdata(id){
+		try{
+			let response = await newsSchema.find({'_id':id});
+			return response;
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
+	async fetchdata1(){
 		let live="Live";
 		let nonline="Nonlive"
 		try{
