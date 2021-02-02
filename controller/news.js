@@ -54,7 +54,7 @@ class newsController{
 			 let live = await newsSchema.find({'live':live});
 			return{
 				status: "success",
-				live:live,
+				response1:live,
 				response: nonlive
 			};
 			
