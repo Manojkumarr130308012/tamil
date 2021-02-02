@@ -45,7 +45,7 @@ class bussopController{
 			 }
 		try{
 			let response = await bussopSchema.create(bussop);
-			return { status: "success",   msg:"bussop Added successfully", result: response, message: "Added Successfully" };
+			return { status: "success",   msg:"Bizop Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
 				status: "error",
@@ -102,7 +102,7 @@ class bussopController{
 
         try {
             let response = await bussopSchema.update({_id: id}, body);
-            return { status: "success", msg:"bussop Updated successfully",result: response, message: "Updated Successfully" };
+            return { status: "success", msg:"Bizop Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };

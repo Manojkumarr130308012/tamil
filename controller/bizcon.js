@@ -64,7 +64,7 @@ class stateController{
 
         try {
             let response = await bussconSchema.update({_id: id}, body);
-            return { status: "success", msg:"State Updated successfully",result: response, message: "Updated Successfully" };
+            return { status: "success", msg:"Bizcon Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };

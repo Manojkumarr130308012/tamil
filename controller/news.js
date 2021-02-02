@@ -36,7 +36,7 @@ class newsController{
 
 	async fetchdata(id){
 		try{
-			let response = await newsSchema.find({'_id':id});
+			let response = await newsSchema.find({'live':"Live"});
 			return response;
 			
 		} catch(error){
