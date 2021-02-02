@@ -34,7 +34,7 @@ class stateController{
 
 	async fetchdata(){
 		try{
-			let response = await bussconSchema.find({'live':"Live"});
+			let response = await bussconSchema.find({'live':live});
 			return response;
 			
 		} catch(error){
