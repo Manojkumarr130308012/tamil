@@ -24,6 +24,7 @@ class bussopController{
 			// console.log(year + "-" + month + "-" + date);
 			let cdateTime=year + "-" + month + "-" + date;
 		let colorid= Math.floor(Math.random() * (2 - 0) ) + 0
+		
         let bussop={
 			"member":""+memberid,
 			"date":""+cdateTime,

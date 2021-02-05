@@ -117,5 +117,18 @@ class districtController{
 			};
 		}
 	}
+	async fetchBystate(state){
+		try{
+			let response = await districtSchema.find({'State':state});
+			return {
+				response: response
+			};	
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 }
 module.exports = new districtController();

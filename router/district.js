@@ -32,4 +32,8 @@ router.get('/fetchBycity', async (req, res) => {
 	const response = await districtController.fetchBycity(req.query.region);
 	res.send(response); 
 })
+router.get('/fetchBystate', async (req, res) => {
+	const response = await districtController.fetchBystate(req.query.State);
+	res.send(response); 
+})
 module.exports = router;
