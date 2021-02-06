@@ -235,14 +235,7 @@ class memberController{
 	  foreignField: "_id",
 	  as: "membershipclassesDetails"
 	}
-},{$lookup:
-	{
-	from: "boards",
-	localField: "designation",
-	foreignField: "_id",
-	as: "designationDetails"
-	}
-	}				 
+}				 
 				]);
 		} catch (error) {
 			return {
