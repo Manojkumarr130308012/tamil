@@ -194,10 +194,7 @@ router.delete('/delete', async (req, res) => {
 })
 router.put('/update',async (req, res) => {
 	let user = await memberSchema.findById(req.query.id);
-console.log("memddddddddddberid",req.body.Country || user.Country);
-
-
-
+ console.log("memddddddddddberid",req.body.Country || user.Country);
 	let body={
 			"Country":req.body.Country || user.Country,
 			"State":req.body.State || user.State,
@@ -227,7 +224,7 @@ console.log("memddddddddddberid",req.body.Country || user.Country);
 			"CreatedOn":req.body.CreatedOn || user.CreatedOn,
 			'UpdatedOn':req.body.UpdatedOn || user.UpdatedOn,
 			"password":req.body.password || user.password,
-			"board":""+req.body.board|| user.board,
+			"board":""+req.body.board || user.board,
 			"Countrycode":req.body.Countrycode || user.Countrycode,
 			'status':req.body.status || user.status,
 			"description":req.body.description || user.description,
