@@ -317,6 +317,13 @@ async aggregation1(Mobile) {
 	  foreignField: "_id",
 	  as: "gendersDetails"
 	}
+},{$lookup:
+	{
+	  from: "boards",
+	  localField: "board",
+	  foreignField: "_id",
+	  as: "boardDetails"
+	}
 }				 
 				]);
 
