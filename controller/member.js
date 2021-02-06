@@ -320,7 +320,7 @@ async aggregation1(Mobile) {
 },{$lookup:
 	{
 	from: "boards",
-	localField: "designation",
+	localField: "board",
 	foreignField: "_id",
 	as: "designationDetails"
 	}
