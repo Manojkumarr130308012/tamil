@@ -30,11 +30,11 @@ const eventsSchema = new mongoose.Schema({
         required: false
     },
     FromDate:{
-        type: String,
+        type: Date,
         required: false
     },
     ToDate:{
-        type: String,
+        type: Date,
         required: false
     },
     Title :{

@@ -50,7 +50,7 @@ class eventsController{
 		let year = date_ob.getFullYear();
 			// console.log(year + "-" + month + "-" + date);
 			let cdateTime=year + "-" + month + "-" + date;
-		let FromDate =cdateTime;
+		 FromDate =cdateTime;
 		try{
 			let response = await eventsSchema.find({$gte: FromDate});
 			let count=Object.keys(response).length;
