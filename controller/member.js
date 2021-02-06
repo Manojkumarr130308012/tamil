@@ -130,7 +130,14 @@ class memberController{
 		  foreignField: "_id",
 		  as: "ChapterNameDetails"
 		}
-	}
+	},{$lookup:
+		{
+		from: "boards",
+		localField: "designation",
+		foreignField: "_id",
+		as: "designationDetails"
+		}
+		}
 	])
 			
 		} catch(error){
@@ -230,12 +237,12 @@ class memberController{
 	}
 },{$lookup:
 	{
-	  from: "boards",
-	  localField: "board",
-	  foreignField: "_id",
-	  as: "boardDetails"
+	from: "boards",
+	localField: "designation",
+	foreignField: "_id",
+	as: "designationDetails"
 	}
-}				 
+	}				 
 				]);
 		} catch (error) {
 			return {
@@ -319,12 +326,12 @@ async aggregation1(Mobile) {
 	}
 },{$lookup:
 	{
-	  from: "boards",
-	  localField: "board",
-	  foreignField: "_id",
-	  as: "boardDetails"
+	from: "boards",
+	localField: "designation",
+	foreignField: "_id",
+	as: "designationDetails"
 	}
-}				 
+	}				 
 				]);
 
 
