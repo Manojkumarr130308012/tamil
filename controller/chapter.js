@@ -90,7 +90,14 @@ localField: "CityName",
 foreignField: "_id",
 as: "CityNamesDetails"
 }
-}]);
+},{$lookup:
+	{
+	from: "boards",
+	localField: "designation",
+	foreignField: "_id",
+	as: "designationDetails"
+	}
+	}]);
 
 
 
