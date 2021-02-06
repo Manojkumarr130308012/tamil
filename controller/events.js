@@ -34,6 +34,52 @@ class eventsController{
 		}
 	}
 
+
+	async fetch1(){
+
+
+		let date_ob = new Date();
+
+		// adjust 0 before single digit date
+		let date = ("0" + date_ob.getDate()).slice(-2);
+		
+		// current month
+		let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+		
+		// current year
+		let year = date_ob.getFullYear();
+			// console.log(year + "-" + month + "-" + date);
+			let cdateTime=year + "-" + month + "-" + date;
+		let FromDate =cdateTime;
+		try{
+			let response = await eventsSchema.find({$gte: FromDate});
+			let count=Object.keys(response).length;
+			return {
+				response: response,
+				count
+			};
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
+	async upcomingfetch(){
+		try{
+			let response = await eventsSchema.find({});
+			let count=Object.keys(response).length;
+			return {
+				response: response,
+				count
+			};
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async fetchdata(id){
 		try{
 			let response = await eventsSchema.find({'_id':id});

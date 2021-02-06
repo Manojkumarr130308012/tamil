@@ -10,6 +10,11 @@ router.get('/', async (req, res) => {
 	const response = await eventsController.fetch();
 	res.send(response);
 })
+router.get('/upcoming', async (req, res) => {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await eventsController.fetch1();
+	res.send(response);
+})
 router.get('/fetchdata', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
 	const response = await eventsController.fetchdata(req.query.id);
