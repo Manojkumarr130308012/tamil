@@ -1,6 +1,6 @@
 const memberpaymentSchema = require('../model/memberpayment');
 const errorHandler = require('../utils/error.handler');
-
+const memberSchema = require('../model/member');
 class memberpaymentController{
 
 
@@ -24,16 +24,27 @@ let year = date_ob.getFullYear();
     let memberpayment={
         "memberid": ""+memberid,
         "razorpayid": ""+razorpayid,
-        "dateTime": ""+cdateTime
+        "dateTime": ""+cdateTime,
+		"status": "success"
          }
-
+		 let paymentid;
 
 		try{
 			let response = await memberpaymentSchema.create(memberpayment);
+
+			paymentid=response[0]._id;
+
+			let member={
+				"payment": "Sucess",
+				 }
+
+			let response = await memberSchema.update({_id: memberid}, member);
+
             return { 
               status: "success", 
-              msg:"Member Paymet  successfully",
+              msg:"Member Payment  successfully",
               result: response, message: "Added Successfully"
+			
              };
 		} catch(error){
 			return {

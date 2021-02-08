@@ -12,6 +12,10 @@ const memberpaymentSchema = new mongoose.Schema({
     dateTime:{
         type: String,
         required: true
+    }, 
+    status:{
+        type: String,
+        required: true
     }
 })
 module.exports = new mongoose.model('memberpayment',memberpaymentSchema);
