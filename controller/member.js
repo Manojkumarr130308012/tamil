@@ -399,7 +399,8 @@ async aggregation1(Mobile) {
 			"description":"ggggg",
 			"newseventnoti":"0",
 			'status':"null",
-			"offset":formatted
+			"offset":formatted,
+			"payment": "Fail"
 			 }
 			 let response = await memberSchema.create(member);
 
