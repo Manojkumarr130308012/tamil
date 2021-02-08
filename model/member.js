@@ -145,6 +145,10 @@ const memberSchema = new mongoose.Schema({
     offset  :{
         type: String,
         required: false
+    }, 
+    payment  :{
+        type: String,
+        required: false
     }
     
 })

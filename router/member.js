@@ -64,6 +64,7 @@ router.post('/add', async (req, res) => {
 		"description":"ggggg",
 		"newseventnoti":false,
 		"offset":formatted,
+		"payment":"Fail"
 		 }
 
 
@@ -157,6 +158,7 @@ router.post('/register1',async (req, res) => {
 		"description":"ggggg",
 		"newseventnoti":false,
 		"offset":formatted,
+		"payment":"Fail"
 		 }
 
 	const response = await memberController.upload1(member,cost);
@@ -230,6 +232,7 @@ router.put('/update',async (req, res) => {
 			"description":req.body.description || user.description,
 		"newseventnoti":req.body.newseventnoti || user.newseventnoti,
 		"offset":user.offset,
+		"payment":req.body.payment||user.payment
 			 }
     const response = await memberController.update(req.query.id,body);
 	res.send(response);
