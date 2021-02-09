@@ -327,8 +327,8 @@ async aggregation1(Mobile) {
 	}				 
 				]);
 
-
-				return responce;
+				let count=Object.keys(response).length;
+				return responce,count;
 		} catch (error) {
 			return {
 				status: "error",

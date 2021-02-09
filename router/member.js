@@ -3,8 +3,10 @@ const memberController = require('../controller/member');
 const countrySchema = require('../model/country');
 const membershipcostSchema = require('../model/membershipcost');
 const memberSchema = require('../model/member');
+const { response } = require('express');
 
 router.post('/add', async (req, res) => {
+	
 
 	let photo;
 	let cloudinary_id;
@@ -74,6 +76,21 @@ router.post('/add', async (req, res) => {
 
 })
 router.post('/register1',async (req, res) => {
+
+	const response ="";
+	let unique=await memberSchema.aggregate([
+		{
+			$match: {
+				Mobile: Mobile
+			}
+		}				 
+			]);
+
+			let count=Object.keys(unique).length;
+
+if(count <= 0){
+
+
 	let photo;
 	let cloudinary_id;
 	// const file = req.file.path;
@@ -161,7 +178,13 @@ router.post('/register1',async (req, res) => {
 		"payment": "Fail"
 		 }
 
-	const response = await memberController.upload1(member,cost);
+	 response = await memberController.upload1(member,cost);
+
+}else{
+	 response="User Alright Exit";
+}
+
+
 	res.send(response);
 })
 router.get('/', async (req, res) => {
