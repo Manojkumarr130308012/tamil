@@ -171,7 +171,7 @@ router.post('/register1',async (req, res) => {
 		"fcmstatus":"ffffff",
 		"fcmtoken":"gggg",
 		'status':"null",
-		"description":"ggggg",
+		"description":"",
 		"newseventnoti":false,
 		"offset":formatted,
 		"payment": "Fail"
