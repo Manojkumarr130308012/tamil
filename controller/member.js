@@ -70,7 +70,7 @@ class memberController{
         } catch(error){
             return {
                 status: '0',
-                msg: 'No Already Registered'
+                msg: 'Mobile No Already Registered'
             }
         }
 

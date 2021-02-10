@@ -63,7 +63,7 @@ router.post('/add', async (req, res) => {
 		"fcmstatus":"gg",
 		"fcmtoken":"ggg",
 		'status':""+req.body.status,
-		"description":"ggggg",
+		"description":"",
 		"newseventnoti":false,
 		"offset":formatted,
 		"payment": "Fail",
