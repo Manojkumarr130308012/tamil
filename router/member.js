@@ -176,7 +176,7 @@ router.post('/register1',async (req, res) => {
 		"payment": "Fail"
 		 }
 
-	let response = await memberController.upload1(member,cost);
+	const response = await memberController.upload1(member,cost);
 
 	res.send(response);
 })
