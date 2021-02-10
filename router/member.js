@@ -91,6 +91,7 @@ router.post('/register1',async (req, res) => {
 
 	let photo;
 	let cloudinary_id;
+	let response;
 	// const file = req.file.path;
 	let offset = new Date().getTimezoneOffset(); 
 	let formatted = -(offset / 60);
@@ -175,8 +176,20 @@ router.post('/register1',async (req, res) => {
 		"offset":formatted,
 		"payment": "Fail"
 		 }
+		 let user = await memberSchema.findOne({
+			Mobile: req.query.Mobile
+		});
 
-	const response = await memberController.upload1(member,cost);
+		if(user){
+		 response = await memberController.upload1(member,cost);
+		}else{
+let result={ 
+		Status:'false',
+		msg:'User Already Exit',	
+	 }
+
+			response =result;
+		}
 
 	res.send(response);
 })
@@ -199,20 +212,7 @@ router.get('/fetchdatabychapter', async (req, res) => {
 
 router.get('/fetchdata1', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
-
-	let response1 = await memberSchema.find({'Mobile':req.query.Mobile});
-	let count=Object.keys(response1).length;
-	const response="";
-	if(count != 0)
-	{
-		response="Already Number Exit";
-	}
-	else
-	{
-		response = await memberController.aggregation1(req.query.Mobile);
-	}
-
-	console.log("response",""+response);
+	const response = await memberController.aggregation1(req.query.Mobile);
 	res.send(response);
 })
 
