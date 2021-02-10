@@ -60,7 +60,12 @@ class memberController{
 						error: errorHandler.parseMongoError(error)
 					};
 				}
-            }
+            }else{
+				return {
+					status: '0',
+					msg: 'No Already Registered'
+				}
+			}
 
         } catch(error){
             return {
