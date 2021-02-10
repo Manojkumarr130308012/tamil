@@ -32,7 +32,7 @@ let year = date_ob.getFullYear();
 		try{
 			let response = await memberpaymentSchema.create(memberpayment);
 
-			paymentid=response[0]._id;
+			// paymentid=response[0]._id;
 
 			// let member={
 			// 	"payment": "Sucess",
