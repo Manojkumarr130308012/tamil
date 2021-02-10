@@ -202,8 +202,8 @@ router.get('/fetchdata1', async (req, res) => {
 
 	let response1 = await memberSchema.find({'Mobile':req.query.Mobile});
 	let count=Object.keys(response1).length;
-	const response;
-	if(count <= 0)
+	const response="";
+	if(count != 0)
 	{
 		response="Already Number Exit";
 	}
