@@ -185,9 +185,8 @@ router.post('/register1',async (req, res) => {
 		}else{
 let result={ 
 		Status:'false',
-		msg:'User Already Exit',	
+		msg:'Mobile No Already Registered',	
 	 }
-
 			response =result;
 		}
 
