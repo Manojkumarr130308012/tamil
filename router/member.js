@@ -180,7 +180,7 @@ router.post('/register1',async (req, res) => {
 			Mobile: req.query.Mobile
 		});
 
-		if(user){
+		if(!user){
 		 response = await memberController.upload1(member,cost);
 		}else{
 let result={ 
