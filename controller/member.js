@@ -63,7 +63,7 @@ class memberController{
             }else{
 				return {
 					status: '0',
-					msg: 'No Already Registered'
+					msg: 'Mobile No Already Registered'
 				}
 			}
 
