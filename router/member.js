@@ -176,19 +176,10 @@ router.post('/register1',async (req, res) => {
 		"offset":formatted,
 		"payment": "Fail"
 		 }
-		 let user = await memberSchema.findOne({
-			Mobile: req.query.Mobile
-		});
-
-		if(!user){
+	
+	
 		 response = await memberController.upload1(member,cost);
-		}else{
-let result={ 
-		Status:'false',
-		msg:'Mobile No Already Registered',	
-	 }
-			response =result;
-		}
+
 
 	res.send(response);
 })

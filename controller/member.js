@@ -9,6 +9,17 @@ class memberController{
 
 
 	async add(farm){
+
+
+
+
+
+
+
+
+
+
+
 		try{
 			let response = await memberSchema.create(farm);
 			return { status: "success",   msg:"member Added successfully", result: response, message: "Added Successfully" };
@@ -26,21 +37,39 @@ class memberController{
 		// 	photo: result.secure_url,
 		// 	cloudinary_id: result.public_id,
 		//   });
-		 
+
+
+
 		try{
-			let response = await memberSchema.create(member);
-			return { 
-				response:response,
-				Status:'true',
-				msg:'Member add Registered Successfully',
-				Payment:cost	
-			 };
-		} catch(error){
-			return {
-				status: "error",
-				error: errorHandler.parseMongoError(error)
-			};
-		}
+            let user = await memberSchema.findOne({
+                Mobile: member.Mobile
+            });
+
+            if(!user){
+				try{
+					let response = await memberSchema.create(member);
+					return { 
+						response:response,
+						Status:'true',
+						msg:'Member add Registered Successfully',
+						Payment:cost	
+					 };
+				} catch(error){
+					return {
+						status: "error",
+						error: errorHandler.parseMongoError(error)
+					};
+				}
+            }
+
+        } catch(error){
+            return {
+                status: '0',
+                msg: 'No Already Registered'
+            }
+        }
+
+
 	}
 	async fetch(){
 		try{
