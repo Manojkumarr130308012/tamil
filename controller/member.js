@@ -10,16 +10,6 @@ class memberController{
 
 	async add(farm){
 
-
-
-
-
-
-
-
-
-
-
 		try{
 			let response = await memberSchema.create(farm);
 			return { status: "success",   msg:"member Added successfully", result: response, message: "Added Successfully" };
@@ -37,8 +27,6 @@ class memberController{
 		// 	photo: result.secure_url,
 		// 	cloudinary_id: result.public_id,
 		//   });
-
-
 
 		try{
             let user = await memberSchema.findOne({

@@ -31,14 +31,12 @@ let year = date_ob.getFullYear();
 
 		try{
 			let response = await memberpaymentSchema.create(memberpayment);
+	
+			let member={
+				"payment": "Sucess",
+				 }
 
-			// paymentid=response[0]._id;
-
-			// let member={
-			// 	"payment": "Sucess",
-			// 	 }
-
-			// let response1= await memberSchema.update({_id: memberid}, member);
+		let response1= await memberSchema.update({_id: memberid}, member);
 
             return { 
               status: "success", 
