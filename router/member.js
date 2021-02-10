@@ -199,7 +199,20 @@ router.get('/fetchdatabychapter', async (req, res) => {
 
 router.get('/fetchdata1', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
-	const response = await memberController.aggregation1(req.query.Mobile);
+
+	let response1 = await memberSchema.find({'Mobile':req.query.Mobile});
+	let count=Object.keys(response1).length;
+	const response;
+	if(count <= 0)
+	{
+		response="Already Number Exit";
+	}
+	else
+	{
+		response = await memberController.aggregation1(req.query.Mobile);
+	}
+
+	console.log("response",""+response);
 	res.send(response);
 })
 
