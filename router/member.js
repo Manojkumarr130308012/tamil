@@ -77,7 +77,6 @@ router.post('/add', async (req, res) => {
 })
 router.post('/register1',async (req, res) => {
 
-	const response ="";
 	let unique=await memberSchema.aggregate([
 		{
 			$match: {
@@ -88,7 +87,6 @@ router.post('/register1',async (req, res) => {
 
 			let count=Object.keys(unique).length;
 
-if(count <= 0){
 
 
 	let photo;
@@ -178,12 +176,7 @@ if(count <= 0){
 		"payment": "Fail"
 		 }
 
-	 response = await memberController.upload1(member,cost);
-
-}else{
-	 response="User Alright Exit";
-}
-
+	let response = await memberController.upload1(member,cost);
 
 	res.send(response);
 })
