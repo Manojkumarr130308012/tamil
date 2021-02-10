@@ -77,15 +77,15 @@ router.post('/add', async (req, res) => {
 })
 router.post('/register1',async (req, res) => {
 
-	let unique=await memberSchema.aggregate([
-		{
-			$match: {
-				Mobile: Mobile
-			}
-		}				 
-			]);
+	// let unique=await memberSchema.aggregate([
+	// 	{
+	// 		$match: {
+	// 			Mobile: Mobile
+	// 		}
+	// 	}				 
+	// 		]);
 
-			let count=Object.keys(unique).length;
+	// 		let count=Object.keys(unique).length;
 
 
 
