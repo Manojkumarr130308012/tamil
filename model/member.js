@@ -56,7 +56,7 @@ const memberSchema = new mongoose.Schema({
     Mobile  :{
         type: String,
         unique: true,
-        required: false
+        required: true
     },
     bussinessname  :{
         type: String,
