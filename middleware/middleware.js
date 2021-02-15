@@ -42,6 +42,7 @@ const donateRouter = require('../router/donate');
 const bussinessopcommentRouter = require('../router/bizopcomments');
 const partnerRouter = require('../router/privillageedpartner');
 const initiativeRouter = require('../router/initiative');
+const donatepaymentRouter = require('../router/donatepayment');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:1234@tamilrise.hiba6.mongodb.net/tamilrise?retryWrites=true&w=majority`;
@@ -98,4 +99,5 @@ server.use("/busiopcomment", bussinessopcommentRouter);
 server.use("/donate", donateRouter);
 server.use("/partnerbanner", partnerRouter);
 server.use("/initiativebanner", initiativeRouter);
+server.use("/donatepayment", donatepaymentRouter);
 module.exports= server;
