@@ -15,15 +15,15 @@ const donatepaymentSchema = new mongoose.Schema({
     }, 
     dateTime:{
         type: String,
-        required: true
+        required: false
     }, 
     amount:{
         type: String,
-        required: true
+        required: false
     }, 
     status:{
         type: String,
-        required: true
+        required: false
     }
 })
 module.exports = new mongoose.model('donatepayment',donatepaymentSchema);
