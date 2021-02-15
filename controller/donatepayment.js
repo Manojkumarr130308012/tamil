@@ -9,6 +9,7 @@ class donatepaymentController{
     let memberid=farm.memberid;
     let razorpayid=farm.razorpayid;
     let donateid=farm.donateid;
+	let amount=farm.amount;
     let date_ob = new Date();
 
 // adjust 0 before single digit date
@@ -27,6 +28,7 @@ let year = date_ob.getFullYear();
         "razorpayid": ""+razorpayid,
         "donateid": ""+donateid,
         "dateTime": ""+cdateTime,
+		"amount": ""+amount,
 		"status": "success"
          }
 		 let paymentid;
