@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const memberpaymentSchema = new mongoose.Schema({
+const donatepaymentSchema = new mongoose.Schema({
     memberid: {
         type: mongoose.Schema.ObjectId,
         required: false
@@ -8,6 +8,10 @@ const memberpaymentSchema = new mongoose.Schema({
     razorpayid:{
         type: String,
         required: true
+    }, 
+    donateid:{
+        type: mongoose.Schema.ObjectId,
+        required: false
     }, 
     dateTime:{
         type: String,
@@ -22,4 +26,4 @@ const memberpaymentSchema = new mongoose.Schema({
         required: true
     }
 })
-module.exports = new mongoose.model('memberpayment',memberpaymentSchema);
+module.exports = new mongoose.model('donatepayment',donatepaymentSchema);
