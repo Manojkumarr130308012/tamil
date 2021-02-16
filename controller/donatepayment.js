@@ -1,6 +1,8 @@
 const donatepaymentSchema = require('../model/donatepayment');
 const errorHandler = require('../utils/error.handler');
 const memberSchema = require('../model/member');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 class donatepaymentController{
 
 
@@ -125,17 +127,30 @@ let year = date_ob.getFullYear();
 			};
 		}
 	}
-	async aggregation() {
+	async aggregation(donateid) {
 		try {
-		return await donatepaymentSchema.aggregate([
-				{$lookup:
+		return  await donatepaymentSchema.aggregate([
+            {
+				$match: {
+					donateid: ObjectId(donateid)
+                }
+            },
+            {$lookup:
 					  {
-						from: "countries",
-						localField: "Country",
+						from: "members",
+						localField: "memberid",
 						foreignField: "_id",
-						as: "CountryDetails"
+						as: "memberDetails"
 					  }
-				 },			 
+				 },	  
+				  {$lookup:
+				{
+					  from: "donates",
+					  localField: "donateid",
+					  foreignField: "_id",
+					  as: "donateDetails"
+					}
+			   }		 
 				]);
 		} catch (error) {
 			return {

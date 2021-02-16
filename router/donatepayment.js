@@ -24,7 +24,7 @@ router.put('/update', async (req, res) => {
 	res.send(response);
 })
 router.get('/aggregation', async (req, res) =>{
-	let response = await donatepaymentController.aggregation();
+	let response = await donatepaymentController.aggregation(req.query.donateid);
 	res.send(response);
 	
 })
