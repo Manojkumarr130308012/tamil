@@ -202,12 +202,14 @@ class bussopController{
 			let close=await bussopSchema.aggregate([
 				{
 					$match: {
-						status: "Open",
+						status: "Closed",
 						member: ObjectId(memberid)
 					}
 				}]);
+				let closecount=Object.keys(close).length;
 			return {
-				open: opencount
+				open: opencount,
+				close:closecount
 			};	
 		} catch (error) {
 			return {
