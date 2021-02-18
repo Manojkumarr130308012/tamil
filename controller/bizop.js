@@ -1,6 +1,7 @@
 const bussopSchema = require('../model/bizop');
 const errorHandler = require('../utils/error.handler');
 const memberSchema = require('../model/member');
+const busiopcommentSchema = require('../model/bizopcomments');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 class bussopController{
@@ -209,10 +210,34 @@ class bussopController{
 				let closecount=Object.keys(close).length;
 
 				let Total=opencount-closecount;
+
+
+				let initaed=await busiopcommentSchema.aggregate([
+					{
+						$match: {
+							status: "Open",
+							member: ObjectId(memberid)
+						}
+					}]);
+
+					let initaedcount=Object.keys(initaed).length;
+
+					
+				let establised=await busiopcommentSchema.aggregate([
+					{
+						$match: {
+							status: "Closed",
+							member: ObjectId(memberid)
+						}
+					}]);
+
+					let establisedcount=Object.keys(establised).length;
 			return {
 				open: opencount,
 				close:closecount,
 				pending:Total,
+				initiated:initaedcount,
+				establised:establisedcount
 			};	
 		} catch (error) {
 			return {
