@@ -207,9 +207,12 @@ class bussopController{
 					}
 				}]);
 				let closecount=Object.keys(close).length;
+
+				let Total=opencount-closecount;
 			return {
 				open: opencount,
-				close:closecount
+				close:closecount,
+				pending:Total,
 			};	
 		} catch (error) {
 			return {
