@@ -199,7 +199,7 @@ class bussopController{
 				}
 			}]);
 
-			let open=await bussopSchema.aggregate([
+			let close=await bussopSchema.aggregate([
 				{
 					$match: {
 						status: "Open",
