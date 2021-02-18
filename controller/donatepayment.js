@@ -2,6 +2,7 @@ const donatepaymentSchema = require('../model/donatepayment');
 const errorHandler = require('../utils/error.handler');
 const memberSchema = require('../model/member');
 const mongoose = require('mongoose');
+const donateSchema = require('../model/donate');
 const ObjectId = mongoose.Types.ObjectId;
 class donatepaymentController{
 
@@ -13,6 +14,23 @@ class donatepaymentController{
     let donateid=farm.donateid;
 	let amount=farm.amount;
     let date_ob = new Date();
+
+
+	let response1 = await donateSchema.find({'_id':donateid});
+
+         let collected=response1[0].collected;
+         let donated=response1[0].Totalamount;
+         let current=collected+amount;
+		 let avg=(current*100)/donated;
+
+		 let memberpayment={
+			"collected": current,
+			"percentage": avg,
+			 }
+
+
+			 let data = await donateSchema.update({_id: donateid}, memberpayment);
+
 
 // adjust 0 before single digit date
 let date = ("0" + date_ob.getDate()).slice(-2);
@@ -34,6 +52,11 @@ let year = date_ob.getFullYear();
 		"status": "success"
          }
 		 let paymentid;
+
+
+
+
+
 
 		try{
 			let response = await donatepaymentSchema.create(memberpayment);
