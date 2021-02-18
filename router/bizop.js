@@ -38,4 +38,9 @@ router.get('/memberbussopaggregation', async (req, res) =>{
 	res.send(response);
 	
 })
+router.get('/memberbussopchart', async (req, res) =>{
+	let response = await bussopController.aggregation3(req.query.member);
+	res.send(response);
+	
+})
 module.exports = router;
