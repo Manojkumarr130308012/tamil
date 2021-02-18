@@ -8,7 +8,7 @@ const ObjectId = mongoose.Types.ObjectId;
 class donatepaymentController{
 
 
-	async add(farm){
+	async add(farm,donate){
 
     let memberid=farm.memberid;
     let razorpayid=farm.razorpayid;
@@ -17,20 +17,8 @@ class donatepaymentController{
     let date_ob = new Date();
 
 
-	// let response1 = await donateSchema.find({'_id':donateid});
 
-    //      let collected=response1[0].collected;
-    //      let donated=response1[0].Totalamount;
-    //      let current=collected+amount;
-	// 	 let avg=(current*100)/donated;
-
-	// 	 let memberpayment={
-	// 		"collected": current,
-	// 		"percentage": avg,
-	// 		 }
-
-
-	// 		 let data = await donateSchema.update({_id: donateid}, memberpayment);
+	 let data = await donateSchema.update({_id: donateid}, donate);
 
 
 // adjust 0 before single digit date
