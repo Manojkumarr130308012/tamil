@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const advertSchema = new mongoose.Schema({
-    url : {
+    Title : {
         type: String,
         required: true
     }, 
