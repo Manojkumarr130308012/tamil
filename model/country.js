@@ -8,6 +8,10 @@ const countrySchema = new mongoose.Schema({
     CountryName: {
         type: String,
         required: true
+    },
+    code: {
+        type: String,
+        required: true
     }
 })
 module.exports = new mongoose.model('country',countrySchema);
