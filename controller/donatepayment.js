@@ -89,9 +89,10 @@ let year = date_ob.getFullYear();
 	async fetchdata(id){
 		try{
 			let response = await donatepaymentSchema.find({'_id':id});
-			return response;
-			
-		} catch(error){
+			return response;			
+		} 
+		catch(error)
+		{
 			return {
 				status: "error",
 				error: errorHandler.parseMongoError(error)

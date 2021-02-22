@@ -15,7 +15,17 @@ class countryController{
 			};
 		}
 	}
-	
+	async addmany(farm){
+		try{
+			let response = await countrySchema.insertMany(farm);
+			return { status: "success",   msg:"Country Added successfully", result: response, message: "Added Successfully" };
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async fetch(){
 		try{
 			let response = await countrySchema.find({});
