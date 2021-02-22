@@ -8,6 +8,22 @@ const stateSchema = new mongoose.Schema({
     StateName:{
         type: String,
         required: true
+    }, 
+    country_code:{
+        type: String,
+        required: true
+    }, 
+    state_code:{
+        type: String,
+        required: true
+    }, 
+    latitude:{
+        type: String,
+        required: true
+    }, 
+    longitude:{
+        type: String,
+        required: true
     }
 })
 module.exports = new mongoose.model('state',stateSchema);
