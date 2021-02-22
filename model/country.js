@@ -3,15 +3,15 @@ const mongoose = require("mongoose");
 const countrySchema = new mongoose.Schema({
     Countrycode: {
         type: String,
-        required: true
+        required: false
     },
     CountryName: {
         type: String,
-        required: true
+        required: false
     },
     code: {
         type: String,
-        required: true
+        required: false
     }
 })
 module.exports = new mongoose.model('country',countrySchema);
