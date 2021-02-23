@@ -85,6 +85,18 @@ class stateController{
 			};
 		}
 	}
+
+	async addmany(farm){
+		try{
+			let response = await stateSchema.insertMany(farm);
+			return { status: "success",   msg:"State Added successfully", result: response, message: "Added Successfully" };
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async aggregation() {
 		try {
 		return  await stateSchema.aggregate([

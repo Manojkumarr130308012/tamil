@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const stateSchema = new mongoose.Schema({
+    Stateid: {
+        type: String,
+        required: false
+    }, 
     Country: {
         type: mongoose.Schema.ObjectId,
         required: false
