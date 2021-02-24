@@ -3,35 +3,35 @@ const mongoose = require("mongoose");
 const citySchema = new mongoose.Schema({
     Cityid: {
         type: String,
-        required: true
+        required: false
     }, 
     CityName:{
         type: String,
-        required: true
+        required: false
     },
     State:{
         type: String,
-        required: true
+        required: false
     }, 
     state_code:{
         type: String,
-        required: true
+        required: false
     }, 
     Country:{
         type: String,
-        required: true
+        required: false
     }, 
     country_code:{
         type: String,
-        required: true
+        required: false
     }, 
     latitude:{
         type: String,
-        required: true
+        required: false
     }, 
     longitude:{
         type: String,
-        required: true
+        required: false
     }
 })
 module.exports = new mongoose.model('city',citySchema);

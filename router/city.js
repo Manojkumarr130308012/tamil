@@ -5,6 +5,10 @@ router.post('/add', async (req, res) => {
 	const response = await cityController.add(req.body);
 	res.send(response);
 })
+router.post('/addmany', async (req, res) => {
+	const response = await cityController.addmany(req.body);
+	res.send(response);
+})
 router.get('/', async (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	const response = await cityController.fetch();

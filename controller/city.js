@@ -15,7 +15,17 @@ class cityController{
 			};
 		}
 	}
-	
+	async addmany(farm){
+		try{
+			let response = await citySchema.insertMany(farm);
+			return { status: "success",   msg:"City Added successfully", result: response, message: "Added Successfully" };
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async fetch(){
 		try{
 			let response = await citySchema.find({});
