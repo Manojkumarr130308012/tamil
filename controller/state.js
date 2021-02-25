@@ -1,6 +1,7 @@
 const stateSchema = require('../model/state');
 const errorHandler = require('../utils/error.handler');
-
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 class stateController{
 
 
