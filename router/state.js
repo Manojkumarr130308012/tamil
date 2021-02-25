@@ -29,7 +29,7 @@ router.put('/update', async (req, res) => {
 	res.send(response);
 })
 router.get('/aggregation', async (req, res) =>{
-	let response = await stateController.aggregation();
+	let response = await stateController.aggregation(req.query.Country);
 	res.send(response);
 	
 })

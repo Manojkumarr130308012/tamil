@@ -97,9 +97,14 @@ class stateController{
 			};
 		}
 	}
-	async aggregation() {
+	async aggregation(Country) {
 		try {
 		return  await stateSchema.aggregate([
+			            {
+				$match: {
+					Countryid: ObjectId(Country)
+                }
+            },
 				{$lookup:
 					  {
 						from: "countries",
