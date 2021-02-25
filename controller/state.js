@@ -1,7 +1,6 @@
 const stateSchema = require('../model/state');
 const errorHandler = require('../utils/error.handler');
-const mongoose = require('mongoose');
-const ObjectId = mongoose.Types.ObjectId;
+
 class stateController{
 
 
@@ -98,19 +97,14 @@ class stateController{
 			};
 		}
 	}
-	async aggregation(Country) {
+	async aggregation(country) {
 		try {
 		return  await stateSchema.aggregate([
-			            {
-				$match: {
-					Countryid: ObjectId(Country)
-                }
-            },
 				{$lookup:
 					  {
 						from: "countries",
 						localField: "Country",
-						foreignField: "Countryid",
+						foreignField: ""+country,
 						as: "CountryDetails"
 					  }
 				 },			 
