@@ -104,7 +104,7 @@ class stateController{
 					  {
 						from: "countries",
 						localField: "Country",
-						foreignField: "_id",
+						foreignField: "Countryid",
 						as: "CountryDetails"
 					  }
 				 },			 
