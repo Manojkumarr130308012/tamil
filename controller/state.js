@@ -97,14 +97,14 @@ class stateController{
 			};
 		}
 	}
-	async aggregation(country) {
+	async aggregation() {
 		try {
 		return  await stateSchema.aggregate([
 				{$lookup:
 					  {
 						from: "countries",
 						localField: "Country",
-						foreignField: ""+country,
+						foreignField: "_id",
 						as: "CountryDetails"
 					  }
 				 },			 
