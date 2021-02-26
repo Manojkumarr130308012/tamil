@@ -98,21 +98,8 @@ class cityController{
 					  foreignField: "_id",
 					  as: "StateDetails"
 					}
-			   },{$lookup:
-				{
-				  from: "regions",
-				  localField: "region",
-				  foreignField: "_id",
-				  as: "regionsDetails"
-				}
-		   },{$lookup:
-			{
-			  from: "districts",
-			  localField: "district",
-			  foreignField: "_id",
-			  as: "districtsDetails"
-			}
-	   }		 
+			   }
+	   		 
 				]);
 		} catch (error) {
 			return {
@@ -123,7 +110,7 @@ class cityController{
     }
 	async fetchBycity(district){
 		try{
-			let response = await citySchema.find({'district':district});
+			let response = await citySchema.find({'Stateid':district});
 			return {
 				response: response
 			};	
