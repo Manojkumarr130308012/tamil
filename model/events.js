@@ -18,7 +18,7 @@ const eventsSchema = new mongoose.Schema({
         required: false
     },
     Chapter :{
-        type: String,
+        type: mongoose.Schema.ObjectId,
         required: false
     },
     FromDate:{
