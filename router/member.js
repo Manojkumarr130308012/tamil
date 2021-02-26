@@ -32,8 +32,6 @@ router.post('/add', async (req, res) => {
 	  let member={
 		"Country":""+req.body.Country,
 		"State":""+req.body.State,
-		"region":""+req.body.region,
-		"district":""+req.body.district,
 		"CityName": ""+req.body.CityName,
 		"Name":""+req.body.Name,
 		"Gender":""+req.body.Gender,
@@ -141,8 +139,6 @@ router.post('/register1',async (req, res) => {
 	   let member={
 		"Country":""+Country,
 		"State":"5fca137899eac60017fc2363",
-		"region":"5fca155699eac60017fc236d",
-		"district":"5fca157a99eac60017fc236e",
 		"CityName": "5fca159c99eac60017fc236f",
 		"Name":""+Name,
 		"Gender":"5fb60d3932c37100176ce0af",
@@ -219,8 +215,6 @@ router.put('/update',async (req, res) => {
 	let body={
 			"Country":req.body.Country || user.Country,
 			"State":req.body.State || user.State,
-			"region":req.body.region || user.region,
-			"district":req.body.district || user.district,
 			"CityName": req.body.CityName || user.CityName,
 			"Name":req.body.Name || user.Name,
 			"Gender":req.body.Gender || user.Gender,

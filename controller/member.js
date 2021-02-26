@@ -107,44 +107,23 @@ class memberController{
 				{
 				  from: "countries",
 				  localField: "Country",
-				  foreignField: "_id",
+				  foreignField: "Countryid",
 				  as: "CountryDetails"
 				}
 		   },{$lookup:
 			  {
 				from: "states",
 				localField: "State",
-				foreignField: "_id",
+				foreignField: "Stateid",
 				as: "StateDetails"
 			  }
 		 },{$lookup:
-		  {
-			from: "regions",
-			localField: "region",
-			foreignField: "_id",
-			as: "regionsDetails"
-		  }
-	 },{$lookup:
-	  {
-		from: "districts",
-		localField: "district",
-		foreignField: "_id",
-		as: "districtsDetails"
-	  }
-	},{$lookup:
 	{
 	from: "cities",
 	localField: "CityName",
-	foreignField: "_id",
+	foreignField: "Cityid",
 	as: "CityNamesDetails"
 	}
-	},{$lookup:
-		{
-		  from: "chapters",
-		  localField: "Chapter",
-		  foreignField: "_id",
-		  as: "ChapterNameDetails"
-		}
 	},{$lookup:
 		{
 		  from: "chapters",
@@ -201,42 +180,28 @@ class memberController{
 	async aggregation() {
 		try {
 		return  await memberSchema.aggregate([
-				{$lookup:
-					  {
-						from: "countries",
-						localField: "Country",
-						foreignField: "_id",
-						as: "CountryDetails"
-					  }
-				 },{$lookup:
-					{
-					  from: "states",
-					  localField: "State",
-					  foreignField: "_id",
-					  as: "StateDetails"
-					}
-			   },{$lookup:
+			{$lookup:
 				{
-				  from: "regions",
-				  localField: "region",
-				  foreignField: "_id",
-				  as: "regionsDetails"
+				  from: "countries",
+				  localField: "Country",
+				  foreignField: "Countryid",
+				  as: "CountryDetails"
 				}
 		   },{$lookup:
-			{
-			  from: "districts",
-			  localField: "district",
-			  foreignField: "_id",
-			  as: "districtsDetails"
-			}
-	   },{$lookup:
-		{
-		  from: "cities",
-		  localField: "CityName",
-		  foreignField: "_id",
-		  as: "CityNamesDetails"
-		}
-   },{$lookup:
+			  {
+				from: "states",
+				localField: "State",
+				foreignField: "Stateid",
+				as: "StateDetails"
+			  }
+		 },{$lookup:
+	{
+	from: "cities",
+	localField: "CityName",
+	foreignField: "Cityid",
+	as: "CityNamesDetails"
+	}
+	},{$lookup:
 	{
 	  from: "membershiptypes",
 	  localField: "MembershipType",
@@ -277,41 +242,28 @@ async aggregation1(Mobile) {
 				}
 			},
 			{$lookup:
-					  {
-						from: "countries",
-						localField: "Country",
-						foreignField: "_id",
-						as: "CountryDetails"
-					  }
-				 },{$lookup:
 					{
-					  from: "states",
-					  localField: "State",
-					  foreignField: "_id",
-					  as: "StateDetails"
+					  from: "countries",
+					  localField: "Country",
+					  foreignField: "Countryid",
+					  as: "CountryDetails"
 					}
-			   },{$lookup:
-				{
-				  from: "regions",
-				  localField: "region",
-				  foreignField: "_id",
-				  as: "regionsDetails"
-				}
-		   },{$lookup:
-			{
-			  from: "districts",
-			  localField: "district",
-			  foreignField: "_id",
-			  as: "districtsDetails"
-			}
-	   },{$lookup:
+			   },
+			   {$lookup:
+				  {
+					from: "states",
+					localField: "State",
+					foreignField: "Stateid",
+					as: "StateDetails"
+				  }
+			 },{$lookup:
 		{
-		  from: "cities",
-		  localField: "CityName",
-		  foreignField: "_id",
-		  as: "CityNamesDetails"
+		from: "cities",
+		localField: "CityName",
+		foreignField: "Cityid",
+		as: "CityNamesDetails"
 		}
-   },{$lookup:
+		},{$lookup:
 	{
 	  from: "membershiptypes",
 	  localField: "MembershipType",
@@ -392,8 +344,6 @@ async aggregation1(Mobile) {
            let member={
 			"Country":""+Country,
 			"State":"5fca137899eac60017fc2363",
-			"region":"5fca155699eac60017fc236d",
-			"district":"5fca157a99eac60017fc236e",
 			"CityName": "5fca159c99eac60017fc236f",
 			"Name":""+Name,
 			"Gender":"5fb60d3932c37100176ce0af",
