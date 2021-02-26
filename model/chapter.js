@@ -2,44 +2,36 @@ const mongoose = require("mongoose");
 
 const chapterSchema = new mongoose.Schema({
     Country: {
-        type: mongoose.Schema.ObjectId,
+        type: String,
         required: false
     }, 
     State:{
-        type: mongoose.Schema.ObjectId,
+        type: String,
         required: false
     },
-    region:{
-        type: mongoose.Schema.ObjectId,
-        required: false
-    }, 
-    district:{
-        type: mongoose.Schema.ObjectId,
-        required: false
-    },   
     CityName:{
-        type: mongoose.Schema.ObjectId,
+        type: String,
         required: false
     },
     ChapterName:{
         type: String,
-        required: true
+        required: false
     },
     Address:{
         type: String,
-        required: true
+        required: false
     },
     Email :{
         type: String,
-        required: true
+        required: false
     },
     Mobile  :{
         type: String,
-        required: true
+        required: false
     },
     ContactPerson  :{
         type: String,
-        required: true
+        required: false
     },
     CreatedOn  :{
         type: String,
