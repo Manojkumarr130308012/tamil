@@ -2,31 +2,23 @@ const mongoose = require("mongoose");
 
 const eventsSchema = new mongoose.Schema({
     Country: {
-        type: mongoose.Schema.ObjectId,
+        type: String,
         required: false
     }, 
     State:{
-        type: mongoose.Schema.ObjectId,
-        required: false
-    },
-    region:{
-        type: mongoose.Schema.ObjectId,
-        required: false
-    }, 
-    district:{
-        type: mongoose.Schema.ObjectId,
+        type: String,
         required: false
     },   
     CityName:{
-        type: mongoose.Schema.ObjectId,
+        type: String,
         required: false
     }, 
     PostedBy :{
-        type: mongoose.Schema.ObjectId,
+        type: String,
         required: false
     },
     Chapter :{
-        type: mongoose.Schema.ObjectId,
+        type: String,
         required: false
     },
     FromDate:{

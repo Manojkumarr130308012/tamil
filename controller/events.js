@@ -126,35 +126,21 @@ class eventsController{
 					  {
 						from: "countries",
 						localField: "Country",
-						foreignField: "_id",
+						foreignField: "Countryid",
 						as: "CountryDetails"
 					  }
 				 },{$lookup:
 					{
 					  from: "states",
 					  localField: "State",
-					  foreignField: "_id",
+					  foreignField: "Stateid",
 					  as: "StateDetails"
 					}
 			   },{$lookup:
-				{
-				  from: "regions",
-				  localField: "region",
-				  foreignField: "_id",
-				  as: "regionsDetails"
-				}
-		   },{$lookup:
-			{
-			  from: "districts",
-			  localField: "district",
-			  foreignField: "_id",
-			  as: "districtsDetails"
-			}
-	   },{$lookup:
 		{
 		  from: "cities",
 		  localField: "CityName",
-		  foreignField: "_id",
+		  foreignField: "Cityid",
 		  as: "CityNamesDetails"
 		}
    },{$lookup:
