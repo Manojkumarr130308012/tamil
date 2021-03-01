@@ -228,7 +228,9 @@ as: "CityNamesDetails"
 		try{
 			 let response = await chapterSchema.find({$and:[{Country:{$regex: Country, $options: 'i'}},{State:{$regex: State, $options: 'i'}},{CityName:{$regex: CityName, $options: 'i'}}]});
 	
-			return response;
+			 return{
+				response: response
+			}; 
 			
 		} catch(error){
 			return {
