@@ -231,21 +231,21 @@ as: "CityNamesDetails"
 			{$lookup:
 				{
 				  from: "countries",
-				  localField: ""+response[0].Country,
+				  localField: "Country",
 				  foreignField: "Countryid",
 				  as: "CountryDetails"
 				}
 		   },{$lookup:
 			  {
 				from: "states",
-				localField: ""+response[0].State,
+				localField: "State",
 				foreignField: "Stateid",
 				as: "StateDetails"
 			  }
 		 },{$lookup:
 	{
 	from: "cities",
-	localField: ""+response[0].CityName,
+	localField: "CityName",
 	foreignField: "Cityid",
 	as: "CityNamesDetails"
 	}
