@@ -227,9 +227,31 @@ as: "CityNamesDetails"
 	
 		try{
 			 let response = await chapterSchema.find({$and:[{Country:{$regex: Country, $options: 'i'}},{State:{$regex: State, $options: 'i'}},{CityName:{$regex: CityName, $options: 'i'}}]});
-	
+			 let response1=await chapterSchema.aggregate( [
+			{$lookup:
+				{
+				  from: "countries",
+				  localField: ""+response[0].Country,
+				  foreignField: "Countryid",
+				  as: "CountryDetails"
+				}
+		   },{$lookup:
+			  {
+				from: "states",
+				localField: ""+response[0].State,
+				foreignField: "Stateid",
+				as: "StateDetails"
+			  }
+		 },{$lookup:
+	{
+	from: "cities",
+	localField: ""+response[0].CityName,
+	foreignField: "Cityid",
+	as: "CityNamesDetails"
+	}
+	}]);
 			 return{
-				response: response
+				response: response1
 			}; 
 			
 		} catch(error){
