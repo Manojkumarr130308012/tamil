@@ -343,8 +343,8 @@ async aggregation1(Mobile) {
 			 let cost=costres[0].amount;
            let member={
 			"Country":""+Country,
-			"State":"5fca137899eac60017fc2363",
-			"CityName": "5fca159c99eac60017fc236f",
+			"State":"None",
+			"CityName": "None",
 			"Name":""+Name,
 			"Gender":"5fb60d3932c37100176ce0af",
 			"Chapter":"5fca14c699eac60017fc236a",
