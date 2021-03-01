@@ -133,7 +133,7 @@ router.post('/register1',async (req, res) => {
 
 		let costres = await membershipcostSchema.find({'membershiptype':MembershipType,'membershipclassification':Category});
 	
-		let Country=countryres[0]._id;
+		let Country=countryres[0].Countryid;
 
 		 let cost=costres[0].amount;
 	   let member={
