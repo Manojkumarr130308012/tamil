@@ -223,10 +223,10 @@ as: "CityNamesDetails"
 	}
 	
 
-	async fetchdatafilter(Country,state,region,district){
+	async fetchdatafilter(Country,State,CityName){
 	
 		try{
-			 let response = await chapterSchema.find({$and:[{Country:{$regex: Country, $options: 'i'}},{State:{$regex: state, $options: 'i'}},{region:{$regex: region, $options: 'i'}},{district:{$regex: district, $options: 'i'}}]});
+			 let response = await chapterSchema.find({$and:[{Country:{$regex: Country, $options: 'i'}},{State:{$regex: State, $options: 'i'}},{CityName:{$regex: CityName, $options: 'i'}}]});
 	
 			return response;
 			
