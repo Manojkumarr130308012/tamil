@@ -133,7 +133,7 @@ router.post('/register1',async (req, res) => {
 
 		let costres = await membershipcostSchema.find({'membershiptype':MembershipType,'membershipclassification':Category});
 	
-		let Country=countryres[0].Countryid;
+		let Country=countryres[0]._id;
 
 		 let cost=costres[0].amount;
 	   let member={
@@ -145,12 +145,12 @@ router.post('/register1',async (req, res) => {
 		"Chapter":"5fca14c699eac60017fc236a",
 		"Category":""+Category,
 		"MembershipType":"5fc22d68700dab00178d50a3",
-		"Address":"null",
+		"Address":"None",
 		"Email":""+Email,
 		"Mobile":""+Mobile,
-		"bussinessname":"null",
-		"DOB":"null",
-		"pincode":"null",
+		"bussinessname":"None",
+		"DOB":"None",
+		"pincode":"None",
 		"Photo":""+this.photo,
 		"bussinesslogo":""+this.bussinesslogo,
 		"cloudinary_id":""+this.cloudinary_id,
@@ -164,8 +164,8 @@ router.post('/register1',async (req, res) => {
 		'UpdatedOn':"None",
 		"password":""+password,
 		"Countrycode":""+Countrycode,
-		"fcmstatus":"ffffff",
-		"fcmtoken":"gggg",
+		"fcmstatus":"None",
+		"fcmtoken":"None",
 		'status':"None",
 		"description":"",
 		"newseventnoti":false,
