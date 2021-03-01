@@ -142,7 +142,7 @@ router.post('/register1',async (req, res) => {
 		"CityName": "None",
 		"Name":""+Name,
 		"Gender":"5fb60d3932c37100176ce0af",
-		"Chapter":"5fca14c699eac60017fc236a",
+		"Chapter":"603897d5570ce20017a6b6db",
 		"Category":""+Category,
 		"MembershipType":"5fc22d68700dab00178d50a3",
 		"Address":"None",
