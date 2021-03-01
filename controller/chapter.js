@@ -251,7 +251,7 @@ as: "CityNamesDetails"
 	}
 	}]);
 			 return{
-				response: response1
+				response: response
 			}; 
 			
 		} catch(error){
