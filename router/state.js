@@ -34,7 +34,7 @@ router.get('/aggregation', async (req, res) =>{
 	
 })
 router.get('/fetchBycountry', async (req, res) => {
-	const response = await stateController.fetchByCountry(req.query.Country);
+	const response = await stateController.fetchByCountry(req.query.Countryid);
 	res.send(response); 
 })
 module.exports = router;
