@@ -74,7 +74,7 @@ class stateController{
 	
 	async fetchByCountry(country1){
 		try{
-			let response = await stateSchema.find({'Countryid':country1});
+			let response = await stateSchema.find({'Country':country1});
 			return {
 				response: response
 			};	
